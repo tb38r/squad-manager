@@ -8,10 +8,37 @@ body {
   .header {
     padding: 10px;
     text-align: center;
-    background: #1a0664c7;
+    background: #6297bdc7;
     color: white;
     font-size: 30px;
   }
   
-  /* Page Content */
-  .content {padding:20px;}
+  /*Add User icon*/
+  .fa-solid {
+    color: rgb(31, 97, 219);
+    cursor: pointer;
+    position: absolute;
+  
+
+  }
+
+  .add-user-button{
+    width: 100%;
+    position: absolute;
+    top : 550px;
+    left: 800px;
+
+  }
+
+
+
+  /*wrapper*/
+  .wrapper{
+overflow: hidden; 
+width: 50vw;
+  height: 30vh;
+ }
+
+
+
+

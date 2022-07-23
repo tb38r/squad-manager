@@ -1,6 +1,7 @@
 package main
 
 import (
+	"squad/database"
 	"squad/web"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -8,6 +9,7 @@ import (
 
 func main() {
 
+	database.CreateDB()
 	web.OpenServer()
 
 }
