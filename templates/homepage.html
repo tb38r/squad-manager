@@ -13,14 +13,72 @@
     <div id="wrapper" >
 
 
-        <div id = "add-user-button" > 
-            <i class="fa-solid fa-user-plus fa-5x"></i>
+        <!-- <a id="add-user-btn" class="btn" href="#">
+        </a> -->
+        <i class="fa-solid fa-user-plus fa-5x"></i>
+
+        <div class = "popup">
+            <div class = "close-btn">&times;</div>
+            <div class = "form">
+                <h2>Add Member</h2>
+                <div class= "form-element">
+                    <label for = "name">Name</label>
+                    <input type="text" id="name" >
+                </div>
+
+                <div class= "form-element">
+                    <label for = "position">Position</label>
+                    <input type="text" id="position" >
+                </div>
+
+                <div class= "form-element">
+                    <label for = "email">Email</label>
+                    <input type="text" id="email" >
+                </div>
+
+
+                <div class= "form-element">
+                    <label for = "age">Age</label>
+                    <input type="number" id="age" >
+                </div>
+
+                
+                <div class= "form-element">
+                    <label for = "nickname">Nickname</label>
+                    <input type="text" id="nickname" >
+                </div>
+                <br>
+
+                
+                <div id= "add-button" class= "form-element">
+                    <button>Add</button>
+                </div>
+          </div>
+
+
         </div>
 </div>
     
 </body>
 
 <script>
-    let btn = document.getElementById("add-user-button")
+  // let btn = document.getElementById("add-user-btn")
+
+   let btn = document.getElementsByClassName("fa-solid")
+   console.log(  document.querySelector(".popup"));
+
+   // btn.style.right = "300px"
+
+document.querySelector(".fa-solid").addEventListener("click", function(){
+    document.querySelector(".popup").classList.add("active");
+}) ;
+
+document.querySelector(".popup .close-btn").addEventListener("click", function(){
+    document.querySelector(".popup").classList.remove("active");
+}) ;
+
+document.querySelector(".popup .form .form-element button").addEventListener("click", function(){
+    document.querySelector(".popup").classList.remove("active");
+}) ;
 </script>
 </html>

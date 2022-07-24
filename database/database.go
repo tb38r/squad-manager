@@ -24,7 +24,6 @@ func CreateDB() {
 		position text, 
 		email text, 
 		alias text, 
-		address CHAR(60), 
 		availabilty integer);`)
 
 	db.Exec(`create table if not exists monies (
