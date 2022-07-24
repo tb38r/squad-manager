@@ -12,4 +12,6 @@ func main() {
 	database.CreateDB()
 	web.OpenServer()
 
+	//github
+
 }
