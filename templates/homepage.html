@@ -23,29 +23,41 @@
                 <h2>Add Member</h2>
                 <div class= "form-element">
                     <label for = "name">Name</label>
-                    <input type="text" id="name" >
+                    <input type="text" placeholder = 'Didier Drogba' id="name" >
+                    <i class = "fas fa-check-circle"></i>
+                    <i class = "fas fa-exclamation-circle" id="'name-error"></i>
+                    <small>Error Message</small>
+
                 </div>
 
                 <div class= "form-element">
                     <label for = "position">Position</label>
-                    <input type="text" id="position" >
+                    <input type="text" placeholder = 'Striker' id="position" >
+                    <i class = "fas fa-check-circle"></i>
+                    <i class = "fas fa-exclamation-circle"></i>
                 </div>
 
                 <div class= "form-element">
                     <label for = "email">Email</label>
-                    <input type="text" id="email" >
+                    <input type="text" placeholder = 'didier@gmail.com', id="email" >
+                    <i class = "fas fa-check-circle"></i>
+                    <i class = "fas fa-exclamation-circle"></i>
                 </div>
 
 
                 <div class= "form-element">
                     <label for = "age">Age</label>
                     <input type="number" id="age" >
+                    <i class = "fas fa-check-circle"></i>
+                    <i class = "fas fa-exclamation-circle"></i>
                 </div>
 
                 
                 <div class= "form-element">
                     <label for = "nickname">Nickname</label>
-                    <input type="text" id="nickname" >
+                    <input type="text" placeholder = 'Drog' id="nickname" >
+                    <i class = "fas fa-check-circle"></i>
+                    <i class = "fas fa-exclamation-circle"></i>
                 </div>
                 <br>
 
@@ -57,28 +69,54 @@
 
 
         </div>
-</div>
+    </div>
+        
+    </body>
     
-</body>
+    <script>
+      // let btn = document.getElementById("add-user-btn")
+    
+       // btn.style.right = "300px"
+    
+       
+       const name = document.getElementById('name')
+    const position = document.getElementById('position')
+    const email = document.getElementById('email')
+    const age = document.getElementById('age')
+    const nickname = document.getElementById('nickname')
+    const addButton = document.getElementById('add-button')
+    
+    let user = {}
+    
+    document.querySelector(".fa-solid").addEventListener("click", function(){
+        document.querySelector(".popup").classList.add("active");
+    }) ;
+    
+    document.querySelector(".popup .close-btn").addEventListener("click", function(){
+        document.querySelector(".popup").classList.remove("active");
+    }) ;
+    
+    
+    addButton.addEventListener("click", function(){
+        document.querySelector(".popup").classList.remove("active");
+    
+        user ={
+            'name' : name.value,
+            'position' : position.value,
+            'email' : email.value,
+            'age' : age.value,
+            'nickname' : nickname.value,
+            'addButton' : addButton.value,
+        }
 
-<script>
-  // let btn = document.getElementById("add-user-btn")
+console.log(user);
+   
+}) 
 
-   let btn = document.getElementsByClassName("fa-solid")
-   console.log(  document.querySelector(".popup"));
 
-   // btn.style.right = "300px"
 
-document.querySelector(".fa-solid").addEventListener("click", function(){
-    document.querySelector(".popup").classList.add("active");
-}) ;
 
-document.querySelector(".popup .close-btn").addEventListener("click", function(){
-    document.querySelector(".popup").classList.remove("active");
-}) ;
 
-document.querySelector(".popup .form .form-element button").addEventListener("click", function(){
-    document.querySelector(".popup").classList.remove("active");
-}) ;
+
 </script>
 </html>
