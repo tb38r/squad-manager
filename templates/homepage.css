@@ -89,6 +89,7 @@ body {
   .popup .form .form-element{
     margin: 10px 10px;
     position: relative;
+    padding-bottom: 10px;
   }
 
   .popup .form .form-element label{
@@ -106,6 +107,28 @@ body {
     padding: 5px;
   }
 
+
+  .popup .form .form-element.success input{
+    border-color: #38c271;
+  }
+
+
+  .popup .form .form-element.error input{
+    border-color: #d86522;
+  }
+
+  .popup .form .form-element.success i.fa-check-circle{
+    color: #2ecc71;
+visibility: visible;  
+}
+
+.popup .form .form-element.error i.fa-exclamation-circle{
+  visibility: visible;
+  color: #e74c3c;
+}
+
+
+
   .popup .form .form-element button{
     width: 100%;
     height: 30px;
@@ -114,7 +137,7 @@ body {
     font-size: 16px;
     background: #3a7bd5;
     color: #f5f5f5;
-    border-radius: 10px;
+    border-radius: 3px;
     cursor: pointer;
     
 
@@ -127,12 +150,23 @@ body {
     color: #1a79ca;
     text-decoration: none ;
     font-weight:600 ;
+
   }
 
 
   .popup .form .form-element i{
-position: relative;
+position: absolute;
+top: 29px;
+right:1px;
+visibility: hidden;
   }
+
+  .popup .form .form-element small{
+    position: absolute;
+left: 0;
+    bottom: 0;
+    visibility: hidden;
+      }
 
   /*wrapper*/
   .wrapper{

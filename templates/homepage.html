@@ -21,20 +21,22 @@
             <div class = "close-btn">&times;</div>
             <div class = "form">
                 <h2>Add Member</h2>
-                <div class= "form-element">
+                <div class= "form-element success">
                     <label for = "name">Name</label>
                     <input type="text" placeholder = 'Didier Drogba' id="name" >
                     <i class = "fas fa-check-circle"></i>
-                    <i class = "fas fa-exclamation-circle" id="'name-error"></i>
+                    <i class = "fas fa-exclamation-circle"></i>
                     <small>Error Message</small>
 
                 </div>
 
-                <div class= "form-element">
+                <div class= "form-element error">
                     <label for = "position">Position</label>
                     <input type="text" placeholder = 'Striker' id="position" >
                     <i class = "fas fa-check-circle"></i>
                     <i class = "fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+
                 </div>
 
                 <div class= "form-element">
@@ -42,6 +44,8 @@
                     <input type="text" placeholder = 'didier@gmail.com', id="email" >
                     <i class = "fas fa-check-circle"></i>
                     <i class = "fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+
                 </div>
 
 
@@ -50,6 +54,8 @@
                     <input type="number" id="age" >
                     <i class = "fas fa-check-circle"></i>
                     <i class = "fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+
                 </div>
 
                 <div class= "form-element">
@@ -57,6 +63,8 @@
                     <input type="text" placeholder = '0123 456 789' id="contact" >
                     <i class = "fas fa-check-circle"></i>
                     <i class = "fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+
                 </div>
                 <br>
 
@@ -66,6 +74,8 @@
                     <input type="text" placeholder = 'Drog' id="nickname" >
                     <i class = "fas fa-check-circle"></i>
                     <i class = "fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+
                 </div>
                 <br>
 
@@ -87,7 +97,7 @@
        // btn.style.right = "300px"
     
        
-       const name = document.getElementById('name')
+    const name = document.getElementById('name')
     const position = document.getElementById('position')
     const email = document.getElementById('email')
     const age = document.getElementById('age')
