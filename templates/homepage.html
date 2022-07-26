@@ -63,7 +63,7 @@
                     <input type="text" placeholder = '0123 456 789' id="contact" >
                     <i class = "fas fa-check-circle"></i>
                     <i class = "fas fa-exclamation-circle"></i>
-                    <small>Error Message</small>
+                    <small></small>
 
                 </div>
                 <br>
@@ -74,7 +74,7 @@
                     <input type="text" placeholder = 'Drog' id="nickname" >
                     <i class = "fas fa-check-circle"></i>
                     <i class = "fas fa-exclamation-circle"></i>
-                    <small>Error Message</small>
+                    <small></small>
 
                 </div>
                 <br>
@@ -92,10 +92,7 @@
     </body>
     
     <script>
-      // let btn = document.getElementById("add-user-btn")
-    
-       // btn.style.right = "300px"
-       
+     
     const form = document.getElementById('form')
     const name = document.getElementById('name')
     const position = document.getElementById('position')
@@ -103,17 +100,26 @@
     const age = document.getElementById('age')
     const nickname = document.getElementById('nickname')
     const addButton = document.getElementById('add-button')
+    const closeBox = document.querySelector('.close-btn')
+    const addUserIcon = document.querySelector(".fa-solid")
+
     
     let user = {}
+    let parse = false
+
+    closeBox.addEventListener("click", ()=>{
+        document.querySelector(".popup").classList.remove("active");
+    })
     
-    document.querySelector(".fa-solid").addEventListener("click", function(){
+    addUserIcon.addEventListener("click", function(){
+        //reset dialogue box, clear errors
+
+        //name.parentElement
+
         document.querySelector(".popup").classList.add("active");
     }) ;
     
-    // document.querySelector(".popup .close-btn").addEventListener("click", function(){
-    //     document.querySelector(".popup").classList.remove("active");
-    // }) ;
-    
+
     
     addButton.addEventListener("click", function(){
         //document.querySelector(".popup").classList.remove("active");
@@ -129,27 +135,25 @@
         }
         
         checkInputs()
-
-    
-
-//console.log(form);
    
 }) 
 
+
+
 function checkInputs(){
-const usernameValue = document.getElementById('name').value.trim()
+const usernameValue = name.value.trim()
 // const position = position.value.trim();
 // const emailValue = email.value.trim();
 // const ageValue = email.value.trim();
 // const nicknameValue = nickname.value.trim()
 
 if(usernameValue=== ''){
-    //show error
-    //add error class
-    setErrorFor(name, 'Username cannot be blank')
-}else{
-    setSuccessFor(name)
 
+    setErrorFor(name, 'Name cannot be blank')
+}else{
+    let parse = true
+    setSuccessFor(name)
+    document.querySelector(".popup").classList.remove("active");
 }
 
 
@@ -161,25 +165,43 @@ const small = formElement.querySelector('small')
 
 
 //add error message inside small
+small.style.visibility = 'visible'
+small.style.color = 'red'
 small.innerText = message;
 
-const errElement = formElement.children[1]
 
-console.log(formElement.children);
-console.log('formElement', formElement);
-console.log('errElement', errElement);
-const err = formElement.querySelector('fas.fa-exclamation-circle')
-console.log('err', err);
+
 formElement.children[1].style.borderColor = 'red'
+formElement.children[3].style.visibility = 'visible'
+formElement.children[3].style.color = 'red'
 
-//add error class
-//formElement.className = 'fa-exclamation-circle'
-//formElement.className = 'error'
 
 
 }
 
 
+function setSuccessFor(input){
+    const formElement = input.parentElement; 
+    const small = formElement.querySelector('small');
+
+    formElement.children[1].style.borderColor = 'green'
+    formElement.children[2].style.visibility = 'visible'
+    formElement.children[2].style.color = 'green'
+    formElement.children[3].style.visibility = 'hidden'
+
+    small.style.visibility = 'hidden'
+
+    
+}
+
+/*
+0: label
+1: input#name
+2: i.fas.fa-check-circle
+3: i.fas.fa-exclamation-circle
+4: small
+
+*/
 
 
 
