@@ -2,6 +2,9 @@
 body {
     font-family: Arial;
     margin: 0;
+  
+    min-height: 100vh;
+    
   }
   
   /* Header/Logo Title */
@@ -40,12 +43,13 @@ body {
     transform: translate(-50%, -50%)scale(1.25);
     width: 250px;
     padding:10px 60px ;
-    background: #6297bdc7;
+    background: #bcddf5c7;
     box-shadow: 2px 2px 5px 5px rbga(0,0,0,0.15);
     border-radius: 5px;
     transition: top 0ms ease-in-out 200ms
                 opacity 200ms ease-in-out 0ms,
                 transform 200ms ease-in-out 0ms;
+                max-width: 100%;
   
   }
 
@@ -83,16 +87,19 @@ body {
   }
 
   .popup .form .form-element{
-    margin: 15px 0px;
+    margin: 10px 10px;
+    position: relative;
   }
 
   .popup .form .form-element label{
+    display: inline-block;
     font-size: 14px;
     color:#222;
   }
 
   .popup .form .form-element input[type= "text"],
   .popup .form .form-element input[type= "number"]{
+    border-radius: 3px;
     margin-top:5px;
     display: block;
     width: 100%;
@@ -123,6 +130,9 @@ body {
   }
 
 
+  .popup .form .form-element i{
+position: relative;
+  }
 
   /*wrapper*/
   .wrapper{
