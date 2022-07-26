@@ -108,6 +108,8 @@ body {
   }
 
 
+
+  
   .popup .form .form-element.success input{
     border-color: #38c271;
   }
@@ -126,6 +128,21 @@ visibility: visible;
   visibility: visible;
   color: #e74c3c;
 }
+
+.error{
+  visibility: visible;
+  border-color: #d86522;
+}
+
+
+.popup .form .form-element.error small{
+  position: absolute;
+left: 0;
+  bottom: -5px;
+  color: #e74c3c;
+
+  visibility: visible;
+    }
 
 
 

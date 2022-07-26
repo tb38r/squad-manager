@@ -19,23 +19,23 @@
 
         <div class = "popup">
             <div class = "close-btn">&times;</div>
-            <div class = "form">
+            <div class = "form" id = "form">
                 <h2>Add Member</h2>
-                <div class= "form-element success">
-                    <label for = "name">Name</label>
+                <div class= "form-element">
+                    <label>Name</label>
                     <input type="text" placeholder = 'Didier Drogba' id="name" >
                     <i class = "fas fa-check-circle"></i>
                     <i class = "fas fa-exclamation-circle"></i>
-                    <small>Error Message</small>
+                    <small>Error message</small>
 
                 </div>
 
-                <div class= "form-element error">
+                <div class= "form-element">
                     <label for = "position">Position</label>
                     <input type="text" placeholder = 'Striker' id="position" >
                     <i class = "fas fa-check-circle"></i>
                     <i class = "fas fa-exclamation-circle"></i>
-                    <small>Error Message</small>
+                    <small>Error message</small>
 
                 </div>
 
@@ -95,8 +95,8 @@
       // let btn = document.getElementById("add-user-btn")
     
        // btn.style.right = "300px"
-    
        
+    const form = document.getElementById('form')
     const name = document.getElementById('name')
     const position = document.getElementById('position')
     const email = document.getElementById('email')
@@ -110,14 +110,15 @@
         document.querySelector(".popup").classList.add("active");
     }) ;
     
-    document.querySelector(".popup .close-btn").addEventListener("click", function(){
-        document.querySelector(".popup").classList.remove("active");
-    }) ;
+    // document.querySelector(".popup .close-btn").addEventListener("click", function(){
+    //     document.querySelector(".popup").classList.remove("active");
+    // }) ;
     
     
     addButton.addEventListener("click", function(){
-        document.querySelector(".popup").classList.remove("active");
+        //document.querySelector(".popup").classList.remove("active");
     
+        
         user ={
             'name' : name.value,
             'position' : position.value,
@@ -126,11 +127,57 @@
             'nickname' : nickname.value,
             'addButton' : addButton.value,
         }
+        
+        checkInputs()
 
-console.log(user);
+    
+
+//console.log(form);
    
 }) 
 
+function checkInputs(){
+const usernameValue = document.getElementById('name').value.trim()
+// const position = position.value.trim();
+// const emailValue = email.value.trim();
+// const ageValue = email.value.trim();
+// const nicknameValue = nickname.value.trim()
+
+if(usernameValue=== ''){
+    //show error
+    //add error class
+    setErrorFor(name, 'Username cannot be blank')
+}else{
+    setSuccessFor(name)
+
+}
+
+
+}
+
+function setErrorFor(input, message){
+const formElement = input.parentElement;  //form element div
+const small = formElement.querySelector('small')
+
+
+//add error message inside small
+small.innerText = message;
+
+const errElement = formElement.children[1]
+
+console.log(formElement.children);
+console.log('formElement', formElement);
+console.log('errElement', errElement);
+const err = formElement.querySelector('fas.fa-exclamation-circle')
+console.log('err', err);
+formElement.children[1].style.borderColor = 'red'
+
+//add error class
+//formElement.className = 'fa-exclamation-circle'
+//formElement.className = 'error'
+
+
+}
 
 
 
