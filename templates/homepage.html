@@ -10,189 +10,204 @@
 
 </head>
 <body>
-    <div id="wrapper" >
+    <div id="myModal" class="modal">
 
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2>ADD USER</h2>
+        </div>     
 
-        <!-- <a id="add-user-btn" class="btn" href="#">
-        </a> -->
-        <i class="fa-solid fa-user-plus fa-5x"></i>
+          <form id="addUserForm"> 
 
-        <div class = "popup">
-            <div class = "close-btn">&times;</div>
-            <div class = "form" id = "form">
-                <h2>Add Member</h2>
-                <div class= "form-element">
-                    <label>Name</label>
-                    <input type="text" placeholder = 'Didier Drogba' id="name" >
-                    <i class = "fas fa-check-circle"></i>
-                    <i class = "fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
+            <div class="field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Didier Drogba" />
+                <small></small>
+            </div>
 
-                </div>
+            <div class="field">
+                <label for="position">Position:</label>
+                <input type="text" id="position" name="position" placeholder="Striker" />
+                <small></small>
+            </div>
 
-                <div class= "form-element">
-                    <label for = "position">Position</label>
-                    <input type="text" placeholder = 'Striker' id="position" >
-                    <i class = "fas fa-check-circle"></i>
-                    <i class = "fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
+            <div class="field">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder='didier@gmail.com' />
+                <small></small>
+            </div>
 
-                </div>
+            <div class="field">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="40" />
+                <small></small>
+            </div>
 
-                <div class= "form-element">
-                    <label for = "email">Email</label>
-                    <input type="text" placeholder = 'didier@gmail.com', id="email" >
-                    <i class = "fas fa-check-circle"></i>
-                    <i class = "fas fa-exclamation-circle"></i>
-                    <small>Error Message</small>
+            <div class="field">
+                <label for="contact">Contact Nos:</label>
+                <input type="number" id="contact" name="contact" placeholder='0123 456 789' />
+                <small></small>
+            </div>
 
-                </div>
+            <div class="field">
+                <label for="nickname">Nickname:</label>
+                <input type="text" id="nickname" name="nickname" placeholder="Drogs" />
+                <small></small>
+            </div>
 
+            <input type="submit" id= "formButton" value= "ADD"></button>
+        </form>   
 
-                <div class= "form-element">
-                    <label for = "age">Age</label>
-                    <input type="number" id="age" >
-                    <i class = "fas fa-check-circle"></i>
-                    <i class = "fas fa-exclamation-circle"></i>
-                    <small>Error Message</small>
-
-                </div>
-
-                <div class= "form-element">
-                    <label for = "contact">Contact Number</label>
-                    <input type="text" placeholder = '0123 456 789' id="contact" >
-                    <i class = "fas fa-check-circle"></i>
-                    <i class = "fas fa-exclamation-circle"></i>
-                    <small></small>
-
-                </div>
-                <br>
-
-                
-                <div class= "form-element">
-                    <label for = "nickname">Nickname</label>
-                    <input type="text" placeholder = 'Drog' id="nickname" >
-                    <i class = "fas fa-check-circle"></i>
-                    <i class = "fas fa-exclamation-circle"></i>
-                    <small></small>
-
-                </div>
-                <br>
-
-                
-                <div id= "add-button" class= "form-element">
-                    <button>Add</button>
-                </div>
-          </div>
-
-
-        </div>
     </div>
-        
-    </body>
+      </div>
+
+
+    <i class="fa-solid fa-user fa-5x" id= "addUserBtn"></i>
+
+
+
+
     
     <script>
+
+const modal = document.getElementById("myModal");
+const addButton = document.getElementById('addUserBtn')
+const span = document.getElementsByClassName("close")[0];
+const formButton = document.getElementById("formButton")
+const form  = document.getElementById('addUserForm');
+let userJSON 
+
+
+
+// When the user clicks on the button, open the modal
+addButton.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+
+
+//Handles form, close modal
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); 
+    
+  const data = new FormData(event.target);
+ userJSON = Object.fromEntries(data.entries());
+
+ modal.style.display = "none";
+ console.log('--', userJSON);
+
+});
+
      
-    const form = document.getElementById('form')
-    const name = document.getElementById('name')
-    const position = document.getElementById('position')
-    const email = document.getElementById('email')
-    const age = document.getElementById('age')
-    const nickname = document.getElementById('nickname')
-    const addButton = document.getElementById('add-button')
-    const closeBox = document.querySelector('.close-btn')
-    const addUserIcon = document.querySelector(".fa-solid")
+    // const form = document.getElementById('form')
+    // const name = document.getElementById('name')
+    // const position = document.getElementById('position')
+    // const email = document.getElementById('email')
+    // const age = document.getElementById('age')
+    // const nickname = document.getElementById('nickname')
+    // const closeBox = document.querySelector('.close-btn')
+    // const addUserIcon = document.querySelector(".fa-solid")
+
+
 
     
-    let user = {}
-    let parse = false
+    // let user = {}
+    // let parse = false
 
-    closeBox.addEventListener("click", ()=>{
-        document.querySelector(".popup").classList.remove("active");
-    })
+ 
     
-    addUserIcon.addEventListener("click", function(){
-        //reset dialogue box, clear errors
+//     addUserIcon.addEventListener("click", function(){
+//         //reset dialogue box, clear errors
 
-        //name.parentElement
+//         //name.parentElement
 
-        document.querySelector(".popup").classList.add("active");
-    }) ;
+//         document.querySelector(".popup").classList.add("active");
+//     }) ;
     
 
     
-    addButton.addEventListener("click", function(){
-        //document.querySelector(".popup").classList.remove("active");
+//     addButton.addEventListener("click", function(){
+//         //document.querySelector(".popup").classList.remove("active");
     
         
-        user ={
-            'name' : name.value,
-            'position' : position.value,
-            'email' : email.value,
-            'age' : age.value,
-            'nickname' : nickname.value,
-            'addButton' : addButton.value,
-        }
+//         user ={
+//             'name' : name.value,
+//             'position' : position.value,
+//             'email' : email.value,
+//             'age' : age.value,
+//             'nickname' : nickname.value,
+//             'addButton' : addButton.value,
+//         }
         
-        checkInputs()
+//         checkInputs()
+//         console.log(user);
    
-}) 
+// }) 
 
 
 
-function checkInputs(){
-const usernameValue = name.value.trim()
-// const position = position.value.trim();
-// const emailValue = email.value.trim();
-// const ageValue = email.value.trim();
-// const nicknameValue = nickname.value.trim()
+// function checkInputs(){
+// const usernameValue = name.value.trim()
+// // const position = position.value.trim();
+// // const emailValue = email.value.trim();
+// // const ageValue = email.value.trim();
+// // const nicknameValue = nickname.value.trim()
 
-if(usernameValue=== ''){
+// if(usernameValue=== ''){
 
-    setErrorFor(name, 'Name cannot be blank')
-}else{
-    let parse = true
-    setSuccessFor(name)
-    document.querySelector(".popup").classList.remove("active");
-}
-
-
-}
-
-function setErrorFor(input, message){
-const formElement = input.parentElement;  //form element div
-const small = formElement.querySelector('small')
+//     setErrorFor(name, 'Name cannot be blank')
+// }else{
+//     let parse = true
+//     setSuccessFor(name)
+//     document.querySelector(".popup").classList.remove("active");
+// }
 
 
-//add error message inside small
-small.style.visibility = 'visible'
-small.style.color = 'red'
-small.innerText = message;
+// }
+
+// function setErrorFor(input, message){
+// const formElement = input.parentElement;  //form element div
+// const small = formElement.querySelector('small')
 
 
-
-formElement.children[1].style.borderColor = 'red'
-formElement.children[3].style.visibility = 'visible'
-formElement.children[3].style.color = 'red'
+// //add error message inside small
+// small.style.visibility = 'visible'
+// small.style.color = 'red'
+// small.innerText = message;
 
 
 
-}
+// formElement.children[1].style.borderColor = 'red'
+// formElement.children[3].style.visibility = 'visible'
+// formElement.children[3].style.color = 'red'
 
 
-function setSuccessFor(input){
-    const formElement = input.parentElement; 
-    const small = formElement.querySelector('small');
 
-    formElement.children[1].style.borderColor = 'green'
-    formElement.children[2].style.visibility = 'visible'
-    formElement.children[2].style.color = 'green'
-    formElement.children[3].style.visibility = 'hidden'
+// }
 
-    small.style.visibility = 'hidden'
+
+// function setSuccessFor(input){
+//     const formElement = input.parentElement; 
+//     const small = formElement.querySelector('small');
+
+//     formElement.children[1].style.borderColor = 'green'
+//     formElement.children[2].style.visibility = 'visible'
+//     formElement.children[2].style.color = 'green'
+//     formElement.children[3].style.visibility = 'hidden'
+
+//     small.style.visibility = 'hidden'
 
     
-}
+// }
+
+// /*
 
 /*
 0: label

@@ -10,8 +10,6 @@ import (
 
 func OpenServer() {
 
-	http.HandleFunc("/", home)
-
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		log.Fatal("Error starting the server, package web", err)
