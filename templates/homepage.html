@@ -83,6 +83,7 @@ let userJSON
 // When the user clicks on the button, open the modal
 addButton.onclick = function() {
   modal.style.display = "block";
+
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -97,11 +98,25 @@ addButton.onclick = function() {
 form.addEventListener('submit', (e) => {
     e.preventDefault(); 
     
-  const data = new FormData(event.target);
- userJSON = Object.fromEntries(data.entries());
+    const data = new FormData(e.target);
 
- modal.style.display = "none";
- console.log('--', userJSON);
+    //  userJSON = Object.fromEntries(data.entries());
+
+    console.log(typeof e.target);
+    data.append("a", e.target)
+
+    modal.style.display = "none";
+
+    fetch("http://localhost:8080/addUserToDB", {
+        method:"POST",
+        body: data,
+
+    })
+    .then(function(response){
+        console.log(response);
+        return response.text()
+    })
+
 
 });
 
