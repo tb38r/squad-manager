@@ -1,7 +1,6 @@
-#include <stdio.h>
-
-int main()
-{ 
-     printf("Welcome to JavaTpoint"); 
-     return 0;
-};
+#include<stdio.h> // define the header file  
+void main()   // define the main function  
+{  
+    printf("Welcome to JavaTpoint");  // print the statement.  
+    cout<<
+}  

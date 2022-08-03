@@ -22,37 +22,37 @@
 
             <div class="field">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Didier Drogba" />
+                <input type="text" id="name" name="Name" placeholder="Didier Drogba" />
                 <small></small>
             </div>
 
             <div class="field">
                 <label for="position">Position:</label>
-                <input type="text" id="position" name="position" placeholder="Striker" />
+                <input type="text" id="position" name="Position" placeholder="Striker" />
                 <small></small>
             </div>
 
             <div class="field">
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" placeholder='didier@gmail.com' />
+                <input type="text" id="email" name="Email" placeholder='didier@gmail.com' />
                 <small></small>
             </div>
 
             <div class="field">
                 <label for="age">Age:</label>
-                <input type="number" id="age" name="age" placeholder="40" />
+                <input type="number" id="age" name="Age" placeholder="40" />
                 <small></small>
             </div>
 
             <div class="field">
                 <label for="contact">Contact Nos:</label>
-                <input type="number" id="contact" name="contact" placeholder='0123 456 789' />
+                <input type="number" id="contact" name="Contact" placeholder='0123 456 789' />
                 <small></small>
             </div>
 
             <div class="field">
                 <label for="nickname">Nickname:</label>
-                <input type="text" id="nickname" name="nickname" placeholder="Drogs" />
+                <input type="text" id="nickname" name="Nickname" placeholder="Drogs" />
                 <small></small>
             </div>
 
@@ -100,22 +100,26 @@ form.addEventListener('submit', (e) => {
     
     const data = new FormData(e.target);
 
-    //  userJSON = Object.fromEntries(data.entries());
+    userJSON = Object.fromEntries(data.entries());
 
-    console.log(typeof e.target);
-    data.append("a", e.target)
+    console.log('user', data);
+let test = {Name:"test"}
 
     modal.style.display = "none";
 
     fetch("http://localhost:8080/addUserToDB", {
         method:"POST",
-        body: data,
-
+        //body: test
+        body : JSON.stringify(userJSON),
     })
     .then(function(response){
-        console.log(response);
-        return response.text()
-    })
+        console.log(response)
+        return response.text();
+    }).then((test)=>{
+    console.log(test)
+    console.log("test")
+    })        
+    
 
 
 });
