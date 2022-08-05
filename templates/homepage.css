@@ -12,16 +12,18 @@ body {
     text-align: center;
     background: linear-gradient(to right, #3a7bd5, #3a6073);
     color: white;
-    font-size: 30px;
+    font-size: 150%;
   }
   
   /*Add User icon*/
   .fa-solid {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     color: rgb(89, 140, 235);
     cursor: pointer;
-    position: absolute;
-    top : 700px;
-    left: 200px;
+    top : 85%;
+    left: 8%;
   
   }
 

@@ -66,7 +66,14 @@
     <i class="fa-solid fa-user fa-5x" id= "addUserBtn"></i>
 
 
-
+    <table id="table">
+        <thead></thead>
+        <tbody id="tbody" style="text-align: center"></tbody>
+        </table>
+        <button id="prevButton">Previous</button>
+        <button id="nextButton">Next</button>
+        
+        </table> 
 
     
     <script>
@@ -124,120 +131,45 @@ let test = {Name:"test"}
 
 });
 
-     
-    // const form = document.getElementById('form')
-    // const name = document.getElementById('name')
-    // const position = document.getElementById('position')
-    // const email = document.getElementById('email')
-    // const age = document.getElementById('age')
-    // const nickname = document.getElementById('nickname')
-    // const closeBox = document.querySelector('.close-btn')
-    // const addUserIcon = document.querySelector(".fa-solid")
-
-
-
     
-    // let user = {}
-    // let parse = false
-
- 
-    
-//     addUserIcon.addEventListener("click", function(){
-//         //reset dialogue box, clear errors
-
-//         //name.parentElement
-
-//         document.querySelector(".popup").classList.add("active");
-//     }) ;
-    
-
-    
-//     addButton.addEventListener("click", function(){
-//         //document.querySelector(".popup").classList.remove("active");
-    
-        
-//         user ={
-//             'name' : name.value,
-//             'position' : position.value,
-//             'email' : email.value,
-//             'age' : age.value,
-//             'nickname' : nickname.value,
-//             'addButton' : addButton.value,
-//         }
-        
-//         checkInputs()
-//         console.log(user);
-   
-// }) 
-
-
-
-// function checkInputs(){
-// const usernameValue = name.value.trim()
-// // const position = position.value.trim();
-// // const emailValue = email.value.trim();
-// // const ageValue = email.value.trim();
-// // const nicknameValue = nickname.value.trim()
-
-// if(usernameValue=== ''){
-
-//     setErrorFor(name, 'Name cannot be blank')
-// }else{
-//     let parse = true
-//     setSuccessFor(name)
-//     document.querySelector(".popup").classList.remove("active");
-// }
-
-
-// }
-
-// function setErrorFor(input, message){
-// const formElement = input.parentElement;  //form element div
-// const small = formElement.querySelector('small')
-
-
-// //add error message inside small
-// small.style.visibility = 'visible'
-// small.style.color = 'red'
-// small.innerText = message;
-
-
-
-// formElement.children[1].style.borderColor = 'red'
-// formElement.children[3].style.visibility = 'visible'
-// formElement.children[3].style.color = 'red'
-
-
-
-// }
-
-
-// function setSuccessFor(input){
-//     const formElement = input.parentElement; 
-//     const small = formElement.querySelector('small');
-
-//     formElement.children[1].style.borderColor = 'green'
-//     formElement.children[2].style.visibility = 'visible'
-//     formElement.children[2].style.color = 'green'
-//     formElement.children[3].style.visibility = 'hidden'
-
-//     small.style.visibility = 'hidden'
-
-    
-// }
-
-// /*
-
-/*
-0: label
-1: input#name
-2: i.fas.fa-check-circle
-3: i.fas.fa-exclamation-circle
-4: small
-
-*/
-
-
 
 </script>
+
+
+
+
+
+<script >
+
+const table = document.querySelector("table");
+const tableHead = table.querySelector("thead");
+const tableBody = table.querySelector("tbody");
+
+let tableFields = [
+    "Name",
+    "Position",
+    "Email",
+    "Age",
+    "Contact",
+    "Nickname",
+]
+
+tableHead.innerHTML = "<tr></tr>";
+tableBody.innerHTML = "";
+
+for (const headerText of tableFields) {
+    const headerElement = document.createElement("th");
+    headerElement.setAttribute("th", "data-sort");
+    headerElement.setAttribute("data-column", `${headerText}`);
+    headerElement.setAttribute("data-order", `asce`);
+    headerElement.textContent = headerText;
+    tableHead.querySelector("tr").appendChild(headerElement);
+}
+
+
+
+</script> 
+
+
+
 </html>
