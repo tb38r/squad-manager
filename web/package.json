@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0"
+  },
+  "name": "squad-manager",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tb38r/squad-manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tb38r/squad-manager/issues"
+  },
+  "homepage": "https://github.com/tb38r/squad-manager#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
