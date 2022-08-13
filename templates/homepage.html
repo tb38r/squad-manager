@@ -90,7 +90,6 @@ let userJSON
 // When the user clicks on the button, open the modal
 addButton.onclick = function() {
   modal.style.display = "block";
-
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -98,10 +97,16 @@ addButton.onclick = function() {
   modal.style.display = "none";
 }
 
+//close modal on mouseclick outside body 
+    document.addEventListener('click', (e)=>{
+    if(e.target == modal) modal.style.display = "none"
+      
+    })
+    
+    
 
 
-
-//Handles form, close modal
+    //Handles form, close modal
 form.addEventListener('submit', (e) => {
     e.preventDefault(); 
     
@@ -123,12 +128,12 @@ let test = {Name:"test"}
         console.log(response)
         return response.text();
     }).then((test)=>{
-    console.log(test)
-    console.log("test")
+        console.log(test)
+        console.log("test")
     })        
     
-
-
+    
+    
 });
 
     
