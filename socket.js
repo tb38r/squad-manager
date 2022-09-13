@@ -1,3 +1,6 @@
+
+//client-side implementation
+
 var socket = io();
 
 var messages = document.getElementById('messages');
@@ -6,12 +9,16 @@ var input = document.getElementById('input');
 
 form.addEventListener('submit', function(e) {
  e.preventDefault();
+
+ //write to server
  if (input.value) {
    socket.emit('chat message', input.value);
    input.value = '';
  }
 });
 
+
+//received from server
 socket.on('chat message', function(msg) {
    var item = document.createElement('li');
    item.textContent = msg + ' tb38r';
