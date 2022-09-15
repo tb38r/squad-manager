@@ -1,0 +1,43 @@
+
+//client-side implementation
+
+
+//TO DO: serve this file outside this folder
+
+let socket = io();
+
+
+
+//validate form
+//send to server
+
+  //Handles form, close modal
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); 
+    
+    const data = new FormData(e.target);
+    userJSON = Object.fromEntries(data.entries());
+
+    //write to server
+       socket.emit('completed form', userJSON
+       );
+
+  
+      console.log('user', userJSON);
+  
+      form.reset()
+  
+      
+  });
+  
+
+
+
+
+
+
+//received from server
+socket.on('chat message', function(msg) {
+console.log('received from server', msg );
+
+ });

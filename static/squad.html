@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./squad.css"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script src="https://kit.fontawesome.com/27d376a945.js" crossorigin="anonymous"></script>
+    <div class="header"> <h1>SQUAD MANAGER</h1> </div>
+   
+</head>
+<body>
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2>ADD USER</h2>
+        </div>     
+
+          <form id="addUserForm"> 
+
+            <div class="field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Name" placeholder="Didier Drogba" required/>
+                <small></small>
+            </div>
+
+            <div class="field">
+                <label for="position">Position:</label>
+                <input type="text" id="position" name="Position" placeholder="Striker" />
+                <small></small>
+            </div>
+
+            <div class="field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="Email" placeholder='didier@gmail.com' />
+                <small></small>
+            </div>
+
+            <div class="field">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="Age" placeholder="40" />
+                <small></small>
+            </div>
+
+            <div class="field">
+                <label for="contact">Contact Nos:</label>
+                <input type="number" id="contact" name="Contact" placeholder='0123 456 789' />
+                <small></small>
+            </div>
+
+            <div class="field">
+                <label for="nickname">Nickname:</label>
+                <input type="text" id="nickname" name="Nickname" placeholder="Drogs" />
+                <small></small>
+            </div>
+
+            <input type="submit" id= "formButton" value= "ADD"></button>
+        </form>   
+
+    </div>
+      </div>
+
+
+    <i class="fa-solid fa-user fa-5x" id= "addUserBtn"></i>
+
+
+    <table id="table">
+        <thead></thead>
+        <tbody id="tbody" style="text-align: center"></tbody>
+        </table>
+        <button id="prevButton">Previous</button>
+        <button id="nextButton">Next</button>
+        
+        </table> 
+
+    
+    <script>
+
+
+
+
+const modal = document.getElementById("myModal");
+const addButton = document.getElementById('addUserBtn')
+const span = document.getElementsByClassName("close")[0];
+const formButton = document.getElementById("formButton")
+const form  = document.getElementById('addUserForm');
+let userJSON 
+
+
+
+// When the user clicks on the button, open the modal
+addButton.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+  modal.style.display = "none";
+}
+
+//close modal on mouseclick outside body 
+    document.addEventListener('click', (e)=>{
+    if(e.target == modal) modal.style.display = "none"
+      
+    })
+    
+    
+    
+
+</script>
+
+
+
+
+
+<script >
+
+const table = document.querySelector("table");
+const tableHead = table.querySelector("thead");
+const tableBody = table.querySelector("tbody");
+
+let tableFields = [
+    "Name",
+    "Position",
+    "Email",
+    "Age",
+    "Contact",
+    "Nickname",
+]
+
+tableHead.innerHTML = "<tr></tr>";
+tableBody.innerHTML = "";
+
+for (const headerText of tableFields) {
+    const headerElement = document.createElement("th");
+    headerElement.setAttribute("th", "data-sort");
+    headerElement.setAttribute("data-column", `${headerText}`);
+    headerElement.setAttribute("data-order", `asce`);
+    headerElement.textContent = headerText;
+    tableHead.querySelector("tr").appendChild(headerElement);
+}
+
+
+
+</script> 
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="./socket.js"></script>
+
+</body>
+
+</html>
