@@ -98,3 +98,29 @@ input, textarea, select {
   margin-left: auto;
   margin-right: auto;
 }
+
+#table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 75vw;
+}
+
+
+
+
+#table  tr:nth-child(even){background-color: rgb(218, 225, 236)}
+
+#table  tr:hover {background-color: #ddd;}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: rgb(89, 140, 235);
+  color: white;
+}
+
+#table tr{
+  text-align: center;
+  height: 3vh;
+}
