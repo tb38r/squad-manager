@@ -8,7 +8,7 @@ let headers = [
     "Email",
     "Age",
     "Contact",
-    "Nickname",
+    "Availability",
 ]
 
 tableHead.innerHTML = "<tr></tr>";
@@ -31,19 +31,36 @@ let user = {
 
 }
 
+
+
+let user2 = {
+    a:  "food",
+   b:   "truck",
+     c: "cb",
+      d:"more",
+      e: "eb",
+      f: "dgwgd"
+  
+  }
+
+let users = [user, user2]
+
 let tableData = "";
 
 
-tableData += `<tr>
-<td>${data.a}</td>
-<td>${data.b}</td>
-<td>${data.c}</td>
-<td>${data.d}</td>
-<td>${data.e}</td>
-<td>${data.f}</td>
-
-</tr>
-`
+for (const user of users) {
+    tableData += `<tr>
+    <td>${user.a}</td>
+    <td>${user.b}</td>
+    <td>${user.c}</td>
+    <td>${user.d}</td>
+    <td>${user.e}</td>
+    <td>${user.f}</td>
+    
+    </tr>
+    `
+    
+}
 
 
 tableBody.innerHTML = tableData
