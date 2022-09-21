@@ -24,11 +24,11 @@ for (const headerText of headers) {
 
 let user = {
   a:  "N Kanu",
- b:   "bb",
-   c: "cb",
-    d:"db",
-    e: "eb",
-    f: `<div id="availability-div" >Available</div>`,
+ b:   "Striker",
+   c: "NK@gmail.com",
+    d:"45",
+    e: "0202465285544",
+    f: "Available",
     g: `<i class="fa-solid fa-bars"></i>`
 
 }
@@ -57,7 +57,7 @@ for (const user of users) {
     <td>${user.c}</td>
     <td>${user.d}</td>
     <td>${user.e}</td>
-    <td>${user.f}</td>
+    <td><div id="availability-div">${user.f}</div></td>
     <td>${user.g}</td>
     
     </tr>
