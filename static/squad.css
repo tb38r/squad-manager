@@ -124,3 +124,11 @@ input, textarea, select {
   text-align: center;
   height: 3vh;
 }
+
+.fa-solid, .fas {
+  margin-bottom: 0.65vh;
+}
+
+#availability-div{
+cursor: pointer;
+}

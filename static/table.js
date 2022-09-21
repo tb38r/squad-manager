@@ -9,6 +9,7 @@ let headers = [
     "Age",
     "Contact",
     "Availability",
+    "Action",
 ]
 
 tableHead.innerHTML = "<tr></tr>";
@@ -22,24 +23,25 @@ for (const headerText of headers) {
 
 
 let user = {
-  a:  "abb",
+  a:  "N Kanu",
  b:   "bb",
    c: "cb",
     d:"db",
     e: "eb",
-    f: "dgwgd"
+    f: `<div id="availability-div" >Available</div>`,
+    g: `<i class="fa-solid fa-bars"></i>`
 
 }
 
 
-
 let user2 = {
-    a:  "food",
+    a:  "JJ Okocha",
    b:   "truck",
      c: "cb",
       d:"more",
       e: "eb",
-      f: "dgwgd"
+      f: "dgwgd",
+      g: `<i class="fa-solid fa-bars"></i>`
   
   }
 
@@ -56,6 +58,7 @@ for (const user of users) {
     <td>${user.d}</td>
     <td>${user.e}</td>
     <td>${user.f}</td>
+    <td>${user.g}</td>
     
     </tr>
     `
@@ -64,6 +67,36 @@ for (const user of users) {
 
 
 tableBody.innerHTML = tableData
+
+
+
+
+const action = document.getElementsByClassName('fa-solid fa-bars')
+
+for (const item of action) {
+    item.onclick =()=>{
+        console.log('hi');
+    }
+    
+}
+
+console.log(action);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
