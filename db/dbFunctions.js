@@ -7,14 +7,18 @@ function readDb() {
     return JSON.parse(data)
 }
 
+
+
 function writeDb(obj) {
-    if (!obj) return console.log('Please provide data to save')
-    try {
-        fs.writeFileSync(dbName, JSON.stringify(obj)) //overwrites current data
-        return console.log('SAVE SUCESS')
-    } catch (err) {
-        return console.log('FAILED TO WRITE')
-    }
+    fs.appendFile('db.json', JSON.stringify(obj, null, 2), function(err){
+    });
+    // if (!obj) return console.log('Please provide data to save')
+    // try {
+    //     fs.writeFileSync(dbName, JSON.stringify(obj, null, 2)) //overwrites current data
+    //     return console.log('SAVE SUCESS')
+    // } catch (err) {
+    //     return console.log('FAILED TO WRITE')
+    // }
 }
 
 

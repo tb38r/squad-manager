@@ -1,7 +1,8 @@
 const { writeDb } = require("./dbFunctions")
 
 const dataObj = {
-    jmes: 'bye'
+    jmes: 'bye',
+    hbhb:"dgcvjb"
 }
 
 writeDb(dataObj)
