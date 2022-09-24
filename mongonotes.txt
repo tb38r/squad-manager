@@ -1,0 +1,11 @@
+TO SHOW DBs show dbs
+use {name} -(creates, or accesses if already exists, a db)
+
+show collections - tables inside dbs
+
+db.dropDatabase() - delete database
+
+exit - exit terminal
+
+db.users.InsertOne  - db refs the active db, users (creates collection/table users), InsertOne (inserts one record within table)
+//insert takes in an obj, JS like syntax
