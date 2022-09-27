@@ -7,5 +7,30 @@ db.dropDatabase() - delete database
 
 exit - exit terminal
 
-db.users.InsertOne  - db refs the active db, users (creates collection/table users), InsertOne (inserts one record within table)
+//INSERT SINGLE ENTRY
+
+db.users.InsertOne({obj}) - db refs the active db, users (creates collection/table users), InsertOne (inserts one record within table)
 //insert takes in an obj, JS like syntax
+
+db.users.find() - gets all values within database
+//ids are auto generated
+
+dbs ---> collections ----> documents (i.e. objects)
+
+
+Can nest objects, arrays et al within docs ala JSON literal
+
+//INSER MULTIPLE ENTRIES
+
+db.users.insertMany([{}])
+Like insert one except you pass in an array of objects
+
+
+//QUERYING - READ INFO from DBs
+
+db.users.find().(method())
+find has multiple methods 
+
+db.users.find().limit(3) //limits result to the specified number
+db.users.find().sort({name:1}) //sorts in ascending (1) or descending (-1) order
+db.users.find().sort({name:1, age:-1}) can pass in multiple args to sort
