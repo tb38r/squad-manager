@@ -36,10 +36,50 @@ db.users.find().sort({name:1})            //sorts in ascending (1) or descending
 db.users.find().sort({name:1, age:-1})    //can pass in multiple args to sort
 db.users.find().skip(1).limit(4)          //skip 'skips' the given amount
 
-
+//WHERE name ==
 db.users.find({name:"T"})       //returns where name == "T", type specific
 
 
+//SELECT name where ==
+db.users.find({name:"T"}, {name:1, age:1})
+second obj arg specifies which fields to return 
+
+To Omit (default ID) pass { _id:0 } as an arg within second obj 
+
+Passing second arg as 0 omits that field, can be stacked with other ommissions, can't be mixed
+//db.users.find({name:"T"},{ hobbies:0, age:0})
+
+1 select field, 0 select everything but this field
 
 
+//COMPLEX QUERIES
 
+db.users.find({name:{$eq:"Yonas"}})  - return where name === "Yonas"
+db.users.find({name:{$ne:"Yonas"}}) -  return where name != "Yonas"
+db.users.find({age:{$gt:31}}) - return where age > 31
+db.users.find({age:{$gte:31}}) - return where age >= 31
+db.users.find({age:{$lt:31}}), db.users.find({age:{$lte:31}}) //less than or eq to 
+
+db.users.find({name:{$in:["T", "Yonas"]}}) - if the name attr is in this list of names return INSERT
+db.users.find({name:{$nin:["T", "Yonas"]}}) - if the name is not in this list of names 
+
+db.users.find({age:{$exists: true}}) - return objects where age key exists
+db.users.find({age:{$exists: false}}) - return objects where age key doesn't exists
+
+
+//AND QUERY
+db.users.find({age:{$gte:20 , $lte:40}}) - return obj where age is >= 20 && <= 40
+
+db.users.find({age:{$gte:20 , $lte:40}, name: "T"}) where name is T and age considerations
+alt to above
+db.users.find({$and:[{age:{$lt:31}}, {name:{$in:["T", "Arnold"]}}]})
+$and takes in an array of objs
+
+
+//OR
+db.users.find({$or:[{age:{$gt:31}}, {name:{$in:["T", "Arnold"]}}]})
+
+//NOT 
+db.users.find({age:{$not:{$lte:32}}})  - returns all objs where the age is !< 32 inc objs where key doesn't exists
+
+20min 37 secs
