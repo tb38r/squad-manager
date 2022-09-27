@@ -31,6 +31,15 @@ Like insert one except you pass in an array of objects
 db.users.find().(method())
 find has multiple methods 
 
-db.users.find().limit(3) //limits result to the specified number
-db.users.find().sort({name:1}) //sorts in ascending (1) or descending (-1) order
-db.users.find().sort({name:1, age:-1}) can pass in multiple args to sort
+db.users.find().limit(3)                  //limits result to the specified number
+db.users.find().sort({name:1})            //sorts in ascending (1) or descending (-1) order
+db.users.find().sort({name:1, age:-1})    //can pass in multiple args to sort
+db.users.find().skip(1).limit(4)          //skip 'skips' the given amount
+
+
+db.users.find({name:"T"})       //returns where name == "T", type specific
+
+
+
+
+
