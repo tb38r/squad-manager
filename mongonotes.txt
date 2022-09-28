@@ -67,6 +67,9 @@ db.users.find({age:{$exists: true}}) - return objects where age key exists
 db.users.find({age:{$exists: false}}) - return objects where age key doesn't exists
 
 
+///////////////////////////////////////////////////////////////////////////////////
+
+
 //AND QUERY
 db.users.find({age:{$gte:20 , $lte:40}}) - return obj where age is >= 20 && <= 40
 
@@ -82,4 +85,59 @@ db.users.find({$or:[{age:{$gt:31}}, {name:{$in:["T", "Arnold"]}}]})
 //NOT 
 db.users.find({age:{$not:{$lte:32}}})  - returns all objs where the age is !< 32 inc objs where key doesn't exists
 
-20min 37 secs
+//COMPARE KEY VALUES between Objects eg balance >>> debt $expr
+db.users.find({$expr:{$gt:["$debt", "$balance"]}}) - returns where debt >>> balance
+
+//NESTED FIELDS
+db.users.find({"address.street":"123 Street"})
+
+//FIND ONE
+db.users.findOne({age:{$lte:32}})
+
+//COUNT
+db.users.countDocuments({age:{$lte:32}})
+
+db.users.countDocuments({age:{$lte:32}})
+
+
+///////////////////////////////////////////////////////////////////////////////////
+UPDATING
+
+//UPDATING & ADDING PROPERTIES
+db.users.updateOne({name:"T"},{$set:{age:36}})  - updates where name is T, alternatively 
+db.users.updateOne({_id: ObjectId("633315153463fb5bf6ed65a2")},{$set:{name:"Tolu"}})
+
+//UNSET/REMOVE a property
+db.users.updateOne({_id: ObjectId("633315153463fb5bf6ed65a2")},{$unset:{age:""}}) - removes age property
+
+//INCREMENT VALUES
+db.users.updateOne({_id: ObjectId("633315153463fb5bf6ed65a2")},{$inc:{age:2}}) - increases age value by 2 
+use negative values to decrement
+
+//RENAME KEYS
+db.users.updateOne({_id: ObjectId("633315153463fb5bf6ed65a2")},{$rename:{name:"firstName"}})
+
+//ADD to ARRAYS
+db.users.updateOne({_id: ObjectId("633315153463fb5bf6ed65a2")},{$push:{hobbies:"coding"}})
+//REMOVE FROM ARRAYS
+db.users.updateOne({_id: ObjectId("633315153463fb5bf6ed65a2")},{$pull:{hobbies:"coding"}})
+
+//UPDATE MANY users
+db.users.updateMany({name: {$exists:true}},{$unset:{address:""}}) -finds objects where name value exists and removes the address property
+
+//REPLACE
+db.users.replaceOne({_id: ObjectId("633315153463fb5bf6ed65a2")},{name:"T"}) - replaces entire object with the given param 
+
+
+///////////////////////////////////////////////////////////////////////////////////
+DELETE
+
+//DELETE ONE
+db.users.deleteOne({_id: ObjectId("633315153463fb5bf6ed65a2")}) 
+
+//DELETE MANY
+db.users.deleteMany({balance:{$exists:false}}) - deletes all objects without balance property
+
+//DELETE database
+db.dropDatabase()
+
