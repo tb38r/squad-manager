@@ -6,13 +6,10 @@ app.listen(5000, ()=>{
 })
 const mongoose = require('mongoose')
 
-//mongoose.connect("")
-
 //1QqQCbMG0CbEwFLf
 
-
-
 //Database
+const mongoAtlasURL = 'mongodb+srv://tb38r:1QqQCbMG0CbEwFLf@cluster0.nw2skdu.mongodb.net/?retryWrites=true&w=majority'
 const database = (module.exports = ()=>{
 const connectionParams ={
     useNewUrlParser :true,
@@ -20,21 +17,21 @@ const connectionParams ={
 }
 
 try{
-    mongoose.connect ('mongodb+srv://tb38r:1QqQCbMG0CbEwFLf@cluster0.nw2skdu.mongodb.net/?retryWrites=true&w=majority',
+    mongoose.connect (mongoAtlasURL,
     connectionParams)
-    console.log('Database connected succesfully');
+    mongoose.connection.on('connected', ()=>{
+       
+      if(mongoose.connection.readyState != 1){
+        console.log("Error connecting to MongoDb, ready state = ",mongoose.connection.readyState);
+      }else{
+        console.log("Database connected succesfully with a ready state of",mongoose.connection.readyState);
+      }
+    });
     }catch(error){
         console.log(error);
         console.log('Database connection failed');
-
-
 }
-
 })
-
-
-
-
 
 database()
 
