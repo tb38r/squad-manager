@@ -1,0 +1,17 @@
+Set strict types
+
+Min/max values
+
+Built in validation on values    //only works with create or save
+Custom validation
+
+Lowercase/Uppercase
+
+find, findOne, delete, deleteMany etc
+
+
+const user = await User.where("name").equals("Tolu")
+const user = await User.where("age").gt(20).lt(30).where("name").equals("Tolu").limit(4.select("age))
+
+
+const user = await User.findById("633ca56cf6c927509ff34b6c").populate("bestFriend")

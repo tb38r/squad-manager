@@ -65,28 +65,70 @@ hobbies:["Gym, Tennis"],
 address:{
     street: "Main St"
 },
-
+email:"t@hotmail.com",
 }
 
-run(userObj)
-async function run(userObj){
-    try{
-        const user = await User.create(userObj)
-     console.log('async user', user);
+// run(userObj)
 
+// async function run(userObj){
+    
+//     try{
+//         const user = await User.create(userObj)
+//      console.log('async user', user);
+
+//     }catch(e){
+//         console.log('error --->', e.message)
+//     }
+// }
+
+
+
+//Find by ID
+/*
+
+async function run(userObj){
+    
+    try{
+       const user = await User.findById("633c9cf37ff8be8b440d5ea4")
+  console.log(user)
+    }catch(e){
+        console.log('error --->', e.message)
+    }
+}
+*/
+
+//Find by Username
+//search()
+/*
+async function search(userObj){
+    
+    try{
+       const user = await User.where("name").equals("Tolu")
+  console.log(user)
+    }catch(e){
+        console.log('error --->', e.message)
+    }
+}
+*/
+
+//Best Friend
+
+bfriend()
+
+async function bfriend(userObj){
+    
+    try{
+       const user = await User.findById("633ca56cf6c927509ff34b6c").populate("bestFriend")
+    //    user.bestFriend = "633ca572afd0333d6377d990"
+    user
+      await user.save()
+  console.log(user)
     }catch(e){
         console.log('error --->', e.message)
     }
 }
 
-//12mins 46 seconds
-
-
-
-
-
-
-
+//24.18 mins
 
 
 
