@@ -48,4 +48,38 @@ const userSchema = new mongoose.Schema({
 
 })
 
+userSchema.methods.sayHi = function(){
+console.log(`Hi, My name is ${this.name}`)
+}
+
+
+userSchema.statics.findByName = function(name){
+    return this.find({name: new RegExp(name, "i")})
+}
+
+
+userSchema.query.byName = function(name){
+    return this.where({name: new RegExp(name, "i")})
+}
+
+//Virtual is a property not predefined within the schema based on other properties
+userSchema.virtual('namedEmail').get(function(){
+    return `${this.name} < ${this.email}`
+})
+
+
+//MIDDLEWARE
+
+userSchema.pre('save', function(next){
+    this.updatedAt = Date.now()
+    next()
+})
+
+
+userSchema.post('save', function(doc,next){
+doc.sayHi()
+    next()
+})
+
+
 module.exports = mongoose.model("User", userSchema)

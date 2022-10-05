@@ -98,35 +98,36 @@ async function run(userObj){
 */
 
 //Find by Username
-//search()
-/*
+search()
+
 async function search(userObj){
     
     try{
-       const user = await User.where("name").equals("Tolu")
-  console.log(user)
+       const user = await User.findOne({name:"Tolu", email:"t@hotmail.com"})
+       console.log(user)
+       await user.save()
     }catch(e){
         console.log('error --->', e.message)
     }
 }
-*/
+
 
 //Best Friend
 
-bfriend()
+// bfriend()
 
-async function bfriend(userObj){
+// async function bfriend(userObj){
     
-    try{
-       const user = await User.findById("633ca56cf6c927509ff34b6c").populate("bestFriend")
-    //    user.bestFriend = "633ca572afd0333d6377d990"
-    user
-      await user.save()
-  console.log(user)
-    }catch(e){
-        console.log('error --->', e.message)
-    }
-}
+//     try{
+//        const user = await User.findById("633ca56cf6c927509ff34b6c").populate("bestFriend")
+//     //    user.bestFriend = "633ca572afd0333d6377d990"
+//     user
+//       await user.save()
+//   console.log(user)
+//     }catch(e){
+//         console.log('error --->', e.message)
+//     }
+// }
 
 //24.18 mins
 
