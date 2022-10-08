@@ -16,11 +16,13 @@ let socket = io();
     e.preventDefault(); 
     
     const data = new FormData(e.target);
+    data.append("type", "addplayer")
     userJSON = Object.fromEntries(data.entries());
 
+
     //write to server
-       socket.emit('completed form', userJSON
-       );
+       socket.emit('completed form', userJSON);
+       modal.style.display = "none"
 
   
       console.log('user', userJSON);

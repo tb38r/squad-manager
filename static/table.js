@@ -2,12 +2,14 @@ const table = document.querySelector("table");
 const tableHead = table.querySelector("thead");
 const tableBody = table.querySelector("tbody");
 
+
+
 let headers = [
     "Name",
     "Position",
-    "Email",
     "Age",
-    "Contact",
+    "Phone",
+    "Email",
     "Availability",
     "Action",
 ]
@@ -25,9 +27,9 @@ for (const headerText of headers) {
 let user = {
   a:  "N Kanu",
  b:   "Striker",
-   c: "NK@gmail.com",
-    d:"45",
-    e: "0202465285544",
+ c:"45",
+ d: "0202465285544",
+ e: "NK@gmail.com",
     f: "Available",
     g: `<i class="fa-solid fa-bars"></i>`
 
@@ -36,11 +38,11 @@ let user = {
 
 let user2 = {
     a:  "JJ Okocha",
-   b:   "truck",
-     c: "cb",
-      d:"more",
-      e: "eb",
-      f: "dgwgd",
+   b:   "Midfielder",
+   c: "46",
+   d:"01412521454",
+      e: "jj@gmail.com",
+      f: "No",
       g: `<i class="fa-solid fa-bars"></i>`
   
   }
@@ -61,8 +63,7 @@ for (const user of users) {
     <td>${user.g}</td>
     
     </tr>
-    `
-    
+    ` 
 }
 
 
@@ -80,7 +81,6 @@ for (const item of action) {
     
 }
 
-console.log(action);
 
 
 

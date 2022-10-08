@@ -6,7 +6,7 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 var path = require('path');
 const mongoose = require('mongoose')
-const Player = require("./player")
+const Crud = require("./db/crudops")
 
 
 //1QqQCbMG0CbEwFLf
@@ -69,18 +69,8 @@ Notes:{
 }
 }
 
-run(playerObj)
+//Crud.AddPlayer(playerObj)
 
-async function run(playerObj){
-    
-    try{
-        const user = await Player.create(playerObj)
-     console.log('async user', user);
-
-    }catch(e){
-        console.log('error --->', e.message)
-    }
-}
 
 
 
@@ -97,7 +87,9 @@ io.on('connection', (socket) => {
 
     //received from client
     socket.on('completed form', (msg) => {
-      console.log('message: ' , msg);
+      if(msg.type == 'addplayer') Crud.AddPlayer(msg)
+      
+      console.log('received From Client' , msg);
       //response to client
         io.emit('chat message', msg);
 

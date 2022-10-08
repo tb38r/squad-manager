@@ -7,9 +7,9 @@ const mongoose = require('mongoose')
 //query against the db 
 
 const notesSchema= new mongoose.Schema({
-    name:String,
-    position:String,
-    notes: String,
+    Nickname:String,
+    Position:String,
+    Notes: String,
 })
 
 
@@ -25,7 +25,8 @@ const playerSchema = new mongoose.Schema({
     phone: String,
     email: String,
     availability: String,
-    Notes: notesSchema,
+    nickname: String,
+    notes: notesSchema,
 
        
     createdAt :{
