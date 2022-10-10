@@ -83,7 +83,12 @@ app.get('/', (req, res) => {
 
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
+  console.log('a user connected');
+
+  // io.emit('on open', Crud.GetAllPlayers())
+  socket.emit('on open',  Crud.GetAllPlayers())
+
+  
 
     //received from client
     socket.on('completed form', (msg) => {
@@ -91,7 +96,7 @@ io.on('connection', (socket) => {
       
       console.log('received From Client' , msg);
       //response to client
-        io.emit('chat message', msg);
+        socket.emit('chat message', msg);
 
       });
 

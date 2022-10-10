@@ -1,6 +1,22 @@
 const Player = require("../player")
 
 
+
+//returns all players within the db 
+async function GetAllPlayers(){
+    
+    try{
+        const user = await Player.find()
+        console.log(user)
+    return user
+
+    }catch(e){
+        console.log('error adding player --->', e.message)
+    }
+}
+
+
+
 //AddPlayer adds a new player to the db
 async function AddPlayer(playerObj){
     
@@ -13,4 +29,4 @@ async function AddPlayer(playerObj){
     }
 }
 
-module.exports = {AddPlayer}
+module.exports = {AddPlayer, GetAllPlayers}
