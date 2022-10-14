@@ -2,45 +2,45 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
-const { Server } = require("socket.io");
+const { Server } = require('socket.io');
 const io = new Server(server);
 var path = require('path');
-const mongoose = require('mongoose')
-const Crud = require("./db/crudops")
-
+const mongoose = require('mongoose');
+const Crud = require('./db/crudops');
 
 //1QqQCbMG0CbEwFLf
 
-
-
 //Database
-const mongoAtlasURL = 'mongodb+srv://tb38r:1QqQCbMG0CbEwFLf@cluster0.nw2skdu.mongodb.net/squad-manager'
-const database = (module.exports = ()=>{
-const connectionParams ={
-    useNewUrlParser :true,
-    useUnifiedTopology: true,
-}
+const mongoAtlasURL =
+    'mongodb+srv://tb38r:1QqQCbMG0CbEwFLf@cluster0.nw2skdu.mongodb.net/squad-manager';
+const database = (module.exports = () => {
+    const connectionParams = {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    };
 
-try{
-  mongoose.connect (mongoAtlasURL,
-  connectionParams)
-  mongoose.connection.on('connected', ()=>{
-     
-    if(mongoose.connection.readyState != 1){
-      console.log("Error connecting to MongoDb, ready state = ",mongoose.connection.readyState);
-    }else{
-      console.log("Database connected succesfully with a ready state of",mongoose.connection.readyState);
+    try {
+        mongoose.connect(mongoAtlasURL, connectionParams);
+        mongoose.connection.on('connected', () => {
+            if (mongoose.connection.readyState != 1) {
+                console.log(
+                    'Error connecting to MongoDb, ready state = ',
+                    mongoose.connection.readyState
+                );
+            } else {
+                console.log(
+                    'Database connected succesfully with a ready state of',
+                    mongoose.connection.readyState
+                );
+            }
+        });
+    } catch (error) {
+        console.log(error);
+        console.log('Database connection failed');
     }
-  });
-  }catch(error){
-      console.log(error);
-      console.log('Database connection failed');
-}
-})
+});
 
-
-
-database()
+database();
 
 // name :{
 //   type: String,
@@ -53,59 +53,53 @@ database()
 // availability: String,
 // Notes: notesSchema,
 
-
-
 let playerObj = {
-    name: "Tolu", 
-    age:36,
-position: "Defender",
-phone: "02081234567",
-email:"t@hotmail.com",
-availability: "Yes",
-Notes:{
-  name: "T",
-  position: "D",
-  notes: "Versatile defender, can play accross the line"
-}
-}
+    name: 'Tolu',
+    age: 36,
+    position: 'Defender',
+    phone: '02081234567',
+    email: 't@hotmail.com',
+    availability: 'Yes',
+    Notes: {
+        name: 'T',
+        position: 'D',
+        notes: 'Versatile defender, can play accross the line',
+    },
+};
+let allplayers;
 
 //Crud.AddPlayer(playerObj)
-
-
-
-
 
 app.use(express.static(path.join(__dirname, 'static')));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/static'+'/squad.html');
+    Crud.GetAllPlayers()
+        .then((data) => (allplayers = data))
+        .then(res.sendFile(__dirname + '/static' + '/squad.html'));
 });
 
-
 io.on('connection', (socket) => {
-  console.log('a user connected');
+    console.log('a user connected');
 
-  // io.emit('on open', Crud.GetAllPlayers())
-  socket.emit('on open',  Crud.GetAllPlayers())
+    // io.emit('on open', Crud.GetAllPlayers())
+    socket.emit('on open', allplayers);
 
-  
+    //Crud.GetAllPlayers().then(data=> data)
 
     //received from client
     socket.on('completed form', (msg) => {
-      if(msg.type == 'addplayer') Crud.AddPlayer(msg)
-      
-      console.log('received From Client' , msg);
-      //response to client
-        socket.emit('chat message', msg);
+        if (msg.type == 'addplayer') Crud.AddPlayer(msg);
 
-      });
+        console.log('received From Client', msg);
+        //response to client
+        socket.emit('chat message', msg);
+    });
 
     socket.on('disconnect', () => {
         console.log('user disconnected');
-      });
-  });
-  
+    });
+});
 
 server.listen(8080, () => {
-  console.log('listening on *:8080');
+    console.log('listening on *:8080');
 });
