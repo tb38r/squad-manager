@@ -72,6 +72,10 @@ let allplayers;
 
 app.use(express.static(path.join(__dirname, 'static')));
 
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/static" + "/squad.html");
+// });
+
 app.get('/', (req, res) => {
     Crud.GetAllPlayers()
         .then((data) => (allplayers = data))

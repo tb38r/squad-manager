@@ -8,13 +8,9 @@ let socket = io();
 
 //received from server
 socket.on('on open', function(msg) {
-  console.log('received from server')
-
-  console.log(msg)
-
+  console.log('received from server', msg)
 
 });
-
 
 
 
