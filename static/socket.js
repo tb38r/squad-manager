@@ -1,21 +1,11 @@
 
 //client-side implementation
 
-
 //TO DO: serve this file outside this folder
 
-let test = document.getElementById("test")
 
-const fillin =(data)=> test.innerHTML = data[0].name
 
 let socket = io()
-
-const hello=(msg)=> console.log(msg[0].nickname);
-
-
-
-
-
 
 
 
@@ -23,7 +13,7 @@ const hello=(msg)=> console.log(msg[0].nickname);
 socket.on('on open', function(msg) {
   try{
 
-    populatePlayers(msg)
+    populateTableFromDB(msg)
   }
   catch(err){
     console.log('Error parsing data', err);
@@ -51,7 +41,7 @@ socket.on('on open', function(msg) {
        modal.style.display = "none"
 
   
-      console.log('user', userJSON);
+      console.log('new user sent to client', userJSON);
   
       form.reset()
   
@@ -65,8 +55,9 @@ socket.on('on open', function(msg) {
 
 
 //received from server
-socket.on('chat message', function(msg) {
-console.log('received from server', msg );
+socket.on('new player added', function(msg) {
+  addPlayerToTable(msg)
+console.log('new player added from server', msg);
 
  });
 

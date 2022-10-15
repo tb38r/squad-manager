@@ -13,7 +13,7 @@ function GetAllPlayers() {
 async function AddPlayer(playerObj) {
     try {
         const user = await Player.create(playerObj);
-        console.log('async user', user);
+       return user
     } catch (e) {
         console.log('error adding player --->', e.message);
     }

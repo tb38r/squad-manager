@@ -92,11 +92,11 @@ io.on('connection', (socket) => {
 
     //received from client
     socket.on('completed form', (msg) => {
-        if (msg.type == 'addplayer') Crud.AddPlayer(msg);
+        if (msg.type == 'addplayer'){
 
-        console.log('received From Client', msg);
-        //response to client
-        socket.emit('chat message', msg);
+        Crud.AddPlayer(msg);
+        socket.emit('new player added', msg);
+    }
     });
 
     socket.on('disconnect', () => {
