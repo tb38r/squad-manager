@@ -29,51 +29,6 @@ for (const headerText of headers) {
 }
 
 
-let user = {
-  a:  "N Kanu",
- b:   "Striker",
- c:"45",
- d: "0202465285544",
- e: "NK@gmail.com",
-    f: "Available",
-    g: `<i class="fa-solid fa-bars"></i>`
-
-}
-
-
-let user2 = {
-    a:  "JJ Okocha",
-   b:   "Midfielder",
-   c: "46",
-   d:"01412521454",
-      e: "jj@gmail.com",
-      f: "No",
-      g: `<i class="fa-solid fa-bars"></i>`
-  
-  }
-
-let users = [user, user2]
-
-let tableData = "";
-
-
-for (const user of users) {
-    tableData += `<tr>
-    <td>${user.a}</td>
-    <td>${user.b}</td>
-    <td>${user.c}</td>
-    <td>${user.d}</td>
-    <td>${user.e}</td>
-    <td><div id="availability-div">${user.f}</div></td>
-    <td>${user.g}</td>
-    
-    </tr>
-    ` 
-}
-
-
-tableBody.innerHTML = tableData
-
 
 
 
@@ -89,7 +44,30 @@ for (const item of action) {
 
 
 
+const populatePlayers = (data) =>{
 
+    let tableData = "";
+    
+    
+    for (let player of data) {
+        tableData += `<tr>
+        <td>${player.name}</td>
+        <td>${player.position}</td>
+        <td>${player.age}</td>
+        <td>${player.phone}</td>
+        <td>${player.email}</td>
+        <td><div id="availability-div">Yes</div></td>
+        <td>${`<i id=${player.name} class="fa-solid fa-bars"></i>`}</td>
+        
+        </tr>
+        ` 
+    }
+    
+    
+    tableBody.innerHTML = tableData
+  
+  }
+  
 
 
 
