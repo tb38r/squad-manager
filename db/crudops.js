@@ -19,4 +19,34 @@ async function AddPlayer(playerObj) {
     }
 }
 
-module.exports = { AddPlayer, GetAllPlayers };
+
+
+
+//Check if player exists
+async function CheckIfExists(){
+    const findObj = await Player.find({name:{$exists:true, $in:["JJ Okocha"]}}).exec()
+
+
+    if(findObj.length == 0){
+        //Add error message
+        
+        console.log('empty array')
+    }else{
+        //ADD Player function
+        console.log(findObj)
+    }
+
+
+    // const user = await Player.find({name:{$exists:true, $in:[name]}})
+       
+    
+       
+}
+
+
+
+
+
+
+
+module.exports = { AddPlayer, GetAllPlayers, CheckIfExists };

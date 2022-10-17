@@ -85,6 +85,9 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
     console.log('a user connected');
 
+  console.log(Crud.CheckIfExists())
+
+
     // io.emit('on open', Crud.GetAllPlayers())
     socket.emit('on open', allplayers);
 

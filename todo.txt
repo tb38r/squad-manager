@@ -1,0 +1,11 @@
+Check if exists
+
+Error div plus conditions
+
+Delete player functiion
+
+Edit player functiion
+
+Add/Edit Notes
+
+User Image??
