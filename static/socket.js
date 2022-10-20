@@ -37,7 +37,10 @@ socket.on('on open', function(msg) {
 
 
     //write to server
-       socket.emit('completed form', userJSON);
+      // socket.emit('completed form', userJSON);
+
+     
+      
        modal.style.display = "none"
 
   

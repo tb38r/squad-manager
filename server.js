@@ -69,6 +69,7 @@ let playerObj = {
 let allplayers;
 
 //Crud.AddPlayer(playerObj)
+app.use(express.json())  
 
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -80,6 +81,11 @@ app.get('/', (req, res) => {
     Crud.GetAllPlayers()
         .then((data) => (allplayers = data))
         .then(res.sendFile(__dirname + '/static' + '/squad.html'));
+});
+
+app.post('/form', (req, res) => {
+   console.log(req.body)
+   res.json("thanks")
 });
 
 io.on('connection', (socket) => {

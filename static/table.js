@@ -95,6 +95,24 @@ newCell.appendChild(tableData)
 for(const tab of actionTabs){
     tab.addEventListener('click', ()=>{
         console.log('div clicked');
+        let test = {
+            data: "test"
+        }
+        fetch('/form', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(test),
+        })
+            .then(async (response) => {
+                resp = await response.json();
+                return resp;
+            })
+            .then((resp) => {
+    console.log("hey", resp)
+            });
         document.getElementById('playerprofile').style.display = 'block'
     })
 }
