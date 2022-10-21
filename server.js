@@ -85,7 +85,10 @@ app.get('/', (req, res) => {
 
 app.post('/form', (req, res) => {
    console.log(req.body)
-   res.json("thanks")
+    Crud.CheckIfExists(req.body.name).then(data=>{
+        res.json(data)
+    })
+  
 });
 
 io.on('connection', (socket) => {

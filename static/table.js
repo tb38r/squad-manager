@@ -1,7 +1,7 @@
 const table = document.querySelector("table");
 const tableHead = table.querySelector("thead");
 const tableBody = table.querySelector("tbody");
-const actionTabs = document.getElementsByClassName('fa-solid')
+const actionTabs = document.getElementsByClassName('fa-solid fa-bars')
 
 
 
@@ -58,7 +58,7 @@ const populateTableFromDB = (data) =>{
       <td>${player.phone}</td>
       <td>${player.email}</td>
       <td><div id="availability-div">Yes</div></td>
-      <td>${`<i class="fa-solid fa-bars" id=${player.name}</i>`}</td>
+      <td onclick="FindPlayer('${player.name}')">${`<i class="fa-solid fa-bars" id=${player.name}></i>`}</td>
       
       </tr>
       ` 
@@ -80,7 +80,7 @@ const addPlayerToTable = (data) =>{
     <td>${data.phone}</td>
     <td>${data.email}</td>
     <td><div id="availability-div">Yes</div></td>
-    <td>${`<i class="fa-solid fa-bars" id=${data.name}</i>`}</td>
+    <td" >${`<i class="fa-solid fa-bars" id=${data.name} ></i>`} </td>
     
     </tr>
     ` 
@@ -91,28 +91,38 @@ newCell.appendChild(tableData)
 
 }
 
+const FindPlayer = (name)=> {
+    
+    fetch('/form', {
+        method: 'Post',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"name": name})
+    })
+        .then(async (response) => {
+            resp = await response.json();
+            return resp;
+        })
+        .then((resp) => {
+
+
+
+console.log("hey", resp)
+        });
+}
+
 
 for(const tab of actionTabs){
+
+console.log("tab", tab)
     tab.addEventListener('click', ()=>{
         console.log('div clicked');
         let test = {
             data: "test"
         }
-        fetch('/form', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(test),
-        })
-            .then(async (response) => {
-                resp = await response.json();
-                return resp;
-            })
-            .then((resp) => {
-    console.log("hey", resp)
-            });
+      
         document.getElementById('playerprofile').style.display = 'block'
     })
 }
@@ -120,7 +130,7 @@ for(const tab of actionTabs){
 
 
 
-
+console.log(actionTabs)
 
 
 
