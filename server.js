@@ -84,9 +84,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/addplayer', (req, res) => {
-   console.log(req.body)
-    Crud.CheckIfExists(req.body.name).then(data=>{
-        res.json(data)
+   console.log('recieved from client NewEntry()' ,req.body)
+    Crud.CheckIfExists(req.body.name)
+    .then(data=>{
+        if(data){res.json('Player already exists, please edit existing user')}else{
+            Crud.AddPlayer()
+        }
     })
   
 });
@@ -97,16 +100,16 @@ io.on('connection', (socket) => {
     console.log('a user connected');
 
 
-    // io.emit('on open', Crud.GetAllPlayers())
     socket.emit('on open', allplayers);
 
-    //Crud.GetAllPlayers().then(data=> data)
 
     //received from client
     socket.on('completed form', (msg) => {
         if (msg.type == 'addplayer'){
 
-        Crud.AddPlayer(msg);
+        Crud.CheckIfExists(msg.name)
+        .then((resp)=>console.log('server check if player exits', resp))
+
         socket.emit('new player added', msg);
     }
     });

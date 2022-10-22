@@ -96,7 +96,8 @@ newCell.appendChild(tableData)
 
 }
 
-const FindPlayer = (name)=> {
+//sends a new user entry to the server
+const NewEntry= (obj)=> {
     
     fetch('/addplayer', {
         method: 'Post',
@@ -104,7 +105,7 @@ const FindPlayer = (name)=> {
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({"name": name})
+        body: JSON.stringify(obj)
     })
         .then(async (response) => {
             resp = await response.json();
@@ -119,6 +120,7 @@ console.log("Player exists boolean --->", resp)
 
 
 
+// module.exports = { NewEntry};
 
 
 

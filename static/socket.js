@@ -6,6 +6,8 @@
 
 
 let socket = io()
+//const Table = require('./table');
+
 
 
 
@@ -33,19 +35,20 @@ socket.on('on open', function(msg) {
     
     const data = new FormData(e.target);
     data.append("type", "addplayer")
-    userJSON = Object.fromEntries(data.entries());
+
+userJSON = Object.fromEntries(data.entries());
+userJSON.name = (userJSON.name).trim()
+
+//Post to server
+NewEntry(userJSON)
 
 
-    //write to server
-    socket.emit('completed form', userJSON
-    );
-
-
-
+    // //write to server
+    // socket.emit('completed form', userJSON
+    // );
      
        modal.style.display = "none"
 
-  
       console.log('new user sent to client', userJSON);
   
       form.reset()
