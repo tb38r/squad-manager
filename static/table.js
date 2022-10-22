@@ -51,6 +51,9 @@ const populateTableFromDB = (data) =>{
 
     }
 
+
+
+
     
     tableData += `<tr>
       
@@ -70,29 +73,54 @@ const populateTableFromDB = (data) =>{
 
   
   
-  tableBody.innerHTML = tableData
+  tableBody.innerHTML += tableData
 
 }
 
 const addPlayerToTable = (data) =>{
-    let newRow = table.insertRow(-1);
-
-
-    tableData += `<tr>
-    <td>${data.name}</td>
-    <td>${data.position}</td>
-    <td>${data.age}</td>
-    <td>${data.phone}</td>
-    <td>${data.email}</td>
-    <td><div id="availability-div">Yes</div></td>
-    <td" >${`<i class="fa-solid fa-bars" id=${data.name} ></i>`} </td>
+    let tableData = "";
+    let  firstname 
+    let lastname
+    console.log('data from addfn', data);
     
-    </tr>
-    ` 
-    let newCell = newRow.insertCell(0);
+    
 
-newCell.appendChild(tableData)
+      if((data.name).includes(" ")){
+  
+          firstname = (data.name).split(" ")[0] 
+          lastname = (data.name).split(" ")[1] 
+  
+      }else{
+          firstname = data.name
+       lastname = ""
+      }
+      
 
+          // Insert a row at the end of the table
+  let newRow = table.insertRow()
+  namecell = newRow.insertCell(0).innerHTML = 'hello'
+  positioncell = newRow.insertCell(1).innerHTML = 'world'
+ 
+    // tableData += `<tr>
+      
+    //   <td>${data.name}</td>
+    //   <td>${data.position}</td>
+    //   <td>${data.age}</td>
+    //   <td>${data.phone}</td>
+    //   <td>${data.email}</td>
+    //   <td><div id="availability-div">Yes</div></td>
+    //   <td>${`<i class="fa-solid fa-bars" firstname=${firstname} lastname= ${lastname}></i>`}</td>
+      
+    //   </tr>
+    //   ` 
+  
+
+  //      <td onclick="FindPlayer('${player.name}')">${`<i class="fa-solid fa-bars" id=${player.name}></i>`}</td>
+
+  
+  //tableBody.innerHTML = tableData
+
+console.log('successfully added to table', data);
 
 }
 
@@ -111,10 +139,14 @@ const NewEntry= (obj)=> {
             resp = await response.json();
             return resp;
         })
-        .then((resp) => {
-            if(resp) console.log('hello');
-
+        .then((data) => {
+            if(data.msg === 'player added to DB'){
+                console.log('success', resp);
+         addPlayerToTable(data.resp)
+                return
+            }
 console.log("Player exists boolean --->", resp)
+return
         });
 }
 

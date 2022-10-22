@@ -84,11 +84,15 @@ app.get('/', (req, res) => {
 });
 
 app.post('/addplayer', (req, res) => {
-   console.log('recieved from client NewEntry()' ,req.body)
     Crud.CheckIfExists(req.body.name)
     .then(data=>{
         if(data){res.json('Player already exists, please edit existing user')}else{
-            Crud.AddPlayer()
+            Crud.AddPlayer(req.body)
+            .then(data=>{
+                res.json({resp: data,
+                    msg: 'player added to DB'})
+            })
+        
         }
     })
   
