@@ -83,7 +83,7 @@ app.get('/', (req, res) => {
         .then(res.sendFile(__dirname + '/static' + '/squad.html'));
 });
 
-app.post('/form', (req, res) => {
+app.post('/addplayer', (req, res) => {
    console.log(req.body)
     Crud.CheckIfExists(req.body.name).then(data=>{
         res.json(data)
@@ -91,10 +91,10 @@ app.post('/form', (req, res) => {
   
 });
 
+
+
 io.on('connection', (socket) => {
     console.log('a user connected');
-
-  console.log(Crud.CheckIfExists())
 
 
     // io.emit('on open', Crud.GetAllPlayers())

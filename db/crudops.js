@@ -26,23 +26,14 @@ async function AddPlayer(playerObj) {
 async function CheckIfExists(name){
     const findObj = await Player.find({name:{$exists:true, $in:[name]}}).exec()
 
-
     if(findObj.length == 0){
-        //Add error message
+        return false
         
-        console.log('empty array')
-    }else{
-        //ADD Player function
-        console.log(findObj)
-
     }
-
-    return findObj
+    return true
 
     // const user = await Player.find({name:{$exists:true, $in:[name]}})
-       
-    
-       
+        
 }
 
 

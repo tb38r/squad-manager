@@ -32,37 +32,42 @@ for (const headerText of headers) {
 
 
 
-
-const action = document.getElementsByClassName('fa-solid fa-bars')
-
-for (const item of action) {
-    item.onclick =()=>{
-        console.log('hi');
-    }
-    
-}
-
-
-
-
 const populateTableFromDB = (data) =>{
 
   let tableData = "";
+  let  firstname 
+  let lastname
   
   
   for (let player of data) {
-      tableData += `<tr>
+    if((player.name).includes(" ")){
+
+        firstname = (player.name).split(" ")[0] 
+        lastname = (player.name).split(" ")[1] 
+
+    }else{
+        firstname = player.name
+     lastname = ""
+
+    }
+
+    
+    tableData += `<tr>
+      
       <td>${player.name}</td>
       <td>${player.position}</td>
       <td>${player.age}</td>
       <td>${player.phone}</td>
       <td>${player.email}</td>
       <td><div id="availability-div">Yes</div></td>
-      <td onclick="FindPlayer('${player.name}')">${`<i class="fa-solid fa-bars" id=${player.name}></i>`}</td>
+      <td>${`<i class="fa-solid fa-bars" firstname=${firstname} lastname= ${lastname}></i>`}</td>
       
       </tr>
       ` 
   }
+
+  //      <td onclick="FindPlayer('${player.name}')">${`<i class="fa-solid fa-bars" id=${player.name}></i>`}</td>
+
   
   
   tableBody.innerHTML = tableData
@@ -93,7 +98,7 @@ newCell.appendChild(tableData)
 
 const FindPlayer = (name)=> {
     
-    fetch('/form', {
+    fetch('/addplayer', {
         method: 'Post',
         headers: {
             Accept: 'application/json',
@@ -106,31 +111,33 @@ const FindPlayer = (name)=> {
             return resp;
         })
         .then((resp) => {
+            if(resp) console.log('hello');
 
-
-
-console.log("hey", resp)
+console.log("Player exists boolean --->", resp)
         });
 }
 
 
-for(const tab of actionTabs){
 
-console.log("tab", tab)
-    tab.addEventListener('click', ()=>{
-        console.log('div clicked');
-        let test = {
-            data: "test"
-        }
+
+
+
+// for(const tab of actionTabs){
+
+// console.log("tab", tab)
+//     tab.addEventListener('click', ()=>{
+//         console.log('div clicked');
+//         let test = {
+//             data: "test"
+//         }
       
-        document.getElementById('playerprofile').style.display = 'block'
-    })
-}
+//         document.getElementById('playerprofile').style.display = 'block'
+//     })
+// }
 
 
 
 
-console.log(actionTabs)
 
 
 
