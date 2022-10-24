@@ -123,6 +123,7 @@ const addPlayerToTable = (data) =>{
 console.log('successfully added to table', data);
 
 }
+//hello
 
 //sends a new user entry to the server
 const NewEntry= (obj)=> {
