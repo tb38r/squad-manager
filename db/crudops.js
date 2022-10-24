@@ -32,7 +32,6 @@ async function CheckIfExists(name){
     }
     return true
 
-    // const user = await Player.find({name:{$exists:true, $in:[name]}})
         
 }
 

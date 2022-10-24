@@ -34,6 +34,7 @@ socket.on('on open', function(msg) {
     e.preventDefault(); 
     
     const data = new FormData(e.target);
+    data.append("availability", "Y")
     data.append("type", "addplayer")
 
 userJSON = Object.fromEntries(data.entries());

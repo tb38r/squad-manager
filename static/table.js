@@ -62,7 +62,7 @@ const populateTableFromDB = (data) =>{
       <td>${player.age}</td>
       <td>${player.phone}</td>
       <td>${player.email}</td>
-      <td><div id="availability-div">Yes</div></td>
+      <td><div id="availability-div">${player.availability}</div></td>
       <td>${`<i class="fa-solid fa-bars" firstname=${firstname} lastname= ${lastname}></i>`}</td>
       
       </tr>
@@ -81,7 +81,7 @@ const addPlayerToTable = (data) =>{
     let tableData = "";
     let  firstname 
     let lastname
-    console.log('data from addfn', data);
+    console.log('data from addPlayerToTablefn', data);
     
     
 
@@ -98,8 +98,17 @@ const addPlayerToTable = (data) =>{
 
           // Insert a row at the end of the table
   let newRow = table.insertRow()
-  namecell = newRow.insertCell(0).innerHTML = 'hello'
-  positioncell = newRow.insertCell(1).innerHTML = 'world'
+  nameCell = newRow.insertCell(0).innerHTML = data.name
+  positionCell = newRow.insertCell(1).innerHTML = data.position
+  ageCell = newRow.insertCell(2).innerHTML = data.age
+  phoneCell = newRow.insertCell(3).innerHTML = data.phone
+  emailCell = newRow.insertCell(4).innerHTML = data.email
+availabilityCell = newRow.insertCell(5).innerHTML = data.availability
+actionCell = newRow.insertCell(6).innerHTML = `<i class="fa-solid fa-bars" firstname=${firstname} lastname= ${lastname}></i>`
+
+
+
+
  
     // tableData += `<tr>
       
@@ -122,9 +131,9 @@ const addPlayerToTable = (data) =>{
 
 console.log('successfully added to table', data);
 
-}
-//hello
 
+//hello
+    }
 //sends a new user entry to the server
 const NewEntry= (obj)=> {
     
@@ -142,7 +151,9 @@ const NewEntry= (obj)=> {
         })
         .then((data) => {
             if(data.msg === 'player added to DB'){
-                console.log('success', resp);
+                console.log('success adding player to db', resp);
+
+                //returned from the server
          addPlayerToTable(data.resp)
                 return
             }

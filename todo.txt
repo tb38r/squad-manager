@@ -1,11 +1,17 @@
-Check if exists
 
 Error div plus conditions
 
 Delete player functiion
 
-Edit player functiion
+Edit player function
 
 Add/Edit Notes
 
 User Image??
+
+
+
+
+//todo 
+Change input to dropdown 
+Dropdown on action click 
