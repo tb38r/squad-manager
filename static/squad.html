@@ -103,9 +103,6 @@
     
         </div>
           </div>
-    
-      
-
 
 
     
@@ -147,6 +144,34 @@ addUserButton.onclick = function() {
 <script src="/socket.io/socket.io.js"></script>
 <script src="./table.js"></script>
 <script src="./socket.js"></script>
+
+<script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction(user) {
+        console.log('print??', user);
+        console.log( user.classList);
+      user.classList.toggle("show");
+     // user.style.display = 'block'
+    }
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        
+        console.log('etarget---', event.target);
+
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+    </script>
 
 </body>
 

@@ -51,8 +51,16 @@ const populateTableFromDB = (data) =>{
 
     }
 
+    
 
-
+{/* <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div> */}
 
     
     tableData += `<tr>
@@ -63,7 +71,16 @@ const populateTableFromDB = (data) =>{
       <td>${player.phone}</td>
       <td>${player.email}</td>
       <td><div id="availability-div">${player.availability}</div></td>
-      <td>${`<i class="fa-solid fa-bars" firstname=${firstname} lastname= ${lastname}></i>`}</td>
+      <td >${`<div onclick="myFunction(${firstname}Dropdown)"  class="dropdown">
+      <div id="${firstname}Dropdown" class="dropdown-content">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+      
+      
+      <i class="fa-solid fa-bars" firstname=${firstname} lastname= ${lastname} ></i>  </div>
+      `}</td>
       
       </tr>
       ` 
@@ -76,6 +93,8 @@ const populateTableFromDB = (data) =>{
   tableBody.innerHTML += tableData
 
 }
+
+const PrintPlayer= (a)=> console.log(a)
 
 const addPlayerToTable = (data) =>{
     let tableData = "";
