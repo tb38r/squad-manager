@@ -60,13 +60,24 @@ NewEntry(userJSON)
 
 
 
-
-
-
 //received from server
 socket.on('new player added', function(msg) {
   addPlayerToTable(msg)
 console.log('new player added from server', msg);
 
  });
+
+
+
+
+const DeletePlayer =(parentnode) => {
+  let first = parentnode.getAttribute('firstname');
+  let last = parentnode.getAttribute('lastname');
+
+  let playerToDelete = (first + " "+ last)
+console.log(playerToDelete);
+
+}
+
+
 

@@ -12,8 +12,6 @@ User Image??
 
 
 
-//todo 
-Change input to dropdown 
-Dropdown on action click 
 
-last: print on click, refactor function for popup
+
+last: continue delete functionality

@@ -6,10 +6,6 @@ const actionTabs = document.getElementsByClassName('fa-solid fa-bars')
 
 
 
-
-
-
-
 let headers = [
     "Name",
     "Position",
@@ -52,16 +48,6 @@ const populateTableFromDB = (data) =>{
     }
 
     
-
-{/* <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</div> */}
-
     
     tableData += `<tr>
       
@@ -73,9 +59,9 @@ const populateTableFromDB = (data) =>{
       <td><div id="availability-div">${player.availability}</div></td>
       <td >${`<div onclick="displayDropdown(${firstname}Dropdown)"  class="dropdown">
       <div id="${firstname}Dropdown" class="dropdown-content" firstname=${firstname} lastname= ${lastname}>
-      <a href="#profile" value="profile">Profile</a>
-      <a href="#edit" value ="edit">Edit</a>
-      <a href="#delete" value= "delete">Delete</a>
+      <a class="dropdown-options"value="profile">Profile</a>
+      <a class="dropdown-options"value ="edit">Edit</a>
+      <a onclick="DeletePlayer(this.parentNode)" value= "delete" style="color:red;" >Delete</a>
     </div>
       
       
@@ -94,7 +80,10 @@ const populateTableFromDB = (data) =>{
 
 }
 
-const PrintPlayer= (a)=> console.log(a)
+
+
+
+
 
 const addPlayerToTable = (data) =>{
     let tableData = "";
@@ -127,31 +116,10 @@ actionCell = newRow.insertCell(6).innerHTML = `<i class="fa-solid fa-bars" first
 
 
 
-
- 
-    // tableData += `<tr>
-      
-    //   <td>${data.name}</td>
-    //   <td>${data.position}</td>
-    //   <td>${data.age}</td>
-    //   <td>${data.phone}</td>
-    //   <td>${data.email}</td>
-    //   <td><div id="availability-div">Yes</div></td>
-    //   <td>${`<i class="fa-solid fa-bars" firstname=${firstname} lastname= ${lastname}></i>`}</td>
-      
-    //   </tr>
-    //   ` 
-  
-
-  //      <td onclick="FindPlayer('${player.name}')">${`<i class="fa-solid fa-bars" id=${player.name}></i>`}</td>
-
-  
-  //tableBody.innerHTML = tableData
-
 console.log('successfully added to table', data);
 
 
-//hello
+
     }
 //sends a new user entry to the server
 const NewEntry= (obj)=> {
@@ -187,18 +155,6 @@ return
 
 
 
-// for(const tab of actionTabs){
-
-// console.log("tab", tab)
-//     tab.addEventListener('click', ()=>{
-//         console.log('div clicked');
-//         let test = {
-//             data: "test"
-//         }
-      
-//         document.getElementById('playerprofile').style.display = 'block'
-//     })
-// }
 
 
 
@@ -206,16 +162,3 @@ return
 
 
 
-
-
-
-// <table id="table">
-// <thead></thead>
-// <tbody id="tbody" style="text-align: center"></tbody>
-// </table>
-// <button id="prevButton">Previous</button>
-// <button id="nextButton">Next</button>
-
-
-
-// </table> 

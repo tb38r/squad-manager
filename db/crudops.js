@@ -21,7 +21,6 @@ async function AddPlayer(playerObj) {
 
 
 
-
 //Check if player exists
 async function CheckIfExists(name){
     const findObj = await Player.find({name:{$exists:true, $in:[name]}}).exec()
@@ -31,8 +30,20 @@ async function CheckIfExists(name){
         
     }
     return true
-
         
+}
+
+
+//Deletes a player from the database
+async function DeletePlayer(name){
+ try{
+
+    const findObj = await Player.deleteOne({name:{name}})
+    return findObj
+ }catch(e){
+    console.log('error deleting player--->', name);
+ }   
+
 }
 
 
@@ -41,4 +52,4 @@ async function CheckIfExists(name){
 
 
 
-module.exports = { AddPlayer, GetAllPlayers, CheckIfExists };
+module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer};
