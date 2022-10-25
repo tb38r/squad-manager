@@ -72,10 +72,10 @@ const populateTableFromDB = (data) =>{
       <td>${player.email}</td>
       <td><div id="availability-div">${player.availability}</div></td>
       <td >${`<div onclick="displayDropdown(${firstname}Dropdown)"  class="dropdown">
-      <div id="${firstname}Dropdown" class="dropdown-content">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <div id="${firstname}Dropdown" class="dropdown-content" firstname=${firstname} lastname= ${lastname}>
+      <a href="#profile" value="profile">Profile</a>
+      <a href="#edit" value ="edit">Edit</a>
+      <a href="#delete" value= "delete">Delete</a>
     </div>
       
       
