@@ -148,19 +148,29 @@ addUserButton.onclick = function() {
 <script>
     /* When the user clicks on the button, 
     toggle between hiding and showing the dropdown content */
-    function myFunction(user) {
+    function displayDropdown(user) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
         console.log('print??', user);
-        console.log( user.classList);
+        console.log( 'classlist print', user.classList);
       user.classList.toggle("show");
-     // user.style.display = 'block'
+    // user.style.display = 'block'
     }
     
+
     // Close the dropdown if the user clicks outside of it
     window.onclick = function(event) {
         
         console.log('etarget---', event.target);
+        if(event.target.matches('.fa-solid.fa-bars')) console.log('sucess!');
 
-      if (!event.target.matches('.dropbtn')) {
+      if (!event.target.matches('.fa-solid.fa-bars')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {

@@ -71,7 +71,7 @@ const populateTableFromDB = (data) =>{
       <td>${player.phone}</td>
       <td>${player.email}</td>
       <td><div id="availability-div">${player.availability}</div></td>
-      <td >${`<div onclick="myFunction(${firstname}Dropdown)"  class="dropdown">
+      <td >${`<div onclick="displayDropdown(${firstname}Dropdown)"  class="dropdown">
       <div id="${firstname}Dropdown" class="dropdown-content">
       <a href="#home">Home</a>
       <a href="#about">About</a>
