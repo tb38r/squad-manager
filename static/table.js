@@ -118,9 +118,10 @@ actionCell = newRow.insertCell(6).innerHTML = `<i class="fa-solid fa-bars" first
 
 console.log('successfully added to table', data);
 
-
-
     }
+
+    
+
 //sends a new user entry to the server
 const NewEntry= (obj)=> {
     
