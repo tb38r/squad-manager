@@ -14,4 +14,11 @@ User Image??
 
 
 
-last: continue delete functionality
+Add AlphanumericSpce check to username inputs
+https://stackoverflow.com/questions/388996/regex-for-javascript-to-allow-only-alphanumeric
+
+
+
+ERROR DIVS
+Player exists boolean ---> Player already exists, please edit existing user
+DeletePlayer -  if(data.resp.acknowledged == "true"){

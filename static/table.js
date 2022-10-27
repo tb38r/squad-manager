@@ -122,37 +122,8 @@ console.log('successfully added to table', data);
 
     
 
-//sends a new user entry to the server
-const NewEntry= (obj)=> {
-    
-    fetch('/addplayer', {
-        method: 'Post',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(obj)
-    })
-        .then(async (response) => {
-            resp = await response.json();
-            return resp;
-        })
-        .then((data) => {
-            if(data.msg === 'player added to DB'){
-                console.log('success adding player to db', resp);
-
-                //returned from the server
-         addPlayerToTable(data.resp)
-                return
-            }
-console.log("Player exists boolean --->", resp)
-return
-        });
-}
 
 
-
-// module.exports = { NewEntry};
 
 
 

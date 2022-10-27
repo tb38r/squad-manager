@@ -41,7 +41,7 @@ userJSON = Object.fromEntries(data.entries());
 userJSON.name = (userJSON.name).trim()
 
 //Post to server
-NewEntry(userJSON)
+AddPlayerToDB(userJSON)
 
 
     // //write to server
@@ -68,16 +68,6 @@ console.log('new player added from server', msg);
  });
 
 
-
-
-const DeletePlayer =(parentnode) => {
-  let first = parentnode.getAttribute('firstname');
-  let last = parentnode.getAttribute('lastname');
-
-  let playerToDelete = (first + " "+ last)
-console.log(playerToDelete);
-
-}
 
 
 

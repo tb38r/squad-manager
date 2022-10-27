@@ -35,13 +35,14 @@ async function CheckIfExists(name){
 
 
 //Deletes a player from the database
-async function DeletePlayer(name){
+async function DeletePlayer(obj){
  try{
 
-    const findObj = await Player.deleteOne({name:{name}})
+    const findObj = await Player.deleteOne(obj)
     return findObj
  }catch(e){
     console.log('error deleting player--->', name);
+    console.log(e)
  }   
 
 }

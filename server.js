@@ -7,6 +7,7 @@ const io = new Server(server);
 var path = require('path');
 const mongoose = require('mongoose');
 const Crud = require('./db/crudops');
+const { resolveSoa } = require('dns');
 
 //1QqQCbMG0CbEwFLf
 
@@ -97,6 +98,18 @@ app.post('/addplayer', (req, res) => {
     })
   
 });
+
+app.post('/deleteplayer', (req, res) => {
+    Crud.DeletePlayer(req.body)
+    .then((data)=>{
+        res.json({resp: data,
+            msg: 'player deleted'})
+    })
+
+});
+
+
+
 
 
 
