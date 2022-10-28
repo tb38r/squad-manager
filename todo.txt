@@ -17,8 +17,10 @@ User Image??
 Add AlphanumericSpce check to username inputs
 https://stackoverflow.com/questions/388996/regex-for-javascript-to-allow-only-alphanumeric
 
+CHANGE AVAILABLE FROM GREEN TO YELLOW
 
 
-ERROR DIVS
-Player exists boolean ---> Player already exists, please edit existing user
-DeletePlayer -  if(data.resp.acknowledged == "true"){
+
+PIVOT FROM SOCKETS TO SOLELY HTTP REQs
+
+

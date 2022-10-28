@@ -87,7 +87,9 @@ app.get('/', (req, res) => {
 app.post('/addplayer', (req, res) => {
     Crud.CheckIfExists(req.body.name)
     .then(data=>{
-        if(data){res.json('Player already exists, please edit existing user')}else{
+        if(data){res.json({msg:'Player already exists, please edit existing user',
+    resp:req.body.name
+    })}else{
             Crud.AddPlayer(req.body)
             .then(data=>{
                 res.json({resp: data,
@@ -103,7 +105,8 @@ app.post('/deleteplayer', (req, res) => {
     Crud.DeletePlayer(req.body)
     .then((data)=>{
         res.json({resp: data,
-            msg: 'player deleted'})
+            msg: 'player deleted', 
+        name:req.body.name})
     })
 
 });

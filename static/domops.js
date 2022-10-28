@@ -14,16 +14,13 @@ const AddPlayerToDB= (obj)=> {
             return resp;
         })
         .then((data) => {
+   
             if(data.msg === 'player added to DB'){
-                console.log('success adding player to db', resp);
-
-                //returned from the server
-                window.location.reload()
-         //addPlayerToTable(data.resp)
+                displaySuccessMessage(`${data.resp.name} has been added to the database!`)
                 return
             }
-console.log("Player exists boolean --->", resp)
-return
+           displayErrorMessage(`${data.resp} is already in the database!`, 2000)
+            return
         });
 }
 
@@ -35,7 +32,7 @@ const DeletePlayer =(parentnode) => {
     let last = parentnode.getAttribute('lastname');
   
     let playerToDelete = (first + " "+ last)
-  console.log(playerToDelete);
+
 
    
   fetch('/deleteplayer', {
@@ -51,14 +48,10 @@ const DeletePlayer =(parentnode) => {
         return resp;
     })
     .then((data) => {
-        console.log('DATA.RESP', data.resp.acknowledged );
-        
+     
         //TO ADD ERROR DIV LOGIC
         if(data.resp.acknowledged == true){
-            //console.log("PLAYER DELETED!")
-            console.log('returned data post delete', data);
-            
-            window.location.reload()
+            displayErrorMessage(`${data.name} has been removed from the database!`, 2000)
 
             return
         }else{
@@ -70,8 +63,31 @@ const DeletePlayer =(parentnode) => {
   }
   
 
+  const displaySuccessMessage=(message)=>{
+      let successdiv = document.getElementById('successmessage')
+      successdiv.innerText = message
+      successdiv.style.display = 'block'
+      setTimeout(()=>{
+        successdiv.style.display = 'none'
+        window.location.reload()
+    }, 2000)
+
+  }
 
 
+
+
+  const displayErrorMessage=(message, delay)=>{
+    let errordiv = document.getElementById('errormessage')
+    errordiv.innerText = message
+    errordiv.style.display = 'block'
+    setTimeout(()=>{
+        errordiv.style.display = 'none'
+     window.location.reload()
+
+  }, delay)
+
+}
 
 
 

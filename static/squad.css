@@ -27,6 +27,38 @@ body {
   
   }
 
+  #errormessage{
+    position: absolute;
+    border: 2px solid whitesmoke;
+    width: 75%;
+    height: 3%;
+    display: none;
+    left: 12.3%;
+    top: 22%;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+  
+
+
+#successmessage{
+  position: absolute;
+  border: 2px solid whitesmoke;
+  width: 75%;
+  height: 3%;
+  display: none;
+  left: 12.3%;
+  top: 22%;
+  color: blue;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+
 
   /* The Modal (background) */
 .modal {
