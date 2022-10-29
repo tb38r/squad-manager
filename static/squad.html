@@ -156,10 +156,18 @@ addUserIcon.onclick = function() {
 
 //close modal on mouseclick outside body 
     document.addEventListener('click', (e)=>{
-      console.log('oyside modal ----', e.target);
     if(e.target == addPlayerModal) addPlayerModal.style.display = "none"
 
     if(e.target == userProfileModal) userProfileModal.style.display = "none"
+
+    if(e.target.classList[0]==='tableHeader'){
+     
+      //pass the id to a function that returns the data by ascending or descending 
+
+     // populateByAscending(e.target.id)
+      
+     console.log(e.target.id);
+    }
 
       
     })

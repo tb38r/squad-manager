@@ -202,6 +202,11 @@ cursor: pointer;
 }
 
 
+.tableHeader{
+  cursor: pointer;
+
+}
+
 /* Dropdown  */
 
 .dropbtn:hover, .dropbtn:focus {

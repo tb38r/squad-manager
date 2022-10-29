@@ -21,6 +21,8 @@ tableBody.innerHTML = "";
 
 for (const headerText of headers) {
     const headerElement = document.createElement("th");
+    headerElement.classList = 'tableHeader'
+    headerElement.id = headerText
     headerElement.textContent = headerText;
     tableHead.querySelector("tr").appendChild(headerElement);
 }
@@ -51,7 +53,7 @@ const populateTableFromDB = (data) =>{
     
     tableData += `<tr>
       
-      <td>${player.name}</td>
+      <td >${player.name}</td>
       <td>${player.position}</td>
       <td>${player.age}</td>
       <td>${player.phone}</td>
