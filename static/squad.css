@@ -101,9 +101,7 @@ body {
 /* Modal Header */
 .modal-header {
   padding: 1px 16px;
-  background-color: #92b5c7;
-  color: white;
-  text-align: center;
+ 
 }
 
 /*Modal-Submit-Button*/
@@ -116,6 +114,8 @@ body {
   border: none;
 
 }
+
+
 
 input, textarea, select {
   border: solid 1px #ccc;
@@ -139,7 +139,42 @@ input, textarea, select {
 }
 
 
+/*User profile modal */
 
+#profile-modal-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  /* background-color: #92b5c7; */
+
+}
+
+#profile-name{
+  /* width: 70%; */
+  background-color: #92b5c7;
+  color: white;
+  text-align: center;
+}
+
+#profile-position{
+  /* width: 80%; */
+  background-color: #92b5c7;
+  color: white;
+  text-align: center;
+}
+
+#editProfileButton{
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  background-color: #92b5c7;
+  color: white;
+  border: none;
+}
+
+#profile-model-content{
+  height: 35%;
+}
 
 #table  tr:nth-child(even){background-color: rgb(218, 225, 236)}
 

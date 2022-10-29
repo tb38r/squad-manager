@@ -24,3 +24,6 @@ CHANGE AVAILABLE FROM GREEN TO YELLOW
 PIVOT FROM SOCKETS TO SOLELY HTTP REQs
 
 
+Modals fixed and perfectly centred
+
+

@@ -59,7 +59,7 @@ const populateTableFromDB = (data) =>{
       <td><div id="availability-div">${player.availability}</div></td>
       <td >${`<div onclick="displayDropdown(${firstname}Dropdown)"  class="dropdown">
       <div id="${firstname}Dropdown" class="dropdown-content" firstname=${firstname} lastname= ${lastname}>
-      <a class="dropdown-options"value="profile">Profile</a>
+      <a onclick="showPlayerModal()" class="dropdown-options"value="profile">Profile</a>
       <a class="dropdown-options"value ="edit">Edit</a>
       <a onclick="DeletePlayer(this.parentNode)" value= "delete" style="color:red;" >Delete</a>
     </div>
@@ -80,7 +80,7 @@ const populateTableFromDB = (data) =>{
 
 }
 
-
+const showPlayerModal = () => userProfileModal.style.display = 'block'
 
 
 

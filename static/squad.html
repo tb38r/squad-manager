@@ -16,7 +16,7 @@
 <div id="errormessage"></div>
 <div id="successmessage"></div>
 
-    <div id="myModal" class="modal" >
+    <div id="addPlayerModal" class="modal" >
 
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -75,6 +75,26 @@
       </div>
 
 
+
+      <div id="userProfileModal" class="modal" >
+
+        <div class="modal-content" id="profile-model-content">
+            <span class="close">&times;</span>
+            <div class="modal-header" id = "profile-modal-header">
+               <h3><div id= "profile-name">ADD USER</div></h3> 
+                <h3><div id="profile-position">MF</div></h3>
+        </div>     
+
+
+    
+
+            <input type="submit" id= "editProfileButton" value= "EDIT"></button>
+        
+
+    </div>
+      </div>
+
+
     <i class="fa-solid fa-user fa-5x" id= "addUserBtn"></i>
 
 
@@ -113,8 +133,10 @@
     <script>
 
 
-const modal = document.getElementById("myModal");
-const addUserButton = document.getElementById('addUserBtn')
+const addPlayerModal = document.getElementById("addPlayerModal");
+const addUserIcon = document.getElementById('addUserBtn')
+
+const userProfileModal = document.getElementById('userProfileModal')
 const span = document.getElementsByClassName("close")[0];
 const formButton = document.getElementById("formButton")
 const form  = document.getElementById('addUserForm');
@@ -123,18 +145,22 @@ let userJSON
 
 
 // When the user clicks on the button, open the modal
-addUserButton.onclick = function() {
-  modal.style.display = "block";
+addUserIcon.onclick = function() {
+  addPlayerModal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
-  modal.style.display = "none";
+      addPlayerModal.style.display = "none";
 }
 
 //close modal on mouseclick outside body 
     document.addEventListener('click', (e)=>{
-    if(e.target == modal) modal.style.display = "none"
+      console.log('oyside modal ----', e.target);
+    if(e.target == addPlayerModal) addPlayerModal.style.display = "none"
+
+    if(e.target == userProfileModal) userProfileModal.style.display = "none"
+
       
     })
     
