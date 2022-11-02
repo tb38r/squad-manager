@@ -15,12 +15,13 @@ const AddPlayerToDB= (obj)=> {
         })
         .then((data) => {
    
-            if(data.msg === 'player added to DB'){
+            if(data.type === 'success'){
+                populateTableOnOpen()
                 displaySuccessMessage(`${data.resp.name} has been added to the database!`,2000)
-                return
+            }else if(data.type === 'failure'){
+                displayErrorMessage(`${data.resp} is already in the database!`, 2000)
+
             }
-           displayErrorMessage(`${data.resp} is already in the database!`, 2000)
-            return
         });
 }
 
@@ -48,15 +49,15 @@ const DeletePlayer =(parentnode) => {
         return resp;
     })
     .then((data) => {
-        console.log('dddddd', data)
-        //TO ADD ERROR DIV LOGIC
+        
         if(data.resp.name === data.name){
             console.log('Player successfully deleted', data)
             populateTableOnOpen()
             displayErrorMessage(`${data.name} has been removed from the database!`, 2000)
 
-            return
         }else{
+
+            displayErrorMessage(`Error removing ${data.name} from the database!`, 2000)
             console.log('error deleting user', data);
         }
 

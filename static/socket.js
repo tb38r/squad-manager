@@ -44,15 +44,11 @@ const populateTableOnOpen= ()=> {
 userJSON = Object.fromEntries(data.entries());
 userJSON.name = (userJSON.name).trim()
 
-//Post to server
+//Send to server
 AddPlayerToDB(userJSON)
 
-
-    // //write to server
-    // socket.emit('completed form', userJSON
-    // );
      
-       modal.style.display = "none"
+    addPlayerModal.style.display = "none"
 
       console.log('new user sent to client', userJSON);
   

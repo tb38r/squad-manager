@@ -84,12 +84,15 @@ app.post('/addplayer', (req, res) => {
     Crud.CheckIfExists(req.body.name)
     .then(data=>{
         if(data){res.json({msg:'Player already exists, please edit existing user',
-    resp:req.body.name
+    resp:req.body.name,
+    type: 'failure'
     })}else{
             Crud.AddPlayer(req.body)
             .then(data=>{
                 res.json({resp: data,
-                    msg: 'player added to DB'})
+                    msg: 'player added to DB',
+                    type: 'success',
+})
             })
         
         }
