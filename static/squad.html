@@ -11,7 +11,7 @@
     <div class="header"> <h1>SQUAD MANAGER</h1> </div>
    
 </head>
-<body>
+<body onload="getTableData()">
 
 <div id="errormessage"></div>
 <div id="successmessage"></div>
@@ -176,7 +176,12 @@ addUserIcon.onclick = function() {
 
 </script>
 
-
+<script>
+ const getTableData = () => {
+console.log('hello world');
+  
+ }
+</script>
 
 
 <script src="/socket.io/socket.io.js"></script>
