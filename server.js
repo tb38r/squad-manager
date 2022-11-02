@@ -43,16 +43,8 @@ const database = (module.exports = () => {
 
 database();
 
-// name :{
-//   type: String,
-//   required: true,
-// },
-// position: String,
-// age:  Number,
-// phone: Number,
-// email: String,
-// availability: String,
-// Notes: notesSchema,
+
+
 
 let playerObj = {
     name: 'Tolu',
@@ -67,7 +59,7 @@ let playerObj = {
         notes: 'Versatile defender, can play accross the line',
     },
 };
-let allplayers;
+
 
 //Crud.AddPlayer(playerObj)
 app.use(express.json())  
@@ -78,34 +70,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/static" + "/squad.html");
 });
 
-/*
-// app.get('/', (req, res) => {
-//     Crud.GetAllPlayers()
-//         .then((data) => (allplayers = data))
-//         .then(res.sendFile(__dirname + '/static' + '/squad.html'));
-// });
-*/
 
-
-//sends a new user entry to the server
-const populateTableOnOpen= ()=> {
-    
-    fetch('/getdataonopen', {
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(async (response) => {
-            resp = await response.json();
-            return resp;
-        })
-        .then((data) => {
-   
-           console.log('From Open', data)
-        });
-  }
-  
 
 
 app.get('/getdataonopen', (req, res) => {
@@ -131,6 +96,9 @@ app.post('/addplayer', (req, res) => {
     })
   
 });
+
+
+
 
 app.post('/deleteplayer', (req, res) => {
     Crud.DeletePlayer(req.body)

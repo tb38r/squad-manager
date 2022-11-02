@@ -16,7 +16,7 @@ const AddPlayerToDB= (obj)=> {
         .then((data) => {
    
             if(data.msg === 'player added to DB'){
-                displaySuccessMessage(`${data.resp.name} has been added to the database!`)
+                displaySuccessMessage(`${data.resp.name} has been added to the database!`,2000)
                 return
             }
            displayErrorMessage(`${data.resp} is already in the database!`, 2000)
@@ -48,9 +48,11 @@ const DeletePlayer =(parentnode) => {
         return resp;
     })
     .then((data) => {
-     
+        console.log('dddddd', data)
         //TO ADD ERROR DIV LOGIC
-        if(data.resp.acknowledged == true){
+        if(data.resp.name === data.name){
+            console.log('Player successfully deleted', data)
+            populateTableOnOpen()
             displayErrorMessage(`${data.name} has been removed from the database!`, 2000)
 
             return
@@ -63,14 +65,14 @@ const DeletePlayer =(parentnode) => {
   }
   
 
-  const displaySuccessMessage=(message)=>{
+  const displaySuccessMessage=(message, delay)=>{
       let successdiv = document.getElementById('successmessage')
       successdiv.innerText = message
       successdiv.style.display = 'block'
       setTimeout(()=>{
         successdiv.style.display = 'none'
-        window.location.reload()
-    }, 2000)
+        //window.location.reload()
+    }, delay)
 
   }
 
@@ -83,8 +85,6 @@ const DeletePlayer =(parentnode) => {
     errordiv.style.display = 'block'
     setTimeout(()=>{
         errordiv.style.display = 'none'
-     window.location.reload()
-
   }, delay)
 
 }

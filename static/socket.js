@@ -21,13 +21,12 @@ const populateTableOnOpen= ()=> {
       })
       .then((data) => {
  
-         console.log('FROM OPEN', populateTableFromDB(data))
+        populateTableFromDB(data)
       });
 }
 
 
 
-//populateTableOnOpen()
 
 
 
