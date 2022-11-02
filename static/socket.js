@@ -5,29 +5,34 @@
 
 
 
-let socket = io()
-//const Table = require('./table');
+
+//queries the database once a connection is established and gets data needed to fill the table
+const populateTableOnOpen= ()=> {
+    
+  fetch('/getdataonopen', {
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+      },
+  })
+      .then(async (response) => {
+          resp = await response.json();
+          return resp;
+      })
+      .then((data) => {
+ 
+         console.log('FROM OPEN', populateTableFromDB(data))
+      });
+}
+
+
+
+//populateTableOnOpen()
 
 
 
 
-//received from server
-socket.on('on open', function(msg) {
-  try{
 
-    populateTableFromDB(msg)
-  }
-  catch(err){
-    console.log('Error parsing data', err);
-  }
-});
-
-
-
-
-
-//validate form
-//send to server
 
   //Handles form, close modal
   form.addEventListener('submit', (e) => {
@@ -57,15 +62,6 @@ AddPlayerToDB(userJSON)
       
   });
   
-
-
-
-//received from server
-socket.on('new player added', function(msg) {
-  addPlayerToTable(msg)
-console.log('new player added from server', msg);
-
- });
 
 
 

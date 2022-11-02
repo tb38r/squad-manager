@@ -74,15 +74,46 @@ app.use(express.json())
 
 app.use(express.static(path.join(__dirname, 'static')));
 
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/static" + "/squad.html");
-// });
-
-app.get('/', (req, res) => {
-    Crud.GetAllPlayers()
-        .then((data) => (allplayers = data))
-        .then(res.sendFile(__dirname + '/static' + '/squad.html'));
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/static" + "/squad.html");
 });
+
+/*
+// app.get('/', (req, res) => {
+//     Crud.GetAllPlayers()
+//         .then((data) => (allplayers = data))
+//         .then(res.sendFile(__dirname + '/static' + '/squad.html'));
+// });
+*/
+
+
+//sends a new user entry to the server
+const populateTableOnOpen= ()=> {
+    
+    fetch('/getdataonopen', {
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(async (response) => {
+            resp = await response.json();
+            return resp;
+        })
+        .then((data) => {
+   
+           console.log('From Open', data)
+        });
+  }
+  
+
+
+app.get('/getdataonopen', (req, res) => {
+    Crud.GetAllPlayers()
+        .then((data) => res.json(data))
+        
+});
+
 
 app.post('/addplayer', (req, res) => {
     Crud.CheckIfExists(req.body.name)
@@ -116,6 +147,10 @@ app.post('/deleteplayer', (req, res) => {
 
 
 
+
+
+
+
 io.on('connection', (socket) => {
     console.log('a user connected');
 
@@ -138,6 +173,8 @@ io.on('connection', (socket) => {
         console.log('user disconnected');
     });
 });
+
+
 
 
 

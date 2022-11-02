@@ -11,7 +11,7 @@
     <div class="header"> <h1>SQUAD MANAGER</h1> </div>
    
 </head>
-<body onload="getTableData()">
+<body onload="populateTableOnOpen()">
 
 <div id="errormessage"></div>
 <div id="successmessage"></div>
@@ -185,8 +185,8 @@ console.log('hello world');
 
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="./table.js"></script>
 <script src="./socket.js"></script>
+<script src="./table.js"></script>
 <script src="./domops.js"></script>
 
 <script>

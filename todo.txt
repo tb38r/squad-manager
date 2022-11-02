@@ -1,29 +1,30 @@
 
-Error div plus conditions
 
-Delete player functiion
-
-Edit player function
-
-Add/Edit Notes
-
-User Image??
+ADD/EDIT NOTES
 
 
-
-
-
+PLAYER FUNCTION 
 
 Add AlphanumericSpce check to username inputs
 https://stackoverflow.com/questions/388996/regex-for-javascript-to-allow-only-alphanumeric
 
-CHANGE AVAILABLE FROM GREEN TO YELLOW
 
+CHANGE AVAILABLE FROM GREEN TO YELLOW
 
 
 PIVOT FROM SOCKETS TO SOLELY HTTP REQs
 
 
-Modals fixed and perfectly centred
+CENTRE & FIX MODALS 
 
 
+STYLE BOTH MODALS 
+
+
+ADD SORTING FUNCTIONALITY 
+
+
+Optional User Image??
+
+
+validate form - only strings and numbers
