@@ -118,38 +118,6 @@ app.post('/deleteplayer', (req, res) => {
 
 
 
-
-
-
-
-io.on('connection', (socket) => {
-    console.log('a user connected');
-
-
-    socket.emit('on open', allplayers);
-
-
-    //received from client
-    socket.on('completed form', (msg) => {
-        if (msg.type == 'addplayer'){
-
-        Crud.CheckIfExists(msg.name)
-        .then((resp)=>console.log('server check if player exits', resp))
-
-        socket.emit('new player added', msg);
-    }
-    });
-
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
-});
-
-
-
-
-
-
 server.listen(8080, () => {
     console.log('listening on *:8080');
 });

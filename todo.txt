@@ -12,7 +12,7 @@ https://stackoverflow.com/questions/388996/regex-for-javascript-to-allow-only-al
 CHANGE AVAILABLE FROM GREEN TO YELLOW
 
 
-PIVOT FROM SOCKETS TO SOLELY HTTP REQs
+
 
 
 CENTRE & FIX MODALS 
