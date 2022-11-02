@@ -43,16 +43,8 @@ const database = (module.exports = () => {
 
 database();
 
-// name :{
-//   type: String,
-//   required: true,
-// },
-// position: String,
-// age:  Number,
-// phone: Number,
-// email: String,
-// availability: String,
-// Notes: notesSchema,
+
+
 
 let playerObj = {
     name: 'Tolu',
@@ -67,39 +59,49 @@ let playerObj = {
         notes: 'Versatile defender, can play accross the line',
     },
 };
-let allplayers;
+
 
 //Crud.AddPlayer(playerObj)
 app.use(express.json())  
 
 app.use(express.static(path.join(__dirname, 'static')));
 
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/static" + "/squad.html");
-// });
-
-app.get('/', (req, res) => {
-    Crud.GetAllPlayers()
-        .then((data) => (allplayers = data))
-        .then(res.sendFile(__dirname + '/static' + '/squad.html'));
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/static" + "/squad.html");
 });
+
+
+
+
+app.get('/getdataonopen', (req, res) => {
+    Crud.GetAllPlayers()
+        .then((data) => res.json(data))
+        
+});
+
 
 app.post('/addplayer', (req, res) => {
     Crud.CheckIfExists(req.body.name)
     .then(data=>{
         if(data){res.json({msg:'Player already exists, please edit existing user',
-    resp:req.body.name
+    resp:req.body.name,
+    type: 'failure'
     })}else{
             Crud.AddPlayer(req.body)
             .then(data=>{
                 res.json({resp: data,
-                    msg: 'player added to DB'})
+                    msg: 'player added to DB',
+                    type: 'success',
+})
             })
         
         }
     })
   
 });
+
+
+
 
 app.post('/deleteplayer', (req, res) => {
     Crud.DeletePlayer(req.body)
@@ -112,32 +114,6 @@ app.post('/deleteplayer', (req, res) => {
 });
 
 
-
-
-
-
-io.on('connection', (socket) => {
-    console.log('a user connected');
-
-
-    socket.emit('on open', allplayers);
-
-
-    //received from client
-    socket.on('completed form', (msg) => {
-        if (msg.type == 'addplayer'){
-
-        Crud.CheckIfExists(msg.name)
-        .then((resp)=>console.log('server check if player exits', resp))
-
-        socket.emit('new player added', msg);
-    }
-    });
-
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
-});
 
 
 

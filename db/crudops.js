@@ -38,10 +38,10 @@ async function CheckIfExists(name){
 async function DeletePlayer(obj){
  try{
 
-    const findObj = await Player.deleteOne(obj)
+    const findObj = await Player.findOneAndDelete(obj)
     return findObj
  }catch(e){
-    console.log('error deleting player--->', name);
+    console.log('error deleting player--->', obj);
     console.log(e)
  }   
 

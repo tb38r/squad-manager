@@ -15,12 +15,13 @@ const AddPlayerToDB= (obj)=> {
         })
         .then((data) => {
    
-            if(data.msg === 'player added to DB'){
-                displaySuccessMessage(`${data.resp.name} has been added to the database!`)
-                return
+            if(data.type === 'success'){
+                populateTableOnOpen()
+                displaySuccessMessage(`${data.resp.name} has been added to the database!`,2000)
+            }else if(data.type === 'failure'){
+                displayErrorMessage(`${data.resp} is already in the database!`, 2000)
+
             }
-           displayErrorMessage(`${data.resp} is already in the database!`, 2000)
-            return
         });
 }
 
@@ -48,13 +49,15 @@ const DeletePlayer =(parentnode) => {
         return resp;
     })
     .then((data) => {
-     
-        //TO ADD ERROR DIV LOGIC
-        if(data.resp.acknowledged == true){
+        
+        if(data.resp.name === data.name){
+            console.log('Player successfully deleted', data)
+            populateTableOnOpen()
             displayErrorMessage(`${data.name} has been removed from the database!`, 2000)
 
-            return
         }else{
+
+            displayErrorMessage(`Error removing ${data.name} from the database!`, 2000)
             console.log('error deleting user', data);
         }
 
@@ -63,14 +66,14 @@ const DeletePlayer =(parentnode) => {
   }
   
 
-  const displaySuccessMessage=(message)=>{
+  const displaySuccessMessage=(message, delay)=>{
       let successdiv = document.getElementById('successmessage')
       successdiv.innerText = message
       successdiv.style.display = 'block'
       setTimeout(()=>{
         successdiv.style.display = 'none'
-        window.location.reload()
-    }, 2000)
+        //window.location.reload()
+    }, delay)
 
   }
 
@@ -83,8 +86,6 @@ const DeletePlayer =(parentnode) => {
     errordiv.style.display = 'block'
     setTimeout(()=>{
         errordiv.style.display = 'none'
-     window.location.reload()
-
   }, delay)
 
 }
@@ -92,5 +93,56 @@ const DeletePlayer =(parentnode) => {
 
 
 
+//queries the database once a connection is established and gets data needed to fill the table
+const populateTableOnOpen= ()=> {
+    
+    fetch('/getdataonopen', {
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(async (response) => {
+            resp = await response.json();
+            return resp;
+        })
+        .then((data) => {
+   
+          populateTableFromDB(data)
+        });
+  }
+  
+  
+  
+  
+  
+  
+  
+    //Handles form, close modal
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); 
+      
+      const data = new FormData(e.target);
+      data.append("availability", "Y")
+      data.append("type", "addplayer")
+  
+  userJSON = Object.fromEntries(data.entries());
+  userJSON.name = (userJSON.name).trim()
+  
+  //Send to server
+  AddPlayerToDB(userJSON)
+  
+       
+      addPlayerModal.style.display = "none"
+  
+        console.log('new user sent to client', userJSON);
+    
+        form.reset()
+    
+        
+    });
+    
+  
+  
 
   

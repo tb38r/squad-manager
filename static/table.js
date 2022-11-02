@@ -31,6 +31,7 @@ for (const headerText of headers) {
 
 
 const populateTableFromDB = (data) =>{
+  tableBody.innerHTML = ""
 
   let tableData = "";
   let  firstname 
