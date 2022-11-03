@@ -29,7 +29,7 @@
 
             <div class="field">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Didier Drogba" required/>
+                <input onkeydown="return /[a-z ]/i.test(event.key)" type="text" id="name" name="name" placeholder="Didier Drogba" required/>
                 <small></small>
             </div>
 
@@ -52,7 +52,7 @@
 
             <div class="field">
                 <label for="age">Age:</label>
-                <input type="number" id="age" name="age" placeholder="40" />
+                <input type="number" id="age" name="age" placeholder="40" required/>
                 <small></small>
             </div>
 
@@ -156,9 +156,9 @@ addUserIcon.onclick = function() {
 
 //close modal on mouseclick outside body 
     document.addEventListener('click', (e)=>{
-    if(e.target == addPlayerModal) addPlayerModal.style.display = "none"
+    if(e.target === addPlayerModal) addPlayerModal.style.display = "none"
 
-    if(e.target == userProfileModal) userProfileModal.style.display = "none"
+    if(e.target === userProfileModal) userProfileModal.style.display = "none"
 
     if(e.target.classList[0]==='tableHeader'){
      
@@ -167,6 +167,23 @@ addUserIcon.onclick = function() {
      // populateByAscending(e.target.id)
       
      console.log(e.target.id);
+    }
+
+    if(e.target.id==='availability-div'){
+      let firstname = e.target.getAttribute('firstname')
+      let lastname = e.target.getAttribute('lastname')
+
+      console.log(firstname + " "+ lastname);
+
+   if(e.target.classList.contains('available')){
+    e.target.classList = 'unavailable'
+    e.target.innerText = 'N'
+   }else{
+    e.target.classList = 'available'
+    e.target.innerText = 'Y'
+   }
+
+
     }
 
       

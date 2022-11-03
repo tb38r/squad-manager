@@ -66,6 +66,7 @@ const DeletePlayer =(parentnode) => {
   }
   
 
+  //displays a message to the user on a successful outcome
   const displaySuccessMessage=(message, delay)=>{
       let successdiv = document.getElementById('successmessage')
       successdiv.innerText = message
@@ -79,7 +80,7 @@ const DeletePlayer =(parentnode) => {
 
 
 
-
+  //displays a message to the user on a negative outcome
   const displayErrorMessage=(message, delay)=>{
     let errordiv = document.getElementById('errormessage')
     errordiv.innerText = message

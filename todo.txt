@@ -28,3 +28,5 @@ Optional User Image??
 
 
 validate form - only strings and numbers
+
+FIX POSITIONINGS
