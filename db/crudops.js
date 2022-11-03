@@ -41,17 +41,32 @@ async function DeletePlayer(obj){
     const findObj = await Player.findOneAndDelete(obj)
     return findObj
  }catch(e){
-    console.log('error deleting player--->', obj);
-    console.log(e)
+    console.log('error deleting player--->', e);
+    console.log(obj)
  }   
 
 }
 
 
+//db.users.updateOne({name:"T"},{$set:{age:36}})  - updates where name is T, alternatively 
+
+//Update the availabilty value within the database
+async function ToggleAvailability(player, value){
+    try{
+   
+       const findObj = await Player.updateOne({name:player},{$set:{availability:value}})
+       return findObj
+    }catch(e){
+       console.log('error updating availablity value--->', e);
+    }   
+   
+   }
+   
 
 
 
 
 
 
-module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer};
+
+module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability};

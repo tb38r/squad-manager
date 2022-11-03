@@ -154,7 +154,7 @@ addUserIcon.onclick = function() {
       addPlayerModal.style.display = "none";
 }
 
-//close modal on mouseclick outside body 
+//close modal on mouseclick outside body amongst others
     document.addEventListener('click', (e)=>{
     if(e.target === addPlayerModal) addPlayerModal.style.display = "none"
 
@@ -173,14 +173,17 @@ addUserIcon.onclick = function() {
       let firstname = e.target.getAttribute('firstname')
       let lastname = e.target.getAttribute('lastname')
 
-      console.log(firstname + " "+ lastname);
+      let player = firstname + " "+ lastname
 
    if(e.target.classList.contains('available')){
     e.target.classList = 'unavailable'
     e.target.innerText = 'N'
+    UpdateAvailability(player,"N")
    }else{
     e.target.classList = 'available'
     e.target.innerText = 'Y'
+    UpdateAvailability(player,"Y")
+
    }
 
 

@@ -112,6 +112,35 @@ const populateTableOnOpen= ()=> {
           populateTableFromDB(data)
         });
   }
+
+
+
+  //DB request to toggle availabilty status
+const UpdateAvailability =(player, value) => {
+    
+
+   
+  fetch('/toggleavailablity', {
+    method: 'Post',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({name:player, value: value})
+})
+    .then(async (response) => {
+        resp = await response.json();
+        return resp;
+    })
+    .then((resp) => {
+        console.log('from toggle', resp);
+    });
+  
+  }
+
+
+
+
   
   
   
