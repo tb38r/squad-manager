@@ -36,6 +36,7 @@ const populateTableFromDB = (data) =>{
   let tableData = "";
   let  firstname 
   let lastname
+  let availabilityClass
   
   
   for (let player of data) {
@@ -50,6 +51,12 @@ const populateTableFromDB = (data) =>{
 
     }
 
+    if (player.availability==='Y'){
+      availabilityClass = 'available'
+    }else{
+      availabilityClass = 'unavailable'
+    }
+
     
     
     tableData += `<tr>
@@ -59,7 +66,7 @@ const populateTableFromDB = (data) =>{
       <td>${player.age}</td>
       <td>${player.phone}</td>
       <td>${player.email}</td>
-      <td><div id="availability-div" class= "available"  firstname=${firstname} lastname= ${lastname} >${player.availability}</div></td>
+      <td><div id="availability-div" class= ${availabilityClass}  firstname=${firstname} lastname= ${lastname} >${player.availability}</div></td>
       <td >${`<div onclick="displayDropdown(${firstname}Dropdown)"  class="dropdown">
       <div id="${firstname}Dropdown" class="dropdown-content" firstname=${firstname} lastname= ${lastname}>
       <a onclick="showPlayerModal()" class="dropdown-options"value="profile">Profile</a>

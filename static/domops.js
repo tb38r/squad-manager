@@ -119,7 +119,6 @@ const populateTableOnOpen= ()=> {
 const UpdateAvailability =(player, value) => {
     
 
-   
   fetch('/toggleavailablity', {
     method: 'Post',
     headers: {
@@ -132,9 +131,6 @@ const UpdateAvailability =(player, value) => {
         resp = await response.json();
         return resp;
     })
-    .then((resp) => {
-        console.log('from toggle', resp);
-    });
   
   }
 

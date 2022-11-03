@@ -115,7 +115,6 @@ app.post('/deleteplayer', (req, res) => {
 
 
 app.post('/toggleavailablity', (req, res) => {
-    console.log('REQ BODY FROM TOGGLE ---', req.body)
     Crud.ToggleAvailability(req.body.name, req.body.value)
     .then((data)=>{
         res.json({
