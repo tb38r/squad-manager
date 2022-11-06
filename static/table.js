@@ -90,7 +90,7 @@ const populateTableFromDB = (data) =>{
 
 }
 
-const showPlayerModal = () => userProfileModal.style.display = 'block'
+const showPlayerModal = () => userProfileModal.style.display = 'flex'
 
 
 

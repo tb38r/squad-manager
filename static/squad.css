@@ -68,6 +68,8 @@ body {
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
+  justify-content: center;
+  align-items: center;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -78,7 +80,7 @@ body {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  /* margin: 15% auto; 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 40%; /* Could be more or less, depending on screen size */
