@@ -83,12 +83,19 @@
             <div class="modal-header" id = "profile-modal-header">
                <h3><div id= "profile-name">ADD USER</div></h3> 
                 <h3><div id="profile-position">MF</div></h3>
-        </div>     
+        </div>    
+        <div id="profile-modal-body">
+          <input type="submit" id= "editProfileButton" class = 'user-profile-options' value= "EDIT"></button>
+          <input type="submit" id= "notesProfileButton" class = 'user-profile-options' value= "NOTES"></button>
+          <input type="submit" id= "deleteProfileButton" class = 'user-profile-options' value= "DELETE" style="background-color:red"></button>
+
+
+        </div> 
+        <div id="profile-modal-notes"></div>
 
 
     
 
-            <input type="submit" id= "editProfileButton" value= "EDIT"></button>
         
 
     </div>
@@ -117,7 +124,7 @@
 
 
         
-        <div id="playerprofile" class="modal">
+        <!-- <div id="playerprofile" class="modal">
 
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -126,7 +133,7 @@
             </div>     
     
         </div>
-          </div>
+          </div> -->
 
 
     
@@ -140,6 +147,9 @@ const userProfileModal = document.getElementById('userProfileModal')
 const span = document.getElementsByClassName("close")[0];
 const formButton = document.getElementById("formButton")
 const form  = document.getElementById('addUserForm');
+const modals = document.getElementsByClassName('modal')
+const spans = document.querySelectorAll('span')
+console.log('spans!', spans);
 let userJSON 
 
 
@@ -150,9 +160,15 @@ addUserIcon.onclick = function() {
 }
 
 // When the user clicks on <span> (x), close the modal
+  for (const span of spans) {
+
     span.onclick = function() {
-      addPlayerModal.style.display = "none";
+      for (const modal of modals) {
+modal.style.display = 'none'
+  
+      }
 }
+  }
 
 //close modal on mouseclick outside body amongst others
     document.addEventListener('click', (e)=>{
@@ -168,6 +184,8 @@ addUserIcon.onclick = function() {
       
      console.log(e.target.id);
     }
+    console.log(e.target);
+
 
     if(e.target.id==='availability-div'){
       let firstname = e.target.getAttribute('firstname')

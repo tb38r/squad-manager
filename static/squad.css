@@ -145,38 +145,56 @@ input, textarea, select {
 #profile-modal-header{
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
-  /* background-color: #92b5c7; */
+  align-items: center;
+  background-color: #92B5E7; 
+  width: 93%;
+
+}
+/* 92b5c7 */
+
+#profile-modal-notes{
+  height: 60%;
+  width: 99%;
+  border-style: solid;
+  border-width: unset;
+  margin-top: 2%;
 
 }
 
+#profile-modal-body{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+
+}
 #profile-name{
-  /* width: 70%; */
-  background-color: #92b5c7;
+  width: 318%;
   color: white;
-  text-align: center;
+  text-align: left;
+  height: 200%;
 }
 
 #profile-position{
-  /* width: 80%; */
-  background-color: #92b5c7;
   color: white;
   text-align: center;
 }
 
-#editProfileButton{
+
+#profile-model-content{
+  height: 45%;
+  background: linen;
+}
+
+.user-profile-options{
+  cursor: pointer;
   text-align: center;
-  width: 100px;
-  height: 30px;
+  width: 32%;
+  height: 4%;
   background-color: #92b5c7;
   color: white;
   border: none;
-}
 
-#profile-model-content{
-  height: 35%;
 }
-
 #table  tr:nth-child(even){background-color: rgb(218, 225, 236)}
 
 #table  tr:hover {background-color: #ddd;}
