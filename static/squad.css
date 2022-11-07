@@ -172,11 +172,14 @@ input, textarea, select {
   color: white;
   text-align: left;
   height: 200%;
+  text-transform: uppercase;
 }
 
 #profile-position{
   color: white;
   text-align: center;
+  text-transform: uppercase;
+
 }
 
 

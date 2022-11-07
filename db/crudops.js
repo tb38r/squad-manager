@@ -63,10 +63,23 @@ async function ToggleAvailability(player, value){
    }
    
 
+//Get user profile data from the db
+async function ProfileDataFromDB(obj){
+
+    try{
+
+        const findObj = await Player.findOne(obj)
+        return findObj
+     }catch(e){
+        console.log('error finding player--->', e);
+        console.log(obj)
+     }   
+    
+   }
+   
 
 
 
 
 
-
-module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability};
+module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability, ProfileDataFromDB};

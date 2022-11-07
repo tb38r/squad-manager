@@ -138,10 +138,7 @@ const UpdateAvailability =(player, value) => {
 
 
   
-  
-  
-  
-  
+
   
   
     //Handles form, close modal
@@ -171,4 +168,55 @@ const UpdateAvailability =(player, value) => {
   
   
 
+  //Queries profile specific data from the DB 
+const GetProfileData =(parentnode) => {
+    let first = parentnode.getAttribute('firstname');
+    let last = parentnode.getAttribute('lastname');
+  
+    let playerToGet = (first + " "+ last)
+
+
+   
+  fetch('/profilemodaldata', {
+    method: 'Post',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({name:playerToGet.trim()})
+})
+    .then(async (response) => {
+        resp = await response.json();
+        return resp;
+    })
+    .then((resp) => {
+        console.log('returned data for profile', resp);
+
+        let nickname
+
+        if(resp.data.nickname !== "") {
+            nickname = resp.data.nickname
+        }else{
+            nickname = resp.data.name
+        }
+
+        const position ={
+            Goalkeeper:"GK",
+            Defender :"D",
+        Midfielder: "MF",
+    Forward:"F"        
+}
+
+
+       document.getElementById('profile-name').innerText = nickname
+       document.getElementById('profile-position').innerText = position[resp.data.position]
+       
+       userProfileModal.setAttribute('player-id', resp.data._id )
+       userProfileModal.style.display = 'block'
+
+
+        
+    });
+  
+  }
   

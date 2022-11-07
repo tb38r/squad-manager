@@ -81,8 +81,8 @@
         <div class="modal-content" id="profile-model-content">
             <span class="close">&times;</span>
             <div class="modal-header" id = "profile-modal-header">
-               <h3><div id= "profile-name">ADD USER</div></h3> 
-                <h3><div id="profile-position">MF</div></h3>
+               <h3><div id= "profile-name"></div></h3> 
+                <h3><div id="profile-position"></div></h3>
         </div>    
         <div id="profile-modal-body">
           <input type="submit" id= "editProfileButton" class = 'user-profile-options' value= "EDIT"></button>
@@ -184,7 +184,6 @@ modal.style.display = 'none'
       
      console.log(e.target.id);
     }
-    console.log(e.target);
 
 
     if(e.target.id==='availability-div'){
@@ -214,12 +213,7 @@ modal.style.display = 'none'
 
 </script>
 
-<script>
- const getTableData = () => {
-console.log('hello world');
-  
- }
-</script>
+
 
 
 <script src="/socket.io/socket.io.js"></script>

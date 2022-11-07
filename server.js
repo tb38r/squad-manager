@@ -125,6 +125,18 @@ app.post('/toggleavailablity', (req, res) => {
 
 });
 
+app.post('/profilemodaldata', (req, res) => {
+    Crud.ProfileDataFromDB(req.body)
+    .then((data)=>{
+        res.json({
+            msg: `${req.body.name} found`, 
+            data: data,
+        })
+    })
+
+});
+
+
 
 
 
