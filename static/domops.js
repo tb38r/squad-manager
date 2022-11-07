@@ -1,5 +1,6 @@
 //sends a new user entry to the server
 const AddPlayerToDB= (obj)=> {
+   
     
     fetch('/addplayer', {
         method: 'Post',
@@ -14,6 +15,7 @@ const AddPlayerToDB= (obj)=> {
             return resp;
         })
         .then((data) => {
+            console.log('FROM ADD PLAYER', data);
    
             if(data.type === 'success'){
                 populateTableOnOpen()
@@ -148,6 +150,9 @@ const UpdateAvailability =(player, value) => {
       const data = new FormData(e.target);
       data.append("availability", "Y")
       data.append("type", "addplayer")
+      data.append("notes", "Click here to edit, make sure to save changes!")
+
+      
   
   userJSON = Object.fromEntries(data.entries());
   userJSON.name = (userJSON.name).trim()
@@ -170,6 +175,7 @@ const UpdateAvailability =(player, value) => {
 
   //Queries profile specific data from the DB 
 const GetProfileData =(parentnode) => {
+    console.log('HELLLLOO!!');
     let first = parentnode.getAttribute('firstname');
     let last = parentnode.getAttribute('lastname');
   
@@ -190,7 +196,6 @@ const GetProfileData =(parentnode) => {
         return resp;
     })
     .then((resp) => {
-        console.log('returned data for profile', resp);
 
         let nickname
 
@@ -201,35 +206,37 @@ const GetProfileData =(parentnode) => {
         }
 
         const position ={
-            Goalkeeper:"GK",
-            Defender :"D",
+        Goalkeeper:"GK",
+        Defender :"D",
         Midfielder: "MF",
-    Forward:"F"        
+        Forward:"F"        
 }
-
 
        document.getElementById('profile-name').innerText = nickname
        document.getElementById('profile-position').innerText = position[resp.data.position]
+       document.getElementById('profile-modal-notes').innerText = resp.data.notes
 
        userProfileModal.setAttribute('player-id', resp.data._id )
        userProfileModal.style.display = 'block'
-
-
         
     });
   
   }
+
+
   
 
-  const GetIDForDeletion=()=>{
+  const GetIDFromProfileModal=()=>{
     const userProfileNode = document.getElementById('userProfileModal')
     const idFromModal = userProfileNode.getAttribute('player-id')
     return idFromModal
   }
 
 
+
+
 const DeleteProfile =()=>{
-    const idToDelete = GetIDForDeletion()
+    const idToDelete = GetIDFromProfileModal()
 
     fetch('/deleteprofile', {
         method: 'Post',
@@ -258,6 +265,40 @@ const DeleteProfile =()=>{
     
                 displayErrorMessage(`Error removing ${data.resp.name} from the database!`, 2000)
                 console.log('error deleting user', data);
+            }
+    
+        });
+
+}
+
+
+
+const SaveEditedNotes =()=>{
+   const idToEdit = GetIDFromProfileModal()
+   const Notes = document.getElementById('profile-modal-notes').innerText
+
+    fetch('/editnotes', {
+        method: 'Post',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({_id:idToEdit, note: Notes})
+    })
+        .then(async (response) => {
+            resp = await response.json();
+            return resp;
+        })
+        .then((data) => {
+
+        
+            if(data.resp.acknowledged == true){
+               
+                displaySuccessMessage(`Note successfully edited`, 2000)
+    
+            }else{
+    
+                displayErrorMessage(`Error editing notes`, 2000)
             }
     
         });

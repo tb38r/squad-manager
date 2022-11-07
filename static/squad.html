@@ -89,7 +89,7 @@
         </div>    
         <div id="profile-modal-body">
           <input type="submit" id= "editProfileButton" class = 'user-profile-options' value= "EDIT PLAYER"></button>
-          <input type="submit" id= "notesProfileButton" class = 'user-profile-options' value= "UPDATE NOTES"></button>
+          <input onclick="SaveEditedNotes()"  type="submit" id= "notesProfileButton" class = 'user-profile-options' value= "SAVE CHANGES" style="background-color:orange"></button>
           <input onclick="DeleteProfile()" type="submit" id= "deleteProfileButton" class = 'user-profile-options' value= "DELETE" style="background-color:red"></button>
 
 
@@ -144,7 +144,6 @@ const formButton = document.getElementById("formButton")
 const form  = document.getElementById('addUserForm');
 const modals = document.getElementsByClassName('modal')
 const spans = document.querySelectorAll('span')
-console.log('spans!', spans);
 let userJSON 
 
 

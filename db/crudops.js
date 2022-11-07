@@ -36,8 +36,8 @@ async function CheckIfExists(name){
 
 //Deletes a player from the database
 async function DeletePlayer(obj){
- try{
 
+ try{
     const findObj = await Player.findOneAndDelete(obj)
     return findObj
  }catch(e){
@@ -81,10 +81,10 @@ async function ProfileDataFromDB(obj){
    //Deletes a player from the database using their id
 async function DeleteProfile(obj){
     //db.users.deleteOne({_id: ObjectId("633315153463fb5bf6ed65a2")}) 
-
+    
     try{
-   
-       const findObj = await Player.findOneAndDelete(obj)
+        
+        const findObj = await Player.findOneAndDelete(obj)
        return findObj
     }catch(e){
        console.log('error deleting player--->', e);
@@ -94,7 +94,22 @@ async function DeleteProfile(obj){
    }
 
 
+      //Edit the notes stored on the db 
+async function EditNotes(obj){
+
+    try{
+   
+       const newNote= await Player.updateOne({_id:`${obj._id}`},{$set:{notes:`${obj.note}`}})
+       return newNote
+    }catch(e){
+       console.log('error editing notes--->', e);
+    }   
+   
+   }
 
 
 
-module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability, ProfileDataFromDB, DeleteProfile};
+
+
+
+module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability, ProfileDataFromDB, DeleteProfile, EditNotes};

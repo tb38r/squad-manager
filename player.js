@@ -6,11 +6,14 @@ const mongoose = require('mongoose')
 //model is an individual user object that you can interact with 
 //query against the db 
 
-const notesSchema= new mongoose.Schema({
-    Nickname:String,
-    Position:String,
-    Notes: String,
-})
+
+
+//UNUSED
+// const notesSchema= new mongoose.Schema({
+//     Nickname:String,
+//     Position:String,
+//     Notes: String,
+// })
 
 
 
@@ -26,7 +29,7 @@ const playerSchema = new mongoose.Schema({
     email: String,
     availability: String,
     nickname: String,
-    notes: notesSchema,
+    notes: String,
 
        
     createdAt :{

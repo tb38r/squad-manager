@@ -30,7 +30,6 @@ body {
 
   #errormessage{
     position: fixed;
-    border: 2px solid whitesmoke;
     width: 75%;
     height: 3%;
     display: none;
@@ -40,6 +39,8 @@ body {
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
+    z-index: 2;
+
 
 }
   
@@ -47,7 +48,6 @@ body {
 
 #successmessage{
   position: fixed;
-  border: 2px solid whitesmoke;
   width: 75%;
   height: 3%;
   display: none;
@@ -57,6 +57,7 @@ body {
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
+  z-index: 2;
 
 }
 

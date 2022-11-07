@@ -138,7 +138,7 @@ app.post('/profilemodaldata', (req, res) => {
 
 app.post('/deleteprofile', (req, res) => {
     console.log('req from server', req.body)
-    
+
     Crud.DeletePlayer(req.body)
     .then((data)=>{
         res.json({resp: data,
@@ -148,6 +148,18 @@ app.post('/deleteprofile', (req, res) => {
 
 });
 
+
+app.post('/editnotes', (req, res) => {
+    console.log('req from server', req.body)
+    
+    Crud.EditNotes(req.body)
+    .then((data)=>{
+        res.json({resp: data,
+            msg: 'notes edited', 
+        name:req.body.name})
+    })
+
+});
 
 
 
