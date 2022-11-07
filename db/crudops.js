@@ -78,8 +78,23 @@ async function ProfileDataFromDB(obj){
    }
    
 
+   //Deletes a player from the database using their id
+async function DeleteProfile(obj){
+    //db.users.deleteOne({_id: ObjectId("633315153463fb5bf6ed65a2")}) 
+
+    try{
+   
+       const findObj = await Player.findOneAndDelete(obj)
+       return findObj
+    }catch(e){
+       console.log('error deleting player--->', e);
+       console.log(obj)
+    }   
+   
+   }
 
 
 
 
-module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability, ProfileDataFromDB};
+
+module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability, ProfileDataFromDB, DeleteProfile};

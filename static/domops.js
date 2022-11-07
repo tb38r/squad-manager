@@ -210,7 +210,7 @@ const GetProfileData =(parentnode) => {
 
        document.getElementById('profile-name').innerText = nickname
        document.getElementById('profile-position').innerText = position[resp.data.position]
-       
+
        userProfileModal.setAttribute('player-id', resp.data._id )
        userProfileModal.style.display = 'block'
 
@@ -220,3 +220,49 @@ const GetProfileData =(parentnode) => {
   
   }
   
+
+  const GetIDForDeletion=()=>{
+    const userProfileNode = document.getElementById('userProfileModal')
+    const idFromModal = userProfileNode.getAttribute('player-id')
+    return idFromModal
+  }
+
+
+const DeleteProfile =()=>{
+    const idToDelete = GetIDForDeletion()
+
+    fetch('/deleteprofile', {
+        method: 'Post',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({_id:idToDelete})
+    })
+        .then(async (response) => {
+            resp = await response.json();
+            return resp;
+        })
+        .then((data) => {
+
+            console.log('from deleteprofile', data)
+
+
+            
+            if(data.resp._id === idToDelete){
+                userProfileModal.style.display = 'none'
+                populateTableOnOpen()
+                displayErrorMessage(`${data.resp.name} has been removed from the database!`, 2000)
+    
+            }else{
+    
+                displayErrorMessage(`Error removing ${data.resp.name} from the database!`, 2000)
+                console.log('error deleting user', data);
+            }
+    
+        });
+
+
+
+
+}

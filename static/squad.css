@@ -153,11 +153,10 @@ input, textarea, select {
 /* 92b5c7 */
 
 #profile-modal-notes{
-  height: 60%;
+  height: 52%;
   width: 99%;
-  border-style: solid;
-  border-width: unset;
-  margin-top: 2%;
+  margin-top: 5%;
+  cursor: pointer;
 
 }
 

@@ -136,7 +136,17 @@ app.post('/profilemodaldata', (req, res) => {
 
 });
 
+app.post('/deleteprofile', (req, res) => {
+    console.log('req from server', req.body)
+    
+    Crud.DeletePlayer(req.body)
+    .then((data)=>{
+        res.json({resp: data,
+            msg: 'player deleted', 
+        name:req.body.name})
+    })
 
+});
 
 
 
