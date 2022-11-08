@@ -22,7 +22,7 @@ tableBody.innerHTML = "";
 for (const headerText of headers) {
     const headerElement = document.createElement("th");
     headerElement.classList = 'tableHeader'
-    headerElement.id = headerText
+    headerElement.id = headerText.toLowerCase()
     headerElement.textContent = headerText;
     tableHead.querySelector("tr").appendChild(headerElement);
 }

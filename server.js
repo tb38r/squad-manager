@@ -8,6 +8,7 @@ var path = require('path');
 const mongoose = require('mongoose');
 const Crud = require('./db/crudops');
 const { resolveSoa } = require('dns');
+const port = 8080
 
 //1QqQCbMG0CbEwFLf
 
@@ -137,7 +138,6 @@ app.post('/profilemodaldata', (req, res) => {
 });
 
 app.post('/deleteprofile', (req, res) => {
-    console.log('req from server', req.body)
 
     Crud.DeletePlayer(req.body)
     .then((data)=>{
@@ -150,7 +150,6 @@ app.post('/deleteprofile', (req, res) => {
 
 
 app.post('/editnotes', (req, res) => {
-    console.log('req from server', req.body)
     
     Crud.EditNotes(req.body)
     .then((data)=>{
@@ -163,7 +162,20 @@ app.post('/editnotes', (req, res) => {
 
 
 
+app.post('/sortheaders', (req, res) => {
+    console.log('reqbody from sort headers', req.body)
+    
+    Crud.SortHeaders(req.body.value, req.body.number)
+    .then((data)=>{
+        res.json({resp: data,
+            msg: 'data sorted', 
+        })
+    })
 
-server.listen(8080, () => {
-    console.log('listening on *:8080');
+});
+
+
+
+server.listen(port, () => {
+    console.log(`listening on port ${port}`);
 });

@@ -164,19 +164,35 @@ modal.style.display = 'none'
 }
   }
 
-//close modal on mouseclick outside body amongst others
+  const Sortby = ()=> 1
+
+//close modal on mouseclick outside + further functionality
     document.addEventListener('click', (e)=>{
     if(e.target === addPlayerModal) addPlayerModal.style.display = "none"
 
     if(e.target === userProfileModal) userProfileModal.style.display = "none"
 
     if(e.target.classList[0]==='tableHeader'){
+
+      let clickedHeader = e.target.id
+
+      switch(clickedHeader){
+        case 'name': GetSortedHeaders(clickedHeader, Sortby())
+        break;
+        case 'position': console.log('postion header clicked!');
+        break;
+        case 'age': console.log('age header clicked!');
+        break;
+        case 'email': console.log('email header clicked!');
+        break;
+        case 'availability': console.log('availabilty header clicked!');
+        break;
+      }
      
       //pass the id to a function that returns the data by ascending or descending 
 
-     // populateByAscending(e.target.id)
-      
-     console.log(e.target.id);
+
+
     }
 
 

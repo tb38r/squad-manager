@@ -108,8 +108,22 @@ async function EditNotes(obj){
    }
 
 
+   async function SortHeaders(header, sortby){
+
+
+      try{
+                 
+         const sortedData = await Player.find({}).sort({[`${header}`]:sortby})
+         return sortedData
+
+
+      }catch(e){
+         console.log('error sorting headers--->', e);
+      }   
+     
+     }
 
 
 
 
-module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability, ProfileDataFromDB, DeleteProfile, EditNotes};
+module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability, ProfileDataFromDB, DeleteProfile, EditNotes, SortHeaders};

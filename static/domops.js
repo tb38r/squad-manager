@@ -307,3 +307,39 @@ const SaveEditedNotes =()=>{
 
 
 }
+
+const GetSortedHeaders=(header, sortby)=>{
+
+    fetch('/sortheaders', {
+        method: 'Post',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ value: header,
+        number: sortby})
+    })
+        .then(async (response) => {
+            resp = await response.json();
+            return resp;
+        })
+        .then((data) => {
+            console.log('response received from getsortedheaders function');
+
+            console.log(data);
+        
+            // if(data.resp.acknowledged == true){
+               
+            //     displaySuccessMessage(`Note successfully edited`, 2000)
+    
+            // }else{
+    
+            //     displayErrorMessage(`Error editing notes`, 2000)
+            // }
+    
+        });
+
+
+
+
+}
