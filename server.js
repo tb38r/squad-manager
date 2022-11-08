@@ -163,7 +163,6 @@ app.post('/editnotes', (req, res) => {
 
 
 app.post('/sortheaders', (req, res) => {
-    console.log('reqbody from sort headers', req.body)
     
     Crud.SortHeaders(req.body.value, req.body.number)
     .then((data)=>{

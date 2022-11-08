@@ -174,22 +174,23 @@ modal.style.display = 'none'
 
     if(e.target.classList[0]==='tableHeader'){
 
+      //e.target.style.backgroundColor = "red"
+
       let clickedHeader = e.target.id
 
       switch(clickedHeader){
-        case 'name': GetSortedHeaders(clickedHeader, Sortby())
+        case 'name': GetSortedHeaders(clickedHeader, Sortby()); console.log(Sortby());
         break;
-        case 'position': console.log('postion header clicked!');
+        case 'position': GetSortedHeaders(clickedHeader, Sortby());
         break;
-        case 'age': console.log('age header clicked!');
+        case 'age': GetSortedHeaders(clickedHeader, Sortby());
         break;
-        case 'email': console.log('email header clicked!');
+        case 'email': GetSortedHeaders(clickedHeader, Sortby());
         break;
-        case 'availability': console.log('availabilty header clicked!');
+        case 'availability': GetSortedHeaders(clickedHeader, Sortby());
         break;
       }
      
-      //pass the id to a function that returns the data by ascending or descending 
 
 
 
