@@ -24,9 +24,11 @@ body {
     color: rgb(89, 140, 235);
     cursor: pointer;
     top : 85%;
-    left: 8%;
+    left: 12%;
   
-  }
+  } 
+
+
 
   #errormessage{
     position: fixed;

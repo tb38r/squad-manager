@@ -150,7 +150,7 @@ const UpdateAvailability =(player, value) => {
       const data = new FormData(e.target);
       data.append("availability", "Y")
       data.append("type", "addplayer")
-      data.append("notes", "Click here to edit, make sure to save changes!")
+      data.append("notes", "Click here to create & edit notes, be sure to save changes!")
 
       
   
@@ -382,13 +382,15 @@ const ResetUnclickedHeaders =(element)=>{
 
       }
 
-      
+
       switch(clickedHeader){
         case 'name': GetSortedHeaders(clickedHeader, sortNumber);
         break;
         case 'position': GetSortedHeaders(clickedHeader, sortNumber);
         break;
         case 'age': GetSortedHeaders(clickedHeader, sortNumber);
+        break;
+        case 'phone': GetSortedHeaders(clickedHeader, sortNumber);
         break;
         case 'email': GetSortedHeaders(clickedHeader, sortNumber);
         break;
