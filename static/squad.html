@@ -64,7 +64,7 @@
 
             <div class="field">
                 <label for="nickname">Nickname:</label>
-                <input type="text" id="nickname" name="nickname" placeholder="Drogs" />
+                <input onkeydown="return /[a-z ]/i.test(event.key)" type="text" id="nickname" name="nickname" placeholder="Drogs" />
                 <small></small>
             </div>
 
