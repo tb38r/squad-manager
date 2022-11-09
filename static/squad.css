@@ -31,15 +31,16 @@ body {
   #errormessage{
     position: fixed;
     width: 75%;
-    height: 3%;
+    height: 2.5%;
     display: none;
     left: 12.3%;
     top: 22%;
-    color: red;
+    background-color: rgb(214, 72, 72);
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
     z-index: 2;
+    color: #fefefe;
 
 
 }
@@ -49,15 +50,16 @@ body {
 #successmessage{
   position: fixed;
   width: 75%;
-  height: 3%;
+  height: 2.5%;
   display: none;
   left: 12.3%;
   top: 22%;
-  color: blue;
+  background-color: #073452;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
   z-index: 2;
+  color: #fefefe;
 
 }
 
@@ -198,6 +200,23 @@ input, textarea, select {
   border: none;
 
 }
+
+
+/* Sortable Headers */
+.header-asc{
+  background-color: dodgerblue !important;
+color: whitesmoke !important;
+}
+
+.header-desc{
+  color: whitesmoke !important;
+  background-color: cadetblue !important;
+  border: thin solid;
+}
+
+/* rgb(224,173,182) !important; */
+
+
 #table  tr:nth-child(even){background-color: rgb(218, 225, 236)}
 
 #table  tr:hover {background-color: #ddd;}
@@ -206,7 +225,6 @@ input, textarea, select {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: rgb(89, 140, 235);
   color: white;
 }
 
@@ -226,6 +244,8 @@ cursor: pointer;
 
 .tableHeader{
   cursor: pointer;
+  background-color: rgb(89, 140, 235);
+
 
 }
 

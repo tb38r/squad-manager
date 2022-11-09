@@ -324,22 +324,105 @@ const GetSortedHeaders=(header, sortby)=>{
             return resp;
         })
         .then((data) => {
-            console.log('response received from getsortedheaders function');
-
-            console.log(data);
-        
-            // if(data.resp.acknowledged == true){
-               
-            //     displaySuccessMessage(`Note successfully edited`, 2000)
-    
-            // }else{
-    
-            //     displayErrorMessage(`Error editing notes`, 2000)
-            // }
+            populateTableFromDB(data.resp)
+     
     
         });
 
 
-
-
 }
+
+const ResetUnclickedHeaders =(element)=>{
+    const headers = document.getElementsByClassName('tableHeader')
+
+    for (const item of headers) {
+        if(item !== element){
+            item.classList = 'tableHeader'
+
+    }
+
+    }
+}
+
+
+
+//close modal on mouseclick outside + further functionality
+    document.addEventListener('click', (e)=>{
+    if(e.target === addPlayerModal) addPlayerModal.style.display = "none"
+
+    if(e.target === userProfileModal) userProfileModal.style.display = "none"
+
+    if(e.target.classList[0]==='tableHeader'){
+
+      //e.target.style.backgroundColor = "red"
+      let sortNumber 
+
+      let clickedHeader = e.target.id
+      let clickedClasses = e.target.classList
+      let clickedClassArr = Array.from(clickedClasses)
+      
+      if(clickedClassArr.includes('header-asc')) {
+        sortNumber = -1
+        e.target.classList.remove('header-asc')
+        e.target.classList.add('header-desc')
+        ResetUnclickedHeaders(e.target)
+
+      }else if (clickedClassArr.includes('header-desc')){
+        sortNumber = 1
+        e.target.classList.remove('header-desc')
+        e.target.classList.add('header-asc')
+        ResetUnclickedHeaders(e.target)
+
+
+      }else{
+        sortNumber = 1
+        e.target.classList.add('header-asc')
+        ResetUnclickedHeaders(e.target)
+
+
+      }
+
+      
+      switch(clickedHeader){
+        case 'name': GetSortedHeaders(clickedHeader, sortNumber);
+        break;
+        case 'position': GetSortedHeaders(clickedHeader, sortNumber);
+        break;
+        case 'age': GetSortedHeaders(clickedHeader, sortNumber);
+        break;
+        case 'email': GetSortedHeaders(clickedHeader, sortNumber);
+        break;
+        case 'availability': GetSortedHeaders(clickedHeader, sortNumber);
+        break;
+      }
+     
+
+
+
+    }
+
+
+    if(e.target.id==='availability-div'){
+      let firstname = e.target.getAttribute('firstname')
+      let lastname = e.target.getAttribute('lastname')
+
+      let player = firstname + " "+ lastname
+
+   if(e.target.classList.contains('available')){
+    e.target.classList = 'unavailable'
+    e.target.innerText = 'N'
+    UpdateAvailability(player,"N")
+   }else{
+    e.target.classList = 'available'
+    e.target.innerText = 'Y'
+    UpdateAvailability(player,"Y")
+
+   }
+
+
+    }
+
+      
+    })
+    
+    

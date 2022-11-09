@@ -164,63 +164,6 @@ modal.style.display = 'none'
 }
   }
 
-  const Sortby = ()=> 1
-
-//close modal on mouseclick outside + further functionality
-    document.addEventListener('click', (e)=>{
-    if(e.target === addPlayerModal) addPlayerModal.style.display = "none"
-
-    if(e.target === userProfileModal) userProfileModal.style.display = "none"
-
-    if(e.target.classList[0]==='tableHeader'){
-
-      //e.target.style.backgroundColor = "red"
-
-      let clickedHeader = e.target.id
-
-      switch(clickedHeader){
-        case 'name': GetSortedHeaders(clickedHeader, Sortby()); console.log(Sortby());
-        break;
-        case 'position': GetSortedHeaders(clickedHeader, Sortby());
-        break;
-        case 'age': GetSortedHeaders(clickedHeader, Sortby());
-        break;
-        case 'email': GetSortedHeaders(clickedHeader, Sortby());
-        break;
-        case 'availability': GetSortedHeaders(clickedHeader, Sortby());
-        break;
-      }
-     
-
-
-
-    }
-
-
-    if(e.target.id==='availability-div'){
-      let firstname = e.target.getAttribute('firstname')
-      let lastname = e.target.getAttribute('lastname')
-
-      let player = firstname + " "+ lastname
-
-   if(e.target.classList.contains('available')){
-    e.target.classList = 'unavailable'
-    e.target.innerText = 'N'
-    UpdateAvailability(player,"N")
-   }else{
-    e.target.classList = 'available'
-    e.target.innerText = 'Y'
-    UpdateAvailability(player,"Y")
-
-   }
-
-
-    }
-
-      
-    })
-    
-    
 
 </script>
 

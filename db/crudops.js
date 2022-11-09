@@ -108,6 +108,7 @@ async function EditNotes(obj){
    }
 
 
+   //returns collection sorted either asc or desc
    async function SortHeaders(header, sortby){
 
 
