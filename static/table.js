@@ -70,7 +70,7 @@ const populateTableFromDB = (data) =>{
       <td >${`<div onclick="displayDropdown(${firstname}Dropdown)"  class="dropdown">
       <div id="${firstname}Dropdown" class="dropdown-content" firstname=${firstname} lastname= ${lastname}>
       <a onclick="GetProfileData(this.parentNode)" class="dropdown-options"value="profile">Profile</a>
-      <a class="dropdown-options"value ="edit">Edit</a>
+      <a onclick="GetEditData(this.parentNode)" class="dropdown-options"value ="edit">Edit</a>
       <a onclick="DeletePlayer(this.parentNode)" value= "delete" style="color:red;" >Delete</a>
     </div>
       
@@ -82,23 +82,12 @@ const populateTableFromDB = (data) =>{
       ` 
   }
 
-  //      <td onclick="FindPlayer('${player.name}')">${`<i class="fa-solid fa-bars" id=${player.name}></i>`}</td>
-
   
   
   tableBody.innerHTML += tableData
 
 }
 
-// const showPlayerModal = (parentnode) => {
-
-//   //get nickname or name, postion, & notes from DB, maybe id for deletion 
-//   GetProfileData(parentnode)
- 
- 
- 
- 
-// }
 
 
 
@@ -106,7 +95,6 @@ const addPlayerToTable = (data) =>{
     let tableData = "";
     let  firstname 
     let lastname
-    console.log('data from addPlayerToTablefn', data);
     
     
 

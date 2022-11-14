@@ -21,7 +21,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="modal-header">
-                <h2>ADD USER</h2>
+                <h2>ADD PLAYER</h2>
         </div>     
 
 
@@ -75,6 +75,70 @@
       </div>
 
 
+      
+
+    <div id="editPlayerModal" class="modal" >
+
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="modal-header">
+              <h2>EDIT PLAYER</h2>
+      </div>     
+
+
+        <form id="editUserForm"> 
+
+          <div class="field">
+              <label for="name" class="label">Name:</label>
+              <input onkeydown="return /[a-z ]/i.test(event.key)" type="text" id="editname" name="name" placeholder="Didier Drogba" required/>
+              <small></small>
+          </div>
+
+          <div class="field">
+              <label for="position" class="label" >Position:</label>
+              <select id="position" name="position">
+                  <option value="Goalkeeper">Goalkeeper</option>
+                  <option value="Defender">Defender</option>
+                  <option value="Midfielder">Midfielder</option>
+                  <option value="Forward">Forward</option>
+                </select>
+              <small></small>
+          </div>
+
+          <div class="field">
+              <label for="email" class="label">Email:</label>
+              <input type="email" id="editemail" name="email" placeholder='didier@gmail.com' />
+              <small></small>
+          </div>
+
+          <div class="field">
+              <label for="age" class="label">Age:</label>
+              <input type="number" id="editage" name="age" placeholder="40" required/>
+              <small></small>
+          </div>
+
+          <div class="field">
+              <label for="contact" class="label">Contact:</label>
+              <input type="number" id="editcontact" name="phone" placeholder='0123 456 789' />
+              <small></small>
+          </div>
+
+          <div class="field">
+              <label for="nickname" class="label">Nickname:</label>
+              <input onkeydown="return /[a-z ]/i.test(event.key)" type="text" id="editnickname" name="nickname" placeholder="Drogs" />
+              <small></small>
+          </div>
+
+          <input type="submit" id= "editFormButton" value= "EDIT"></button>
+      </form>   
+
+  </div>
+    </div>
+
+
+
+
+
 
 
 
@@ -95,12 +159,6 @@
 
         </div> 
         <div id="profile-modal-notes" contenteditable="true">GGs!</div>
-
-
-    
-
-        
-
     </div>
       </div>
 
@@ -138,13 +196,21 @@
 
 const addPlayerModal = document.getElementById("addPlayerModal");
 const addUserIcon = document.getElementById('addUserBtn')
-
 const userProfileModal = document.getElementById('userProfileModal')
+const editPlayerModal = document.getElementById("editPlayerModal");
+
 const span = document.getElementsByClassName("close")[0];
 const formButton = document.getElementById("formButton")
 const form  = document.getElementById('addUserForm');
 const modals = document.getElementsByClassName('modal')
 const spans = document.querySelectorAll('span')
+
+const editName = document.getElementById('editname')
+const editEmail = document.getElementById('editemail')
+const editAge = document.getElementById('editage')
+const editContact = document.getElementById('editcontact')
+const editNickname = document.getElementById('editnickname')
+
 let userJSON 
 
 
@@ -195,8 +261,7 @@ modal.style.display = 'none'
     // Close the dropdown if the user clicks outside of it
     window.onclick = function(event) {
         
-        // console.log('etarget---', event.target);
-        // if(event.target.matches('.fa-solid.fa-bars')) console.log('sucess!');
+
 
       if (!event.target.matches('.fa-solid.fa-bars')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");

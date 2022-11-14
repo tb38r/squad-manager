@@ -150,7 +150,7 @@ const UpdateAvailability =(player, value) => {
       const data = new FormData(e.target);
       data.append("availability", "Y")
       data.append("type", "addplayer")
-      data.append("notes", "Click here to create & edit notes, be sure to save changes!")
+      data.append("notes", "Click here to create notes, don't forget to save changes!")
 
       
   
@@ -175,7 +175,6 @@ const UpdateAvailability =(player, value) => {
 
   //Queries profile specific data from the DB 
 const GetProfileData =(parentnode) => {
-    console.log('HELLLLOO!!');
     let first = parentnode.getAttribute('firstname');
     let last = parentnode.getAttribute('lastname');
   
@@ -222,6 +221,60 @@ const GetProfileData =(parentnode) => {
     });
   
   }
+
+
+    //Queries profile specific data from the DB 
+const GetEditData =(parentnode) => {
+
+    editPlayerModal.style.display = 'block'
+
+    let first = parentnode.getAttribute('firstname');
+    let last = parentnode.getAttribute('lastname');
+  
+    let playerToGet = (first + " "+ last)
+
+
+   
+  fetch('/editmodaldata', {
+    method: 'Post',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({name:playerToGet.trim()})
+})
+    .then(async (response) => {
+        resp = await response.json();
+        return resp;
+    })
+    .then((resp) => {
+        console.log('From Edit--->',resp);
+
+        let nickname
+
+        if(resp.data.nickname !== "") {
+            nickname = resp.data.nickname
+        }else{
+            nickname = ""
+        }
+
+        editName = resp.data.name
+        editEmail 
+       editAge 
+        editContact 
+        editNickname
+
+       editPlayerModal.setAttribute('player-id', resp.data._id )
+       //editPlayerModal.style.display = 'block'
+        
+    });
+  
+  }
+
+
+
+
+
 
 
   
@@ -348,9 +401,13 @@ const ResetUnclickedHeaders =(element)=>{
 
 //close modal on mouseclick outside + further functionality
     document.addEventListener('click', (e)=>{
+        console.log(e.target);
     if(e.target === addPlayerModal) addPlayerModal.style.display = "none"
 
     if(e.target === userProfileModal) userProfileModal.style.display = "none"
+
+    if(e.target === editPlayerModal) editPlayerModal.style.display = "none"
+
 
     if(e.target.classList[0]==='tableHeader'){
 

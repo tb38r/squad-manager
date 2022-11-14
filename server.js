@@ -173,6 +173,17 @@ app.post('/sortheaders', (req, res) => {
 
 });
 
+app.post('/editmodaldata', (req, res) => {
+    Crud.ProfileDataFromDB(req.body)
+    .then((data)=>{
+        res.json({
+            msg: `${req.body.name} found`, 
+            data: data,
+        })
+    })
+
+});
+
 
 
 server.listen(port, () => {

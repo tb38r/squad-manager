@@ -88,12 +88,10 @@ h2{
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-
   padding: 20px;
   border: 1px solid #888;
   max-width: 480px;
   width: 40%;
-
   top: 50%;
   position: fixed;
   left: 50%;
