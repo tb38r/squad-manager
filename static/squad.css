@@ -1,6 +1,6 @@
 /* Style the body */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
     margin: 0;
     height: 100vh;
     width: 100vw;
@@ -24,22 +24,26 @@ body {
     color: rgb(89, 140, 235);
     cursor: pointer;
     top : 85%;
-    left: 8%;
+    left: 12%;
   
-  }
+  } 
+
+
 
   #errormessage{
     position: fixed;
-    border: 2px solid whitesmoke;
     width: 75%;
-    height: 3%;
+    height: 2.5%;
     display: none;
     left: 12.3%;
     top: 22%;
-    color: red;
+    background-color: rgb(214, 72, 72);
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
+    z-index: 2;
+    color: #fefefe;
+
 
 }
   
@@ -47,16 +51,17 @@ body {
 
 #successmessage{
   position: fixed;
-  border: 2px solid whitesmoke;
   width: 75%;
-  height: 3%;
+  height: 2.5%;
   display: none;
   left: 12.3%;
   top: 22%;
-  color: blue;
+  background-color: #073452;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
+  z-index: 2;
+  color: #fefefe;
 
 }
 
@@ -136,9 +141,10 @@ input, textarea, select {
 }
 
 #table {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
   border-collapse: collapse;
-  width: 75vw;
+  width: 100%;
+  max-width: 875px;
 }
 
 
@@ -147,38 +153,92 @@ input, textarea, select {
 #profile-modal-header{
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
-  /* background-color: #92b5c7; */
+  align-items: center;
+  background-color: #92B5E7; 
+  width: 93%;
+
+}
+/* 92b5c7 */
+
+#profile-modal-notes{
+  height: 52%;
+  width: 99%;
+  margin-top: 5%;
+  cursor: pointer;
 
 }
 
+#profile-modal-body{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+
+}
 #profile-name{
-  /* width: 70%; */
-  background-color: #92b5c7;
+  width: 318%;
   color: white;
-  text-align: center;
+  text-align: left;
+  height: 200%;
+  text-transform: uppercase;
 }
 
 #profile-position{
-  /* width: 80%; */
-  background-color: #92b5c7;
   color: white;
   text-align: center;
+  text-transform: uppercase;
+
 }
 
-#editProfileButton{
+
+#profile-model-content{
+  height: 45%;
+  background: linen;
+}
+
+.user-profile-options{
+  cursor: pointer;
   text-align: center;
-  width: 100px;
-  height: 30px;
+  width: 32%;
+  height: 4%;
   background-color: #92b5c7;
   color: white;
   border: none;
+
 }
 
-#profile-model-content{
-  height: 35%;
+
+/* Sortable Headers */
+.header-asc{
+  background-color: dodgerblue !important;
+color: whitesmoke !important;
 }
 
+.header-desc{
+  color: whitesmoke !important;
+  background-color: cadetblue !important;
+  border: thin solid;
+}
+
+/* rgb(224,173,182) !important; */
+.field{
+  display: flex;
+  justify-content: space-between;
+}
+
+.label{
+  width:90px;
+}
+.field input{
+  width: 100%;
+  max-width: 440px;
+}
+
+.field select{
+  width: 100%;
+  max-width: 464px;
+
+
+}
 #table  tr:nth-child(even){background-color: rgb(218, 225, 236)}
 
 #table  tr:hover {background-color: #ddd;}
@@ -187,7 +247,6 @@ input, textarea, select {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: rgb(89, 140, 235);
   color: white;
 }
 
@@ -207,6 +266,8 @@ cursor: pointer;
 
 .tableHeader{
   cursor: pointer;
+  background-color: rgb(89, 140, 235);
+
 
 }
 
@@ -252,3 +313,10 @@ background-color: rgb(62, 226, 62);
 
 
 .show {display: block;}
+@media only screen and (max-width: 800px){
+  #table{
+    display: none;
+  }
+
+  /*Tablets [601px -> 1200px]*/
+}

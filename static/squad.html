@@ -28,13 +28,13 @@
           <form id="addUserForm"> 
 
             <div class="field">
-                <label for="name">Name:</label>
+                <label for="name" class="label">Name:</label>
                 <input onkeydown="return /[a-z ]/i.test(event.key)" type="text" id="name" name="name" placeholder="Didier Drogba" required/>
                 <small></small>
             </div>
 
             <div class="field">
-                <label for="position">Position:</label>
+                <label for="position" class="label" >Position:</label>
                 <select id="position" name="position">
                     <option value="Goalkeeper">Goalkeeper</option>
                     <option value="Defender">Defender</option>
@@ -45,26 +45,26 @@
             </div>
 
             <div class="field">
-                <label for="email">Email:</label>
+                <label for="email" class="label">Email:</label>
                 <input type="email" id="email" name="email" placeholder='didier@gmail.com' />
                 <small></small>
             </div>
 
             <div class="field">
-                <label for="age">Age:</label>
+                <label for="age" class="label">Age:</label>
                 <input type="number" id="age" name="age" placeholder="40" required/>
                 <small></small>
             </div>
 
             <div class="field">
-                <label for="contact">Contact Nos:</label>
+                <label for="contact" class="label">Contact Nos:</label>
                 <input type="number" id="contact" name="phone" placeholder='0123 456 789' />
                 <small></small>
             </div>
 
             <div class="field">
-                <label for="nickname">Nickname:</label>
-                <input type="text" id="nickname" name="nickname" placeholder="Drogs" />
+                <label for="nickname" class="label">Nickname:</label>
+                <input onkeydown="return /[a-z ]/i.test(event.key)" type="text" id="nickname" name="nickname" placeholder="Drogs" />
                 <small></small>
             </div>
 
@@ -76,26 +76,41 @@
 
 
 
+
+
+
       <div id="userProfileModal" class="modal" >
 
         <div class="modal-content" id="profile-model-content">
             <span class="close">&times;</span>
             <div class="modal-header" id = "profile-modal-header">
-               <h3><div id= "profile-name">ADD USER</div></h3> 
-                <h3><div id="profile-position">MF</div></h3>
-        </div>     
+               <h3><div id= "profile-name"></div></h3> 
+                <h3><div id="profile-position"></div></h3>
+        </div>    
+        <div id="profile-modal-body">
+          <input type="submit" id= "editProfileButton" class = 'user-profile-options' value= "EDIT PLAYER"></button>
+          <input onclick="SaveEditedNotes()"  type="submit" id= "notesProfileButton" class = 'user-profile-options' value= "SAVE CHANGES" style="background-color:orange"></button>
+          <input onclick="DeleteProfile()" type="submit" id= "deleteProfileButton" class = 'user-profile-options' value= "DELETE" style="background-color:red"></button>
+
+
+        </div> 
+        <div id="profile-modal-notes" contenteditable="true">GGs!</div>
 
 
     
 
-            <input type="submit" id= "editProfileButton" value= "EDIT"></button>
         
 
     </div>
       </div>
 
 
+
+      
+
+
     <i class="fa-solid fa-user fa-5x" id= "addUserBtn"></i>
+    
 
 
     <table id="table"  class="center">
@@ -116,18 +131,6 @@
         </table>
 
 
-        
-        <div id="playerprofile" class="modal">
-
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div class="modal-header">
-                    <h2>PLAYER PROFILE</h2>
-            </div>     
-    
-        </div>
-          </div>
-
 
     
     <script>
@@ -140,6 +143,8 @@ const userProfileModal = document.getElementById('userProfileModal')
 const span = document.getElementsByClassName("close")[0];
 const formButton = document.getElementById("formButton")
 const form  = document.getElementById('addUserForm');
+const modals = document.getElementsByClassName('modal')
+const spans = document.querySelectorAll('span')
 let userJSON 
 
 
@@ -150,58 +155,20 @@ addUserIcon.onclick = function() {
 }
 
 // When the user clicks on <span> (x), close the modal
+  for (const span of spans) {
+
     span.onclick = function() {
-      addPlayerModal.style.display = "none";
-}
-
-//close modal on mouseclick outside body amongst others
-    document.addEventListener('click', (e)=>{
-    if(e.target === addPlayerModal) addPlayerModal.style.display = "none"
-
-    if(e.target === userProfileModal) userProfileModal.style.display = "none"
-
-    if(e.target.classList[0]==='tableHeader'){
-     
-      //pass the id to a function that returns the data by ascending or descending 
-
-     // populateByAscending(e.target.id)
-      
-     console.log(e.target.id);
-    }
-
-    if(e.target.id==='availability-div'){
-      let firstname = e.target.getAttribute('firstname')
-      let lastname = e.target.getAttribute('lastname')
-
-      let player = firstname + " "+ lastname
-
-   if(e.target.classList.contains('available')){
-    e.target.classList = 'unavailable'
-    e.target.innerText = 'N'
-    UpdateAvailability(player,"N")
-   }else{
-    e.target.classList = 'available'
-    e.target.innerText = 'Y'
-    UpdateAvailability(player,"Y")
-
-   }
-
-
-    }
-
-      
-    })
-    
-    
-
-</script>
-
-<script>
- const getTableData = () => {
-console.log('hello world');
+      for (const modal of modals) {
+modal.style.display = 'none'
   
- }
+      }
+}
+  }
+
+
 </script>
+
+
 
 
 <script src="/socket.io/socket.io.js"></script>

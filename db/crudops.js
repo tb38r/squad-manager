@@ -36,8 +36,8 @@ async function CheckIfExists(name){
 
 //Deletes a player from the database
 async function DeletePlayer(obj){
- try{
 
+ try{
     const findObj = await Player.findOneAndDelete(obj)
     return findObj
  }catch(e){
@@ -63,10 +63,68 @@ async function ToggleAvailability(player, value){
    }
    
 
+//Get user profile data from the db
+async function ProfileDataFromDB(obj){
+
+    try{
+
+        const findObj = await Player.findOne(obj)
+        return findObj
+     }catch(e){
+        console.log('error finding player--->', e);
+        console.log(obj)
+     }   
+    
+   }
+   
+
+   //Deletes a player from the database using their id
+async function DeleteProfile(obj){
+    //db.users.deleteOne({_id: ObjectId("633315153463fb5bf6ed65a2")}) 
+    
+    try{
+        
+        const findObj = await Player.findOneAndDelete(obj)
+       return findObj
+    }catch(e){
+       console.log('error deleting player--->', e);
+       console.log(obj)
+    }   
+   
+   }
+
+
+      //Edit the notes stored on the db 
+async function EditNotes(obj){
+
+    try{
+   
+       const newNote= await Player.updateOne({_id:`${obj._id}`},{$set:{notes:`${obj.note}`}})
+       return newNote
+    }catch(e){
+       console.log('error editing notes--->', e);
+    }   
+   
+   }
+
+
+   //returns collection sorted either asc or desc
+   async function SortHeaders(header, sortby){
+
+
+      try{
+                 
+         const sortedData = await Player.find({}).sort({[`${header}`]:sortby})
+         return sortedData
+
+
+      }catch(e){
+         console.log('error sorting headers--->', e);
+      }   
+     
+     }
 
 
 
 
-
-
-module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability};
+module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability, ProfileDataFromDB, DeleteProfile, EditNotes, SortHeaders};

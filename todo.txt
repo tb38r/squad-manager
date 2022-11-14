@@ -9,10 +9,6 @@ Add AlphanumericSpce check to username inputs
 https://stackoverflow.com/questions/388996/regex-for-javascript-to-allow-only-alphanumeric
 
 
-CHANGE AVAILABLE FROM GREEN TO YELLOW
-
-
-
 
 
 CENTRE & FIX MODALS 
@@ -21,12 +17,12 @@ CENTRE & FIX MODALS
 STYLE BOTH MODALS 
 
 
-ADD SORTING FUNCTIONALITY 
 
 
-Optional User Image??
+
+RESTRICT CLICKABLE HEADERS
+
+FIX POSITIONINGS OF ADD USERS
 
 
-validate form - only strings and numbers
-
-FIX POSITIONINGS
+ARE YOU SUURE YOU'D LIKE TO DELETE????

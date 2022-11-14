@@ -22,7 +22,7 @@ tableBody.innerHTML = "";
 for (const headerText of headers) {
     const headerElement = document.createElement("th");
     headerElement.classList = 'tableHeader'
-    headerElement.id = headerText
+    headerElement.id = headerText.toLowerCase()
     headerElement.textContent = headerText;
     tableHead.querySelector("tr").appendChild(headerElement);
 }
@@ -69,7 +69,7 @@ const populateTableFromDB = (data) =>{
       <td><div id="availability-div" class= ${availabilityClass}  firstname=${firstname} lastname= ${lastname} >${player.availability}</div></td>
       <td >${`<div onclick="displayDropdown(${firstname}Dropdown)"  class="dropdown">
       <div id="${firstname}Dropdown" class="dropdown-content" firstname=${firstname} lastname= ${lastname}>
-      <a onclick="showPlayerModal()" class="dropdown-options"value="profile">Profile</a>
+      <a onclick="GetProfileData(this.parentNode)" class="dropdown-options"value="profile">Profile</a>
       <a class="dropdown-options"value ="edit">Edit</a>
       <a onclick="DeletePlayer(this.parentNode)" value= "delete" style="color:red;" >Delete</a>
     </div>
@@ -90,8 +90,15 @@ const populateTableFromDB = (data) =>{
 
 }
 
-const showPlayerModal = () => userProfileModal.style.display = 'flex'
+// const showPlayerModal = (parentnode) => {
 
+//   //get nickname or name, postion, & notes from DB, maybe id for deletion 
+//   GetProfileData(parentnode)
+ 
+ 
+ 
+ 
+// }
 
 
 

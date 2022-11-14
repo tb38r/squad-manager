@@ -8,6 +8,7 @@ var path = require('path');
 const mongoose = require('mongoose');
 const Crud = require('./db/crudops');
 const { resolveSoa } = require('dns');
+const port = 8080
 
 //1QqQCbMG0CbEwFLf
 
@@ -125,11 +126,55 @@ app.post('/toggleavailablity', (req, res) => {
 
 });
 
+app.post('/profilemodaldata', (req, res) => {
+    Crud.ProfileDataFromDB(req.body)
+    .then((data)=>{
+        res.json({
+            msg: `${req.body.name} found`, 
+            data: data,
+        })
+    })
+
+});
+
+app.post('/deleteprofile', (req, res) => {
+
+    Crud.DeletePlayer(req.body)
+    .then((data)=>{
+        res.json({resp: data,
+            msg: 'player deleted', 
+        name:req.body.name})
+    })
+
+});
+
+
+app.post('/editnotes', (req, res) => {
+    
+    Crud.EditNotes(req.body)
+    .then((data)=>{
+        res.json({resp: data,
+            msg: 'notes edited', 
+        name:req.body.name})
+    })
+
+});
 
 
 
+app.post('/sortheaders', (req, res) => {
+    
+    Crud.SortHeaders(req.body.value, req.body.number)
+    .then((data)=>{
+        res.json({resp: data,
+            msg: 'data sorted', 
+        })
+    })
+
+});
 
 
-server.listen(8080, () => {
-    console.log('listening on *:8080');
+
+server.listen(port, () => {
+    console.log(`listening on port ${port}`);
 });
