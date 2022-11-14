@@ -134,6 +134,18 @@ h2{
 }
 
 
+#editPlayerButton{
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  background-color: rgb(89, 140, 235);
+  color: white;
+  border: none;
+  margin-top: 3%;
+  cursor: pointer;
+
+}
+
 
 input, textarea, select {
   border: solid 1px #ccc;

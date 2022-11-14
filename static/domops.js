@@ -75,7 +75,6 @@ const DeletePlayer =(parentnode) => {
       successdiv.style.display = 'block'
       setTimeout(()=>{
         successdiv.style.display = 'none'
-        //window.location.reload()
     }, delay)
 
   }
@@ -138,8 +137,6 @@ const UpdateAvailability =(player, value) => {
 
 
 
-
-  
 
   
   
@@ -226,7 +223,7 @@ const GetProfileData =(parentnode) => {
     //Queries profile specific data from the DB 
 const GetEditData =(parentnode) => {
 
-    editPlayerModal.style.display = 'block'
+   
 
     let first = parentnode.getAttribute('firstname');
     let last = parentnode.getAttribute('lastname');
@@ -248,7 +245,6 @@ const GetEditData =(parentnode) => {
         return resp;
     })
     .then((resp) => {
-        console.log('From Edit--->',resp);
 
         let nickname
 
@@ -258,13 +254,14 @@ const GetEditData =(parentnode) => {
             nickname = ""
         }
 
-        editName = resp.data.name
-        editEmail 
-       editAge 
-        editContact 
-        editNickname
+        editName.value = resp.data.name
+        editEmail.value = resp.data.email
+       editAge.value = resp.data.age
+        editContact.value = resp.data.phone 
+        editNickname.value = resp.data.nickname
 
        editPlayerModal.setAttribute('player-id', resp.data._id )
+       editPlayerModal.style.display = 'block'
        //editPlayerModal.style.display = 'block'
         
     });
@@ -274,6 +271,35 @@ const GetEditData =(parentnode) => {
 
 
 
+    //Handles form, close modal
+    editPlayerBtn.addEventListener('click', (e) => {
+      e.preventDefault(); 
+
+      let playerProfile = {}
+      let objID = editPlayerModal.getAttribute('player-id')
+
+playerProfile['id']= objID
+      playerProfile['name'] = editName.value.trim()
+      playerProfile['position'] = editPosition.value
+      playerProfile['email'] = editEmail.value
+      playerProfile['age']=editAge.value
+      playerProfile['contact']=editContact.value
+      playerProfile['nickname']=editNickname.value
+
+
+
+      //SEND TO SERVER TO PERFORM CRUD OPS
+
+      console.log('edited', playerProfile);
+
+
+
+
+
+    
+        
+    });
+    
 
 
 
@@ -401,7 +427,6 @@ const ResetUnclickedHeaders =(element)=>{
 
 //close modal on mouseclick outside + further functionality
     document.addEventListener('click', (e)=>{
-        console.log(e.target);
     if(e.target === addPlayerModal) addPlayerModal.style.display = "none"
 
     if(e.target === userProfileModal) userProfileModal.style.display = "none"

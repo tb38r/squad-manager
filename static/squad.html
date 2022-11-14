@@ -96,7 +96,7 @@
 
           <div class="field">
               <label for="position" class="label" >Position:</label>
-              <select id="position" name="position">
+              <select id="editposition" name="position">
                   <option value="Goalkeeper">Goalkeeper</option>
                   <option value="Defender">Defender</option>
                   <option value="Midfielder">Midfielder</option>
@@ -129,7 +129,7 @@
               <small></small>
           </div>
 
-          <input type="submit" id= "editFormButton" value= "EDIT"></button>
+          <input  id= "editPlayerButton" value= "EDIT"></button>
       </form>   
 
   </div>
@@ -210,6 +210,8 @@ const editEmail = document.getElementById('editemail')
 const editAge = document.getElementById('editage')
 const editContact = document.getElementById('editcontact')
 const editNickname = document.getElementById('editnickname')
+const editPosition = document.getElementById('editposition')
+const editPlayerBtn = document.getElementById('editPlayerButton')
 
 let userJSON 
 
