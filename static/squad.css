@@ -28,7 +28,10 @@ body {
   
   } 
 
-
+h2{
+  margin-left: -4%;
+  color: rgb(89, 140, 235);
+}
 
   #errormessage{
     position: fixed;
@@ -88,7 +91,8 @@ body {
 
   padding: 20px;
   border: 1px solid #888;
-  width: 40%; 
+  max-width: 480px;
+  width: 40%;
 
   top: 50%;
   position: fixed;
@@ -124,9 +128,10 @@ body {
   text-align: center;
   width: 100px;
   height: 30px;
-  background-color: #92b5c7;
+  background-color: rgb(89, 140, 235);
   color: white;
   border: none;
+  margin-top: 3%;
 
 }
 
@@ -199,7 +204,7 @@ input, textarea, select {
 
 #profile-model-content{
   height: 45%;
-  background: linen;
+  background: whitesmoke;
 }
 
 .user-profile-options{
