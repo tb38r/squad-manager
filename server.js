@@ -184,6 +184,16 @@ app.post('/editmodaldata', (req, res) => {
 
 });
 
+app.post('/sendediteddata', (req, res) => {
+    Crud.EditPlayer(req.body)
+    .then((data)=>{
+        res.json({
+            msg: `${req.body.name} edited`, 
+            data: data,
+        })
+    })
+
+});
 
 
 server.listen(port, () => {

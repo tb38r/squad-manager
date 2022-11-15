@@ -108,6 +108,31 @@ async function EditNotes(obj){
    }
 
 
+         //Edit the notes stored on the db 
+async function EditPlayer(obj){
+
+   try{
+  
+      const newNote= await Player.updateOne({_id:`${obj.id}`},
+      {$set:
+         {
+            name:obj.name,
+            position: obj.position,
+            email:obj.email,
+            age:obj.age,
+            contact: obj.contact,
+            nickname: obj.nickname
+         }});
+
+      return newNote
+   }catch(e){
+      console.log('error editing notes--->', e);
+   }   
+  
+  }
+
+
+
    //returns collection sorted either asc or desc
    async function SortHeaders(header, sortby){
 
@@ -127,4 +152,4 @@ async function EditNotes(obj){
 
 
 
-module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability, ProfileDataFromDB, DeleteProfile, EditNotes, SortHeaders};
+module.exports = { AddPlayer, GetAllPlayers, CheckIfExists, DeletePlayer, ToggleAvailability, ProfileDataFromDB, DeleteProfile, EditNotes, SortHeaders, EditPlayer};

@@ -269,6 +269,31 @@ const GetEditData =(parentnode) => {
   }
 
 
+  const sendEditedData =(obj) =>{
+
+    fetch('/sendediteddata', {
+        method: 'Post',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(obj)
+    })
+        .then(async (response) => {
+            resp = await response.json();
+            return resp;
+        })
+        .then((resp) => {
+        
+            if(resp.data.acknowledged === true) {
+                populateTableOnOpen()
+            }else{
+                displayErrorMessage(`Error editing ${resp.data.name}'s details`)
+            }    
+        });
+  }
+
+
 
 
     //Handles form, close modal
@@ -286,18 +311,9 @@ playerProfile['id']= objID
       playerProfile['contact']=editContact.value
       playerProfile['nickname']=editNickname.value
 
+sendEditedData(playerProfile)
+editPlayerModal.style.display = 'none'
 
-
-      //SEND TO SERVER TO PERFORM CRUD OPS
-
-      console.log('edited', playerProfile);
-
-
-
-
-
-    
-        
     });
     
 
