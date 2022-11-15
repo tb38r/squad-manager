@@ -20,4 +20,5 @@ Click on the action for further functionality, you can delete a player, edit the
 
 
 Create and edit notes for each player
+
 ![Screenshot from 2022-11-15 21-51-38](https://user-images.githubusercontent.com/91842674/202035906-0d83d554-a48c-4f5e-832d-43ebb411935e.png)
