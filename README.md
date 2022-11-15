@@ -1,17 +1,11 @@
 # squad-manager
 An app to help better manage amateur sports teams &amp; groups
 
-<!-- ![image](https://user-images.githubusercontent.com/link-to-your-image.png)
-
-To this:
-
-<img src="https://user-images.githubusercontent.com/link-to-your-image.png" width="200" /> -->
-
 
 Click the blue icon to get started
-<img src="[https://user-images.githubusercontent.com/link-to-your-image.png](https://user-images.githubusercontent.com/91842674/202035468-0b9da53e-d2a6-40f3-8863-2e9f17d8c0c1.png)" width="50" />
 
-<!-- ![Screenshot from 2022-11-15 20-48-23](https://user-images.githubusercontent.com/91842674/202035468-0b9da53e-d2a6-40f3-8863-2e9f17d8c0c1.png) -->
+![Screenshot from 2022-11-15 20-48-23](https://user-images.githubusercontent.com/91842674/202035468-0b9da53e-d2a6-40f3-8863-2e9f17d8c0c1.png)
+
 ![Screenshot from 2022-11-15 20-48-39](https://user-images.githubusercontent.com/91842674/202035579-0cb45fd6-b22c-4f63-a2ee-d494c75a8a83.png)
 
 
