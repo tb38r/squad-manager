@@ -16,11 +16,11 @@ All headers can be sorted in ascending/descending order
 ![rsz_1screenshot_from_2022-11-15_20-49-41](https://user-images.githubusercontent.com/91842674/202039563-ead74f8d-4277-40b8-a1a9-7b2136df962a.png)
 
 
-Click on the action for further functionality, you can delete a player, edit their details or view their profile 
+Click on the action tab for further functionality.Here you can delete a player, edit their details or view their profile 
 
-![Screenshot from 2022-11-15 20-50-19](https://user-images.githubusercontent.com/91842674/202035771-439bba32-907f-4b36-83c4-59996ecfccab.png)
+![rsz_screenshot_from_2022-11-15_20-50-19](https://user-images.githubusercontent.com/91842674/202039740-b25cb7e3-b199-469c-b686-ac71823e1842.png)
 
 
 Create and edit notes for each player within their profile
 
-![Screenshot from 2022-11-15 21-51-38](https://user-images.githubusercontent.com/91842674/202035906-0d83d554-a48c-4f5e-832d-43ebb411935e.png)
+![rsz_screenshot_from_2022-11-15_20-50-35](https://user-images.githubusercontent.com/91842674/202039799-c34cbc62-1ca5-4b3d-80b9-ce0159136d22.png)
