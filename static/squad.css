@@ -187,7 +187,7 @@ input, textarea, select {
   width: 99%;
   margin-top: 5%;
   cursor: pointer;
-
+  overflow-y: scroll;
 }
 
 #profile-modal-body{
@@ -196,6 +196,18 @@ input, textarea, select {
   margin-top: 2%;
 
 }
+
+#profile-modal-mid{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #bcd3f3; 
+  /* width: 100%; */
+  margin-top: 1%;
+  height: 8%;
+  color:white;
+}
+
 #profile-name{
   width: 318%;
   color: white;

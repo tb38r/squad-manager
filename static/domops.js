@@ -206,8 +206,11 @@ const GetProfileData =(parentnode) => {
         Defender :"D",
         Midfielder: "MF",
         Forward:"F"        
-}
+};
 
+
+document.getElementById('profile-modal-phone').innerText = resp.data.phone
+       document.getElementById('profile-modal-email').innerText = resp.data.email
        document.getElementById('profile-name').innerText = nickname
        document.getElementById('profile-position').innerText = position[resp.data.position]
        document.getElementById('profile-modal-notes').innerText = resp.data.notes
