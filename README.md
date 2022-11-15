@@ -11,8 +11,9 @@ Click the blue icon to get started
 
 All headers can be sorted in ascending/descending order
 
-![Screenshot from 2022-11-15 20-49-00](https://user-images.githubusercontent.com/91842674/202035700-cc71a5a8-952e-44cb-bab3-9d7a1b7682b7.png)
-![Screenshot from 2022-11-15 20-49-41](https://user-images.githubusercontent.com/91842674/202035727-6618289f-b6d8-44fc-9cd5-d0a84b331a7b.png)
+![rsz_1screenshot_from_2022-11-15_20-49-00](https://user-images.githubusercontent.com/91842674/202039473-d347445b-c5fe-4f08-b8f8-37f8d37cec2d.png)
+
+![rsz_1screenshot_from_2022-11-15_20-49-41](https://user-images.githubusercontent.com/91842674/202039563-ead74f8d-4277-40b8-a1a9-7b2136df962a.png)
 
 
 Click on the action for further functionality, you can delete a player, edit their details or view their profile 
