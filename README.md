@@ -1,5 +1,5 @@
 # squad-manager
-An app to help better manage amateur sports teams &amp; groups
+An app to help better manage amateur sports teams &amp; groups. Inspired by the trials & tribulations of the various amateur football managers I've played for.
 
 
 Click the blue icon to get started
