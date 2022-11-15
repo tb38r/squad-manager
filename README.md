@@ -4,7 +4,8 @@ An app to help better manage amateur sports teams &amp; groups
 
 Click the blue icon to get started
 
-![Screenshot from 2022-11-15 20-48-23](https://user-images.githubusercontent.com/91842674/202035468-0b9da53e-d2a6-40f3-8863-2e9f17d8c0c1.png)
+![rsz_2screenshot_from_2022-11-15_20-48-23](https://user-images.githubusercontent.com/91842674/202038867-d2684a9c-65a8-422e-8de3-a496b989d388.png)
+
 
 ![Screenshot from 2022-11-15 20-48-39](https://user-images.githubusercontent.com/91842674/202035579-0cb45fd6-b22c-4f63-a2ee-d494c75a8a83.png)
 
