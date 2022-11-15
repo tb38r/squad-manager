@@ -121,7 +121,6 @@ actionCell = newRow.insertCell(6).innerHTML = `<i class="fa-solid fa-bars" first
 
 
 
-console.log('successfully added to table', data);
 
     }
 

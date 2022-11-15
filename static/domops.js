@@ -15,7 +15,6 @@ const AddPlayerToDB= (obj)=> {
             return resp;
         })
         .then((data) => {
-            console.log('FROM ADD PLAYER', data);
    
             if(data.type === 'success'){
                 populateTableOnOpen()
@@ -53,7 +52,6 @@ const DeletePlayer =(parentnode) => {
     .then((data) => {
         
         if(data.resp.name === data.name){
-            console.log('Player successfully deleted', data)
             populateTableOnOpen()
             displayErrorMessage(`${data.name} has been removed from the database!`, 2000)
 
@@ -156,12 +154,8 @@ const UpdateAvailability =(player, value) => {
   
   //Send to server
   AddPlayerToDB(userJSON)
-  
-       
-      addPlayerModal.style.display = "none"
-  
-        console.log('new user sent to client', userJSON);
     
+      addPlayerModal.style.display = "none"
         form.reset()
     
         
@@ -350,7 +344,6 @@ const DeleteProfile =()=>{
         })
         .then((data) => {
 
-            console.log('from deleteprofile', data)
 
 
             

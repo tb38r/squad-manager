@@ -47,22 +47,6 @@ database();
 
 
 
-let playerObj = {
-    name: 'Tolu',
-    age: 36,
-    position: 'Defender',
-    phone: '02081234567',
-    email: 't@hotmail.com',
-    availability: 'Yes',
-    Notes: {
-        name: 'T',
-        position: 'D',
-        notes: 'Versatile defender, can play accross the line',
-    },
-};
-
-
-//Crud.AddPlayer(playerObj)
 app.use(express.json())  
 
 app.use(express.static(path.join(__dirname, 'static')));
