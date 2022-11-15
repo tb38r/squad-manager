@@ -1,5 +1,7 @@
 # squad-manager
-An app to help better manage amateur sports teams &amp; groups. Inspired by the various amateur football managers I've played for. Could be repurposed for other uses (Tabletop rpg groups, reading clubs etc).
+An app to help better manage amateur sports teams &amp; groups. Inspired by the various amateur football managers I've played for. 
+
+Could be repurposed for other uses (Tabletop rpg groups, reading clubs etc).
 
 
 Click the blue icon to get started
