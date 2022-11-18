@@ -17,8 +17,12 @@ All headers can be sorted in ascending/descending order
 
 ![rsz_1screenshot_from_2022-11-15_20-49-41](https://user-images.githubusercontent.com/91842674/202039563-ead74f8d-4277-40b8-a1a9-7b2136df962a.png)
 
+Toggle between availabilty states
 
-Click on the action tab for further functionality.Here you can delete a player, edit their details or view their profile 
+![Screenshot from 2022-11-16 16-12-39](https://user-images.githubusercontent.com/91842674/202233883-973d1f8c-8d6e-473b-a877-2cc2be9ba17c.png)
+
+
+Click on the action tab for further functionality. Here you can delete a player, edit their details or view their profile 
 
 ![rsz_screenshot_from_2022-11-15_20-50-19](https://user-images.githubusercontent.com/91842674/202039740-b25cb7e3-b199-469c-b686-ac71823e1842.png)
 
