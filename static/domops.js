@@ -265,6 +265,70 @@ const GetEditData =(parentnode) => {
   
   }
 
+  const EditPlayerFromProfile = ()=>{
+    let id = userProfileModal.getAttribute('player-id')
+
+
+   
+  fetch('/editplayerfromprofile', {
+    method: 'Post',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+    },
+
+    body: JSON.stringify({_id:id})
+})
+    .then(async (response) => {
+        resp = await response.json();
+        return resp;
+    })
+    .then((resp) => {
+        console.log('returned player details', resp);
+
+
+        let nickname
+
+        if(resp.data.nickname !== "") {
+            nickname = resp.data.nickname
+        }else{
+            nickname = ""
+        }
+
+        editName.value = resp.data.name
+        editEmail.value = resp.data.email
+       editAge.value = resp.data.age
+        editContact.value = resp.data.phone 
+        editNickname.value = resp.data.nickname
+
+       editPlayerModal.setAttribute('player-id', resp.data._id )
+       userProfileModal.style.display = 'none'
+       editPlayerModal.style.display = 'block'
+
+    //     let nickname
+
+    //     if(resp.data.nickname !== "") {
+    //         nickname = resp.data.nickname
+    //     }else{
+    //         nickname = ""
+    //     }
+
+    //     editName.value = resp.data.name
+    //     editEmail.value = resp.data.email
+    //    editAge.value = resp.data.age
+    //     editContact.value = resp.data.phone 
+    //     editNickname.value = resp.data.nickname
+
+    //    editPlayerModal.setAttribute('player-id', resp.data._id )
+    //    editPlayerModal.style.display = 'block'
+    //    //editPlayerModal.style.display = 'block'
+        
+    });
+
+
+
+  }
+
 
   const sendEditedData =(obj) =>{
 

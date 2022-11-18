@@ -157,7 +157,7 @@
 
         </div>  
         <div id="profile-modal-body">
-          <input type="submit" id= "editProfileButton" class = 'user-profile-options' value= "EDIT PLAYER"></button>
+          <input onclick="EditPlayerFromProfile()"type="submit" id= "editProfileButton" class = 'user-profile-options' value= "EDIT PLAYER"></button>
           <input onclick="SaveEditedNotes()"  type="submit" id= "notesProfileButton" class = 'user-profile-options' value= "SAVE CHANGES" style="background-color:orange"></button>
           <input onclick="DeleteProfile()" type="submit" id= "deleteProfileButton" class = 'user-profile-options' value= "DELETE" style="background-color:red"></button>
 
@@ -217,6 +217,7 @@ const editContact = document.getElementById('editcontact')
 const editNickname = document.getElementById('editnickname')
 const editPosition = document.getElementById('editposition')
 const editPlayerBtn = document.getElementById('editPlayerButton')
+const editProfileButton = document.getElementById('editProfileButton')
 
 let userJSON 
 

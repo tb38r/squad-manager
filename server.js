@@ -178,6 +178,17 @@ app.post('/sendediteddata', (req, res) => {
 });
 
 
+app.post('/editplayerfromprofile', (req, res) => {
+    Crud.ProfileDataFromDB(req.body)
+    .then((data)=>{
+        res.json({
+            data
+        })
+    })
+
+});
+
+
 server.listen(port, () => {
     console.log(`listening on port ${port}`);
 });
