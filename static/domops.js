@@ -254,6 +254,8 @@ const GetEditData =(parentnode) => {
         editName.value = resp.data.name
         editEmail.value = resp.data.email
        editAge.value = resp.data.age
+       editPosition.value = resp.data.position
+       
         editContact.value = resp.data.phone 
         editNickname.value = resp.data.nickname
 
