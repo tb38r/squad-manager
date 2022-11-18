@@ -565,8 +565,14 @@ const ResetUnclickedHeaders =(element)=>{
     if(e.target.id==='availability-div'){
       let firstname = e.target.getAttribute('firstname')
       let lastname = e.target.getAttribute('lastname')
+      let player
 
-      let player = firstname + " "+ lastname
+      if(lastname.length === 0){
+        player = firstname
+      }else{
+          player = firstname + " " + lastname
+
+      }
 
    if(e.target.classList.contains('available')){
     e.target.classList = 'unavailable'
