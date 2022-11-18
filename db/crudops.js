@@ -80,7 +80,6 @@ async function ProfileDataFromDB(obj){
 
    //Deletes a player from the database using their id
 async function DeleteProfile(obj){
-    //db.users.deleteOne({_id: ObjectId("633315153463fb5bf6ed65a2")}) 
     
     try{
         
@@ -108,7 +107,7 @@ async function EditNotes(obj){
    }
 
 
-         //Edit the notes stored on the db 
+         //Edit the player stored on the db 
 async function EditPlayer(obj){
 
    try{
@@ -126,7 +125,7 @@ async function EditPlayer(obj){
 
       return newNote
    }catch(e){
-      console.log('error editing notes--->', e);
+      console.log('error editing player--->', e);
    }   
   
   }
